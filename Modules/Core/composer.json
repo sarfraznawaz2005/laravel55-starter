@@ -1,0 +1,60 @@
+{
+  "name": "eteam/core",
+  "description": "The core/system module.",
+  "license": "EULA",
+  "authors": [
+    {
+      "name": "Sarfraz Ahmed",
+      "email": "sarfraznawaz2005@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0",
+    "akaunting/setting": "^1.0",
+    "anahkiasen/former": "^4.1",
+    "arrilot/laravel-widgets": "^3.9",
+    "davejamesmiller/laravel-breadcrumbs": "^4.2",
+    "doctrine/dbal": "^2.6",
+    "fideloper/proxy": "~3.3",
+    "garygreen/pretty-routes": "^1.0",
+    "graham-campbell/throttle": "^6.0",
+    "jenssegers/agent": "^2.6",
+    "kingofcode/laravel-uploadable": "^0.1.7",
+    "lab404/laravel-impersonate": "^1.2",
+    "laracasts/flash": "^3.0",
+    "laravel/framework": "5.5.*",
+    "laravel/tinker": "~1.0",
+    "maatwebsite/excel": "^2.1",
+    "mews/purifier": "^2.0",
+    "nwidart/laravel-modules": "^2.6",
+    "olssonm/l5-very-basic-auth": "^4.1",
+    "propaganistas/laravel-fakeid": "^2.0",
+    "recca0120/terminal": "^1.6",
+    "sarfraznawaz2005/applog": "^1.0",
+    "sarfraznawaz2005/eventable": "^1.0",
+    "sarfraznawaz2005/queryline": "^1.0",
+    "sarfraznawaz2005/visitlog": "^1.0",
+    "spatie/laravel-blade-javascript": "^2.0",
+    "spatie/laravel-permission": "^2.7",
+    "spatie/laravel-query-builder": "^1.1",
+    "themsaid/laravel-mail-preview": "^2.0",
+    "uxweb/sweet-alert": "^1.4",
+    "watson/active": "^2.0",
+    "yajra/laravel-datatables-oracle": "~8.0"
+  },
+  "require-dev": {
+    "barryvdh/laravel-debugbar": "^3.1",
+    "filp/whoops": "~2.0",
+    "fzaninotto/faker": "~1.4",
+    "mockery/mockery": "~1.0",
+    "phpunit/phpunit": "~6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Modules\\Core\\": ""
+    }
+  },
+  "config": {
+    "preferred-install": "dist"
+  }
+}

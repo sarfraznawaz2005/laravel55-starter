@@ -1,0 +1,23 @@
+{
+  "name": "Core",
+  "alias": "core",
+  "description": "The core/system module.",
+  "keywords": [
+    "core",
+    "system"
+  ],
+  "active": 1,
+  "order": 0,
+  "providers": [
+    "Modules\\Core\\Providers\\CoreServiceProvider",
+    "Modules\\Core\\Providers\\ScheduleServiceProvider",
+    "Modules\\Core\\Providers\\DirectiveServiceProvider"
+  ],
+  "aliases": {
+  },
+  "files": [
+    "start.php",
+    "macros.php"
+  ],
+  "requires": []
+}

@@ -1,0 +1,22 @@
+{
+  "name": "eteam/crud",
+  "description": "The CRUD module.",
+  "license": "EULA",
+  "authors": [
+    {
+      "name": "Sarfraz Ahmed",
+      "email": "sarfraznawaz2005@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Modules\\Crud\\": ""
+    }
+  },
+  "require": {
+    "php": ">=7.0.0"
+  },
+  "config": {
+    "preferred-install": "dist"
+  }
+}
