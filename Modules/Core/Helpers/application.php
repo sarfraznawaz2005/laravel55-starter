@@ -8,6 +8,11 @@
 
 use Modules\Core\Recipients\DynamicRecipient;
 
+function appName()
+{
+    return config('app.name');
+}
+
 function modulePath($moduleName)
 {
     return module_path($moduleName);

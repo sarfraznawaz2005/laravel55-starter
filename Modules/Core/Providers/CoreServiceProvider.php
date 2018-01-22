@@ -3,8 +3,8 @@
 namespace Modules\Core\Providers;
 
 use Illuminate\Contracts\Http\Kernel;
+use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Routing\Router;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 use Modules\Core\Console\Cleanup;
 use Modules\Core\Http\Middleware\Headers;
@@ -31,6 +31,8 @@ class CoreServiceProvider extends ServiceProvider
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
+        $this->registerFactories();
+        $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
 
         #################################################
         // register our custom middlewares
@@ -97,13 +99,13 @@ class CoreServiceProvider extends ServiceProvider
      */
     public function registerViews()
     {
-        $viewPath = base_path('resources/views/modules/core');
+        $viewPath = resource_path('views/modules/core');
 
         $sourcePath = __DIR__ . '/../Resources/views';
 
         $this->publishes([
             $sourcePath => $viewPath
-        ]);
+        ], 'views');
 
         $this->loadViewsFrom(array_merge(array_map(function ($path) {
             return $path . '/modules/core';
@@ -117,12 +119,23 @@ class CoreServiceProvider extends ServiceProvider
      */
     public function registerTranslations()
     {
-        $langPath = base_path('resources/lang/modules/core');
+        $langPath = resource_path('lang/modules/core');
 
         if (is_dir($langPath)) {
             $this->loadTranslationsFrom($langPath, 'core');
         } else {
             $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'core');
+        }
+    }
+
+    /**
+     * Register an additional directory of factories.
+     * @source https://github.com/sebastiaanluca/laravel-resource-flow/blob/develop/src/Modules/ModuleServiceProvider.php#L66
+     */
+    public function registerFactories()
+    {
+        if (! app()->environment('production')) {
+            app(Factory::class)->load(__DIR__ . '/../Database/factories');
         }
     }
 

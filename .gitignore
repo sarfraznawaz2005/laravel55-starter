@@ -20,10 +20,9 @@ vendor/*/tests
 /bootstrap/cache/config.php
 /storage/clockwork/
 /storage/debugbar/
-/storage/debugbar/
 /.phpstorm.meta.php
 /vendor/
-/vendor
+database/migrations/
 /composer.lock
 /resources/views/modules/
 push.sh

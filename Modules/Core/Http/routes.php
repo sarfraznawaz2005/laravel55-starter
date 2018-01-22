@@ -4,7 +4,7 @@ Route::group(['middleware' => 'XSSProtection'], function () {
         function () {
             Route::group(['middleware' => 'auth.very_basic'], function () {
                 ### for logs ###
-                Route::get('applogs__', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+                Route::get('applogs__', '\Sarfraznawaz2005\Applog\ApplogController@index');
             });
         }
     );

@@ -13,19 +13,14 @@
 
     <title>{{title()}} :: {{appName()}}</title>
 
-    {!! Packer::css([
-    '/modules/crud/css/bootstrap/css/bootstrap.min.css',
-    '/modules/crud/css/bootstrap/css/custom.css',
-    '/modules/core/css/font-awesome-4/css/font-awesome.min.css',
-    '/modules/core/css/checkbox3.min.css',
-    '/modules/core/js/plugins/sweetalert/dist/sweetalert.css',
-    '/modules/core/js/plugins/select2/select2.min.css',
-    '/modules/core/css/loader.css',
-    '/modules/crud/css/custom.css',
-    ],
-    '/storage/crud/cache/css/')
-    !!}
-
+    <link rel="stylesheet" href="/modules/crud/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/modules/crud/css/bootstrap/css/custom.css">
+    <link rel="stylesheet" href="/modules/core/css/font-awesome-4/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/modules/core/css/checkbox3.min.css">
+    <link rel="stylesheet" href="/modules/core/js/plugins/sweetalert/dist/sweetalert.css">
+    <link rel="stylesheet" href="/modules/core/js/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="/modules/core/css/loader.css">
+    <link rel="stylesheet" href="/modules/crud/css/custom.css">
     <link rel="stylesheet" href="/modules/core/css/animate.css">
 
     @stack('styles')

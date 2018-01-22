@@ -19,7 +19,8 @@
             <i class="fa fa-database"></i> Migrate
         </a>
 
-        <a data-placement="bottom" data-tooltip data-original-title="Publish all modules' assets/config/migrations/views/etc"
+        <a data-placement="bottom" data-tooltip
+           data-original-title="Publish all modules' assets/config/migrations/views/etc"
            data-label="Publish all modules' assets/config/migrations/views/etc" class="btn btn-info"
            href="{{route('crud.publish')}}">
             <i class="fa fa-globe"></i> Publish
@@ -127,12 +128,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
-                        {!! BootForm::openHorizontal(['sm' => [4, 8],'lg' => [2, 10]])->action( route('crud.createfile') )->post() !!}
+
+                        {!! Former::horizontal_open()->action(route('crud.createfile'))->method('post')->rules(['name' => 'required']) !!}
+
+                        {{--{!! BootForm::openHorizontal(['sm' => [4, 8],'lg' => [2, 10]])->action( route('crud.createfile') )->post() !!}--}}
 
                         @section('panel_create_file.component_panel_content')
-                            {!! BootForm::select('Module', 'module')->style('width:100%;')->required()->autofocus()->options(['' => 'Select'] + Module::all()) !!}
+                            {!! Former::select('module')->options(['' => 'Select'] + Module::all())->autofocus()->required()->style('width:100%;') !!}
 
-                            {!! BootForm::select('Type', 'command')->style('width:100%;')->required()->options([
+                            {!! Former::select('command')->label('Type')->style('width:100%;')->required()->options([
                                 ''=>'Select',
                                 'module:make-controller'=>'Controller',
                                 'module:make-model'=>'Model',
@@ -152,14 +156,14 @@
                             ]) !!}
 
                             <div id="name_container">
-                                {!! BootForm::text('Name', 'name')->required() !!}
+                                {!! Former::text('name')->required() !!}
                             </div>
                         @endsection
 
                         @section('panel_create_file.component_panel_footer')
                             <div class="clearfix">
                                 <div class="pull-right col-md-5">
-                                    {!! BootForm::submit('<i class="fa fa-paper-plane"></i> Create File')->class('btn btn-block btn-primary btn-raised') !!}
+                                    {!! Former::submit('<i class="fa fa-paper-plane"></i> Create File')->class('btn btn-block btn-primary btn-raised') !!}
                                 </div>
                             </div>
                         @endsection
@@ -171,7 +175,7 @@
                             'show_panel_footer' => true,
                         ])
 
-                        {!! BootForm::close() !!}
+                        {!! Former::close() !!}
                     </div>
                 </div>
             </div>
@@ -179,7 +183,7 @@
     </div>
 
     <div id="create-module-modal" class="modal fade" tabindex="-1" role="dialog" style="z-index: 99999;">
-        {!! BootForm::open()->action( route('crud.store') )->post() !!}
+        {!! Former::open()->action(route('crud.store'))->method('post')->rules(['name' => 'required']) !!}
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header modal-header-primary">
@@ -191,34 +195,34 @@
                 </div>
 
                 <div class="modal-body" style="padding: 10px 10px 0 10px;">
-                    {!! BootForm::text('Module Name (CamelCase)', 'name')->required() !!}
+                    {!! Former::text('name')->label('Module Name (CamelCase)')->required() !!}
                 </div>
 
                 <div class="modal-footer" style="padding: 7px 10px 5px 10px;">
-                    {!! BootForm::submit('<b class="glyphicon glyphicon-ok"></b> Create Module')->class('btn btn-success') !!}
+                    {!! Former::submit('<b class="glyphicon glyphicon-ok"></b> Create Module')->class('btn btn-success') !!}
 
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
-        {!! BootForm::close() !!}
+        {!! Former::close() !!}
     </div>
 @endsection
 
 @push('scripts')
-<script>
-    $(function () {
-        $('#command').change(function () {
-            if (this.value === 'module:route-provider') {
-                $('#name').removeAttr('required');
-                $('#name_container').slideUp('fast');
-            }
-            else {
-                $('#name').attr('required', true);
-                $('#name_container').slideDown('fast');
-            }
+    <script>
+        $(function () {
+            $('#command').change(function () {
+                if (this.value === 'module:route-provider') {
+                    $('#name').removeAttr('required');
+                    $('#name_container').slideUp('fast');
+                }
+                else {
+                    $('#name').attr('required', true);
+                    $('#name_container').slideDown('fast');
+                }
+            });
         });
-    });
-</script>
+    </script>
 @endpush
 
