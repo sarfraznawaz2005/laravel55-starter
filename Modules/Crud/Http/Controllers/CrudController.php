@@ -45,12 +45,11 @@ class CrudController extends CoreController
         File::cleanDirectory(base_path('database/migrations'));
         @file_put_contents(base_path('database/migrations') . '/.gitignore', '*');
 
-        shell_exec($this->getArtisan() . 'vendor:publish');
+        shell_exec($this->getArtisan() . 'vendor:publish --all');
         shell_exec($this->getArtisan() . 'module:publish-config --force');
         shell_exec($this->getArtisan() . 'module:publish-migration');
         shell_exec($this->getArtisan() . 'module:publish-translation');
 
-        //Artisan::call('app:cleanup');
         shell_exec($this->getArtisan() . 'app:cleanup');
 
         return $this->runCommand('module:publish', null, 'All modules stuff published successfully!');
