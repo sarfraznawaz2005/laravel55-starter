@@ -1,7 +1,7 @@
 {
   "name": "Core",
   "alias": "core",
-  "description": "The core/system module.",
+  "description": "The core system module.",
   "keywords": [
     "core",
     "system"
@@ -13,8 +13,7 @@
     "Modules\\Core\\Providers\\ScheduleServiceProvider",
     "Modules\\Core\\Providers\\DirectiveServiceProvider"
   ],
-  "aliases": {
-  },
+  "aliases": {},
   "files": [
     "start.php",
     "macros.php"

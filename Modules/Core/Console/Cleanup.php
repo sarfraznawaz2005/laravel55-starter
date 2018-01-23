@@ -49,8 +49,10 @@ class Cleanup extends Command
     {
         Artisan::call('clear-compiled');
         Artisan::call('cache:clear');
+        Artisan::call('config:clear');
         Artisan::call('view:clear');
         Artisan::call('optimize');
+        Artisan::call('debugbar:clear');
 
         // clean cache folder
         File::cleanDirectory(storage_path('framework/cache'));
