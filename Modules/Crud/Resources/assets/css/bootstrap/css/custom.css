@@ -58,10 +58,10 @@ thead {
     border-radius: 5px;
 }
 
-thead th {
-    color: #666;
+thead tr {
+    color: #333;
     text-align: left;
-    background-image: linear-gradient(#eee, #ddd);
+    background-image: radial-gradient(#eee, #bbbbbb);
 }
 
 .table-bordered > thead > tr > th, .table-bordered > thead > tr > td {

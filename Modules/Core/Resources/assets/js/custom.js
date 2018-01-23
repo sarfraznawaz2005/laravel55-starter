@@ -122,17 +122,6 @@ $(function () {
     });
     */
 
-    // add red * to any fields that have "required" attribute
-    /*
-    $('form input, textarea, select').not('.note-editor input, textarea, select').each(function () {
-        var $label = $(this).parent().find('label');
-
-        if (this.hasAttribute('required') && $label.length) {
-            $label.html($label.html() + ' <span style="color:red; font-size: 16px;">*</span>');
-        }
-    });
-    */
-
     // disable scroll change value on input type number
     $(':input[type=number]').on('mousewheel', function (e) {
         $(this).blur();

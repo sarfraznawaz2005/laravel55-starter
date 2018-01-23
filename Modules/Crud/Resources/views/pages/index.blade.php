@@ -5,19 +5,19 @@
     <div class="pull-right">
         <button data-placement="bottom" data-tooltip data-original-title="Add New Module" data-label="Add New Module"
                 class="btn btn-success" data-toggle="modal" data-target="#create-module-modal">
-            <i class="fa fa-plus-square"></i> Add New Module
+            <i class="glyphicon glyphicon-plus"></i> Add New Module
         </button>
 
         <a data-placement="bottom" data-tooltip data-original-title="Run Migrations"
            data-label="Run Migrations" class="btn btn-primary" href="{{route('crud.migrate')}}">
-            <i class="fa fa-database"></i> Migrate
+            <i class="glyphicon glyphicon-menu-hamburger"></i> Migrate
         </a>
 
         <a data-placement="bottom" data-tooltip
            data-original-title="Publish all modules' assets/config/migrations/views/etc"
            data-label="Publish all modules' assets/config/migrations/views/etc" class="btn btn-info"
            href="{{route('crud.publish')}}">
-            <i class="fa fa-globe"></i> Publish
+            <i class="glyphicon glyphicon-globe"></i> Publish
         </a>
     </div>
     <div class="clearfix">&nbsp;</div>
@@ -31,9 +31,11 @@
     <div class="tab-content">
         <div id="list" class="tab-pane fade in active" style="min-height: 350px;">
 
-            <h4><span class="label label-primary">Total Modules: {{Module::count()}}</span></h4>
+            <strong>Total Modules:</strong> <span class="badge badge-success">{{Module::count()}}</span>
+            <br><br>
 
-            <table style="font-weight: bold;" class="table table-striped table-condensed table-bordered table-hover dt-responsive nowrap">
+            <table style="font-weight: bold;"
+                   class="table table-striped table-condensed table-bordered table-hover dt-responsive nowrap">
                 <thead>
                 <tr>
                     <th>Name</th>
@@ -123,9 +125,7 @@
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
 
-                        {!! Former::horizontal_open()->action(route('crud.createfile'))->method('post')->rules(['name' => 'required']) !!}
-
-                        {{--{!! BootForm::openHorizontal(['sm' => [4, 8],'lg' => [2, 10]])->action( route('crud.createfile') )->post() !!}--}}
+                        {!! Former::horizontal_open()->action(route('crud.createfile'))->method('post') !!}
 
                         @section('panel_create_file.component_panel_content')
                             {!! Former::select('module')->options(['' => 'Select'] + Module::all())->autofocus()->required()->style('width:100%;') !!}
@@ -157,7 +157,7 @@
                         @section('panel_create_file.component_panel_footer')
                             <div class="clearfix">
                                 <div class="pull-right col-md-5">
-                                    {!! Former::submit('<i class="fa fa-paper-plane"></i> Create File')->class('btn btn-block btn-primary btn-raised') !!}
+                                    {!! Former::actions( Former::primary_button('Create File')->icon('ok')->type('submit')->class('btn btn-block btn-primary btn-raised')) !!}
                                 </div>
                             </div>
                         @endsection
@@ -177,7 +177,7 @@
     </div>
 
     <div id="create-module-modal" class="modal fade" tabindex="-1" role="dialog" style="z-index: 99999;">
-        {!! Former::open()->action(route('crud.store'))->method('post')->rules(['name' => 'required']) !!}
+        {!! Former::open()->action(route('crud.store'))->method('post') !!}
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header modal-header-primary">
@@ -185,7 +185,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
 
-                    <h4 class="modal-title">Create Module</h4>
+                    <h4 class="modal-title"><i class="glyphicon glyphicon-plus"></i> Add New Module</h4>
                 </div>
 
                 <div class="modal-body" style="padding: 10px 10px 0 10px;">
@@ -193,7 +193,9 @@
                 </div>
 
                 <div class="modal-footer" style="padding: 7px 10px 5px 10px;">
-                    {!! Former::submit('<b class="glyphicon glyphicon-ok"></b> Create Module')->class('btn btn-success') !!}
+                    <div class="pull-left">
+                        {!! Former::actions(Former::primary_button('Create Module')->icon('ok')->type('submit')->class('btn btn-success')) !!}
+                    </div>
 
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
@@ -219,4 +221,3 @@
         });
     </script>
 @endpush
-
