@@ -15,8 +15,6 @@
 
     <link rel="stylesheet" href="/modules/crud/css/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/modules/crud/css/bootstrap/css/custom.css">
-    <link rel="stylesheet" href="/modules/core/css/font-awesome-4/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/modules/core/css/checkbox3.min.css">
     <link rel="stylesheet" href="/modules/core/js/plugins/sweetalert/dist/sweetalert.css">
     <link rel="stylesheet" href="/modules/core/js/plugins/select2/select2.min.css">
     <link rel="stylesheet" href="/modules/core/css/loader.css">

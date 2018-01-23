@@ -1,4 +1,5 @@
 @include('crud::partials/head')
+
 <body class="animated fadeIn">
 
 <div class="container" style="margin-top: 20px; padding: 0;">
@@ -22,4 +23,5 @@
         </div>
     </div>
 </div>
+
 @include('crud::partials/footer')

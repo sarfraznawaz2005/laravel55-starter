@@ -17,6 +17,9 @@ return [
     'enabled' => env('DEBUGBAR_ENABLED', null),
     'except' => [
         'terminal',
+        'crud',
+        'applogs__',
+        'routes__',
     ],
 
     /*
