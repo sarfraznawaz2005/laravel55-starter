@@ -13,7 +13,7 @@
 
     <title>{{title()}} :: {{appName()}}</title>
 
-    <link rel="stylesheet" href="/modules/crud/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/modules/crud/css/bootstrap/css/theme.min.css">
     <link rel="stylesheet" href="/modules/crud/css/bootstrap/css/custom.css">
     <link rel="stylesheet" href="/modules/core/js/plugins/sweetalert/dist/sweetalert.css">
     <link rel="stylesheet" href="/modules/core/js/plugins/select2/select2.min.css">
