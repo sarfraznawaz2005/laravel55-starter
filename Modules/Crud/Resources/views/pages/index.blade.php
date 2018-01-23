@@ -8,12 +8,6 @@
             <i class="fa fa-plus-square"></i> Add New Module
         </button>
 
-        <a data-placement="bottom" data-tooltip data-original-title="Update Composer Dependencies of All modules"
-           data-label="Update Composer Dependencies of All modules" class="btn btn-warning"
-           href="{{route('crud.update_all')}}">
-            <i class="fa fa-refresh"></i> Update Composer Dependencies
-        </a>
-
         <a data-placement="bottom" data-tooltip data-original-title="Run Migrations"
            data-label="Run Migrations" class="btn btn-primary" href="{{route('crud.migrate')}}">
             <i class="fa fa-database"></i> Migrate
@@ -35,11 +29,11 @@
     </ul>
 
     <div class="tab-content">
-        <div id="list" class="tab-pane fade in active">
+        <div id="list" class="tab-pane fade in active" style="min-height: 350px;">
 
             <h4><span class="label label-primary">Total Modules: {{Module::count()}}</span></h4>
 
-            <table class="table table-striped table-bordered table-hover dt-responsive nowrap">
+            <table style="font-weight: bold;" class="table table-striped table-condensed table-bordered table-hover dt-responsive nowrap">
                 <thead>
                 <tr>
                     <th>Name</th>

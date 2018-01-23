@@ -81,26 +81,6 @@ class CrudController extends CoreController
         return redirect()->back();
     }
 
-    public function updateAll()
-    {
-        // Dependencies file should have these contents
-        //////////////////////////////////////////////
-        // #!/bin/sh
-        // php artisan module:update;
-        // echo Press Enter...
-        // read
-        //////////////////////////////////////////////
-
-        $updateDependenciesFile = base_path('dependencies_update.sh');
-
-        if (file_exists($updateDependenciesFile)) {
-            $appPath = realpath(base_path());
-            shell_exec("cd $appPath && " . $updateDependenciesFile);
-        }
-
-        return redirect()->back();
-    }
-
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse

@@ -29,6 +29,7 @@
     "olssonm/l5-very-basic-auth": "^4.1",
     "propaganistas/laravel-fakeid": "^2.0",
     "recca0120/terminal": "^1.6",
+    "rinvex/cacheable": "dev-develop",
     "sarfraznawaz2005/applog": "^1.0",
     "sarfraznawaz2005/eventable": "^1.0",
     "sarfraznawaz2005/queryline": "^1.0",
