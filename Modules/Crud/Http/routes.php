@@ -5,7 +5,11 @@ Route::group([
     'prefix' => 'crud',
     'namespace' => 'Modules\Crud\Http\Controllers'
 ], function () {
-    Route::get('/', 'CrudController@index')->name('crud.index');
+
+    Route::group(['middleware' => 'auth.very_basic'], function () {
+        Route::get('/', 'CrudController@index')->name('crud.index');
+    });
+
     Route::post('/store', 'CrudController@store')->name('crud.store');
     Route::get('/publish', 'CrudController@publish')->name('crud.publish');
     Route::get('/migrate', 'CrudController@migrate')->name('crud.migrate');
