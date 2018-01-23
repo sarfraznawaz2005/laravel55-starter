@@ -3,6 +3,7 @@
 namespace Modules\Crud\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Eloquent\Factory;
 
 class CrudServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,8 @@ class CrudServiceProvider extends ServiceProvider
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
+        $this->registerFactories();
+        $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
     }
 
     /**
@@ -57,13 +60,13 @@ class CrudServiceProvider extends ServiceProvider
      */
     public function registerViews()
     {
-        $viewPath = base_path('resources/views/modules/crud');
+        $viewPath = resource_path('views/modules/crud');
 
         $sourcePath = __DIR__.'/../Resources/views';
 
         $this->publishes([
             $sourcePath => $viewPath
-        ]);
+        ],'views');
 
         $this->loadViewsFrom(array_merge(array_map(function ($path) {
             return $path . '/modules/crud';
@@ -77,12 +80,23 @@ class CrudServiceProvider extends ServiceProvider
      */
     public function registerTranslations()
     {
-        $langPath = base_path('resources/lang/modules/crud');
+        $langPath = resource_path('lang/modules/crud');
 
         if (is_dir($langPath)) {
             $this->loadTranslationsFrom($langPath, 'crud');
         } else {
             $this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'crud');
+        }
+    }
+
+    /**
+     * Register an additional directory of factories.
+     * @source https://github.com/sebastiaanluca/laravel-resource-flow/blob/develop/src/Modules/ModuleServiceProvider.php#L66
+     */
+    public function registerFactories()
+    {
+        if (! app()->environment('production')) {
+            app(Factory::class)->load(__DIR__ . '/../Database/factories');
         }
     }
 

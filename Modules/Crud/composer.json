@@ -1,5 +1,5 @@
 {
-  "name": "eteam/crud",
+  "name": "eTeam/crud",
   "description": "The CRUD module.",
   "license": "EULA",
   "authors": [
@@ -8,6 +8,15 @@
       "email": "sarfraznawaz2005@gmail.com"
     }
   ],
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Modules\\Crud\\Providers\\CrudServiceProvider"
+      ],
+      "aliases": {
+      }
+    }
+  },
   "autoload": {
     "psr-4": {
       "Modules\\Crud\\": ""

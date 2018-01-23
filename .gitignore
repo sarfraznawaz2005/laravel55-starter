@@ -26,3 +26,4 @@ database/migrations/
 /composer.lock
 /resources/views/modules/
 push.sh
+/public/modules/
