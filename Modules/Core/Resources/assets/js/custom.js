@@ -15,6 +15,8 @@ $(function () {
         }
     });
 
+    $('#flash-overlay-modal').modal();
+
     // avoid onkeyup search in datatables filter, use Enter button instead
     if (!isMobile.any) {
         $dataTable.dataTable().fnFilterOnReturn();

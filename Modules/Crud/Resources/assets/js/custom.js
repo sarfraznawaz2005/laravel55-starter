@@ -6,11 +6,14 @@
  */
 
 $(function () {
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+
+    $('#flash-overlay-modal').modal();
 
     // select 2 for dropdowns
     var $select2 = $('select').not('.no_select2').select2();

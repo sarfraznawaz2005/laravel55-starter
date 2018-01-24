@@ -1,15 +1,32 @@
-@if (session()->has('flash_notification.message'))
-    <div class="animated shake alert
-                    alert-{{ session('flash_notification.level') }}
-    {{ session()->has('flash_notification.important') ? 'alert-important' : '' }}"
-    >
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+@foreach (session('flash_notification', collect())->toArray() as $message)
+    @if ($message['overlay'])
+        @include('flash::modal', [
+            'modalClass' => 'flash-modal',
+            'title'      => $message['title'],
+            'body'       => $message['message']
+        ])
+    @else
+        <div class="animated shake alert
+                    alert-{{ $message['level'] }}
+        {{ $message['important'] ? 'alert-important' : '' }}"
+             role="alert"
+        >
 
-        <strong><i class="glyphicon glyphicon-info-sign"></i>
-            {!! session('flash_notification.message') !!}
-        </strong>
-    </div>
-@endif
+            <button type="button"
+                    class="close"
+                    data-dismiss="alert"
+                    aria-hidden="true"
+            >&times;
+            </button>
+
+            <strong><i class="glyphicon glyphicon-info-sign"></i>
+                {!! ucwords($message['message']) !!}
+            </strong>
+        </div>
+    @endif
+@endforeach
+
+{{ session()->forget('flash_notification') }}
 
 @if (session()->has('selected_tab'))
     <script>

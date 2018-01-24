@@ -19,6 +19,11 @@
            href="{{route('crud.publish')}}">
             <i class="glyphicon glyphicon-globe"></i> Publish
         </a>
+
+        <a data-placement="bottom" data-tooltip data-original-title="Optimize"
+           data-label="Optimize" class="btn btn-warning" href="{{route('crud.optimize')}}">
+            <i class="glyphicon glyphicon-flash"></i> Optimize
+        </a>
     </div>
     <div class="clearfix">&nbsp;</div>
     <div class="clearfix">&nbsp;</div>

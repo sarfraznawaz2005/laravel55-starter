@@ -1,7 +1,7 @@
 <div id="flash-overlay-modal" class="modal fade {{ $modalClass or '' }}">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header modal-header-primary modal-primary">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
                 <h4 class="modal-title">{{ $title }}</h4>
