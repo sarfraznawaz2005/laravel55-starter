@@ -28,7 +28,6 @@ class VendorCleanup extends Command
         'history*',
         'upgrading*',
         'upgrade*',
-        'cache*',
         '.idea',
         '.vagrant',
         'readme*',
