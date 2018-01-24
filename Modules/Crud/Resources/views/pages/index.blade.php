@@ -39,8 +39,7 @@
             <strong>Total Modules:</strong> <span class="badge badge-success">{{Module::count()}}</span>
             <br><br>
 
-            <table style="font-weight: bold;"
-                   class="table table-striped table-condensed table-bordered table-hover dt-responsive nowrap">
+            <table class="table table-striped table-condensed table-bordered table-hover dt-responsive nowrap">
                 <thead>
                 <tr>
                     <th>Name</th>
@@ -54,27 +53,27 @@
                 </thead>
                 <tbody>
                 @foreach(Module::all() as $module)
-                    <tr>
+                    <tr style="font-weight: bold;">
                         <td>{{$module->name}}</td>
                         <td>{{$module->alias}}</td>
                         <td>{{$module->description}}</td>
                         <td>{{$module->order}}</td>
-                        <td align="center">
+                        <td align="center" style="font-weight: normal;">
                             <a href="#" data-toggle="modal" data-target="#details-modal-{{$module->alias}}">
                                 <b class="btn btn-primary btn-sm glyphicon glyphicon-eye-open"></b>
                             </a>
 
                             @php
-                                $modelDetails = '<strong>Providers:</strong><br>';
+                                $modelDetails = '<br><strong class="badge">Providers:</strong><br>';
                                 $modelDetails .= implode("<br>", $module->providers);
 
-                                $modelDetails .= '<br><br><strong>Aliases:</strong><br>';
+                                $modelDetails .= '<br><br><strong class="badge">Aliases:</strong><br>';
                                 $modelDetails .= implode("<br>", $module->aliases);
 
-                                $modelDetails .= '<br><br><strong>Files:</strong><br>';
+                                $modelDetails .= '<br><br><strong class="badge">Files:</strong><br>';
                                 $modelDetails .= implode("<br>", $module->files);
 
-                                $modelDetails .= '<br><br><strong>Requires:</strong><br>';
+                                $modelDetails .= '<br><br><strong class="badge">Requires:</strong><br>';
                                 $modelDetails .= implode("<br>", $module->requires);
 
                                 $modelDetails .= '<br><br>';
@@ -82,8 +81,8 @@
 
                             @include('core::popups.general', [
                             'id' => 'details-modal-' . $module->alias,
-                            'header_class' => 'modal-header-primary',
-                            'title_icon' => '<b class="glyphicon glyphicon-user"></b>',
+                            'header_class' => 'modal-header-success',
+                            'title_icon' => '',
                             'title' => 'Details',
                             'content' => $modelDetails,
                             'actionbutton' => '',
@@ -175,7 +174,7 @@
                         @include('core::components.panel', [
                             'id' => 'panel_create_file',
                             'panel_type' => $errors->any() ? 'danger' : 'default',
-                            'panel_heading' => '<i class="fa fa-paper-plane"></i> Create Module File',
+                            'panel_heading' => '<i class="glyphicon glyphicon-plus"></i> Create Module File',
                             'show_panel_footer' => true,
                         ])
 
