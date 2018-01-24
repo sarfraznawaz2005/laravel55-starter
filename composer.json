@@ -40,6 +40,7 @@
     "themsaid/laravel-mail-preview": "^2.0",
     "uxweb/sweet-alert": "^1.4",
     "watson/active": "^2.0",
+    "watson/validating": "^3.1",
     "yajra/laravel-datatables-oracle": "~8.0"
   },
   "require-dev": {

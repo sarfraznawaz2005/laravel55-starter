@@ -10,6 +10,7 @@ namespace Modules\Core\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Watson\Validating\ValidatingTrait;
 
 /**
  * @property string $created_at
@@ -18,6 +19,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class CoreModel extends Model
 {
+    use ValidatingTrait;
+
     /**
      * created_at column accessor.
      *
