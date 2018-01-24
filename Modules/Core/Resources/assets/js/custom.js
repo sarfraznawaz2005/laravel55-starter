@@ -44,7 +44,6 @@ $(function () {
     $('[rel="popover"]').addClass('text-primary').popover({"trigger": "hover", "html": true});
 
     // to close popover when clicking outside
-    /*
     $('body').on('click', function (e) {
         $('[rel="popover"]').each(function () {
             if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
@@ -52,7 +51,6 @@ $(function () {
             }
         });
     });
-    */
 
     // BTS Tooltips
     if (!isMobile.any) {
