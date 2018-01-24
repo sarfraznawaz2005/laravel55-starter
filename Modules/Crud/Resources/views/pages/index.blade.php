@@ -34,7 +34,7 @@
     </ul>
 
     <div class="tab-content">
-        <div id="list" class="tab-pane fade in active" style="min-height: 350px;">
+        <div id="list" class="tab-pane fade in active" style="min-height: 250px;">
 
             <strong>Total Modules:</strong> <span class="badge badge-success">{{Module::count()}}</span>
             <br><br>
