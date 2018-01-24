@@ -19,7 +19,6 @@ Route::group([
     Route::get('/publish', 'CrudController@publish')->name('crud.publish');
     Route::get('/migrate', 'CrudController@migrate')->name('crud.migrate');
     Route::get('/toggle_status/{name}', 'CrudController@toggleStatus')->name('crud.toggle_status');
-    Route::get('/optimize', 'CrudController@optimize')->name('crud.optimize');
     Route::post('/createfile', 'CrudController@createFile')->name('crud.createfile');
     Route::delete('/destroy/{name}', 'CrudController@destroy')->name('crud.destroy');
 });

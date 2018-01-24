@@ -9,7 +9,7 @@
         </button>
 
         <a data-placement="bottom" data-tooltip data-original-title="Run Migrations"
-           data-label="Run Migrations" class="btn btn-primary" href="{{route('crud.migrate')}}">
+           data-label="Run Migrations" class="btn btn-warning" href="{{route('crud.migrate')}}">
             <i class="glyphicon glyphicon-menu-hamburger"></i> Migrate
         </a>
 
@@ -20,10 +20,6 @@
             <i class="glyphicon glyphicon-globe"></i> Publish
         </a>
 
-        <a data-placement="bottom" data-tooltip data-original-title="Optimize"
-           data-label="Optimize" class="btn btn-warning" href="{{route('crud.optimize')}}">
-            <i class="glyphicon glyphicon-flash"></i> Optimize
-        </a>
     </div>
     <div class="clearfix">&nbsp;</div>
     <div class="clearfix">&nbsp;</div>

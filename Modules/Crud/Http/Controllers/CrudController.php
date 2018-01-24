@@ -50,25 +50,19 @@ class CrudController extends CoreController
         shell_exec($this->getArtisan() . 'module:publish-migration');
         shell_exec($this->getArtisan() . 'module:publish-translation');
 
-        shell_exec($this->getArtisan() . 'app:cleanup');
+        $this->optimize();
 
         return $this->runCommand('module:publish', null, 'All modules stuff published successfully!');
     }
 
-    public function optimize()
+    protected function optimize()
     {
-        $result = '';
-
-        $result .= shell_exec($this->getArtisan() . 'clear-compiled' . ' 2>&1');
-        $result .= shell_exec($this->getArtisan() . 'cache:clear' . ' 2>&1');
-        $result .= shell_exec($this->getArtisan() . 'view:clear' . ' 2>&1');
-        $result .= shell_exec($this->getArtisan() . 'config:clear' . ' 2>&1');
-        $result .= shell_exec($this->getArtisan() . 'optimize --force' . ' 2>&1');
-        $result .= shell_exec($this->getArtisan() . 'app:cleanup' . ' 2>&1');
-
-        flash(nl2br($result), 'success');
-
-        return redirect()->back();
+        shell_exec($this->getArtisan() . 'clear-compiled');
+        shell_exec($this->getArtisan() . 'cache:clear');
+        shell_exec($this->getArtisan() . 'view:clear');
+        shell_exec($this->getArtisan() . 'config:clear');
+        shell_exec($this->getArtisan() . 'optimize --force');
+        shell_exec($this->getArtisan() . 'app:cleanup');
     }
 
     public function toggleStatus($moduleName)
@@ -116,7 +110,7 @@ class CrudController extends CoreController
                 $module = Module::find($moduleName);
 
                 if ($module && $module->delete()) {
-                    flash('Deleted Successfully!', 'success');
+                    flash('Deleted Successfully!', 'danger');
                     return redirect()->back();
                 }
             }
@@ -185,7 +179,7 @@ class CrudController extends CoreController
                 }
             }
 
-            flash($message ?: nl2br($result), 'success');
+            flash($message ?: nl2br($result), $commandName === 'module:make' ? 'success' : 'info');
 
             if ($commandName === 'module:make') {
                 shell_exec($this->getArtisan() . 'module:setup');
@@ -238,7 +232,7 @@ class CrudController extends CoreController
         shell_exec($this->getArtisan() . 'module:publish-migration');
         */
 
-        flash($output ? nl2br($output) : 'Nothing to migrate.', 'success');
+        flash($output ? nl2br($output) : 'Nothing to migrate.', 'warning');
 
         return redirect()->back();
     }
