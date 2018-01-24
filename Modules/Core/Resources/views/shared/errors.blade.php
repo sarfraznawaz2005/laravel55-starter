@@ -20,3 +20,9 @@
         </script>
     @endpush
 @endif
+
+@if (session()->has('selected_tab'))
+    <script>
+        var selected_tab = '{{session('selected_tab')}}';
+    </script>
+@endif

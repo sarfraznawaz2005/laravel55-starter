@@ -6,22 +6,25 @@
             'body'       => $message['message']
         ])
     @else
-        <div class="alert
+        <div class="animated shake alert
                     alert-{{ $message['level'] }}
-                    {{ $message['important'] ? 'alert-important' : '' }}"
-                    role="alert"
+        {{ $message['important'] ? 'alert-important' : '' }}"
+             role="alert"
         >
-            @if ($message['important'])
-                <button type="button"
-                        class="close"
-                        data-dismiss="alert"
-                        aria-hidden="true"
-                >&times;</button>
-            @endif
 
-            {!! $message['message'] !!}
+            <button type="button"
+                    class="close"
+                    data-dismiss="alert"
+                    aria-hidden="true"
+            >&times;
+            </button>
+
+            <strong><i class="glyphicon glyphicon-info-sign"></i>
+                {!! ucwords($message['message']) !!}
+            </strong>
         </div>
     @endif
 @endforeach
 
 {{ session()->forget('flash_notification') }}
+

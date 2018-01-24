@@ -7,9 +7,9 @@
         <div class="col-md-12">
 
             @section('main_crud_panel.component_panel_content')
-                @include('core::shared.message')
-                @include('core::shared.errors')
                 @include('core::shared.loader')
+                @include('flash::message')
+                @include('core::shared.errors')
 
                 @yield('content')
             @endsection
