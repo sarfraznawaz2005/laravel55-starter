@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Modules\Core\Console\Cleanup;
+use Modules\Core\Console\VendorCleanup;
 use Modules\Core\Http\Middleware\Headers;
 use Modules\Core\Http\Middleware\HttpsProtocol;
 use Modules\Core\Http\Middleware\XSSProtection;
@@ -48,7 +49,10 @@ class CoreServiceProvider extends ServiceProvider
         #################################################
         // register our commands
         #################################################
-        $this->commands([Cleanup::class]);
+        $this->commands([
+            Cleanup::class,
+            VendorCleanup::class
+        ]);
 
         #################################################
         // enable/disable stuff on live vs local/staging
@@ -134,7 +138,7 @@ class CoreServiceProvider extends ServiceProvider
      */
     public function registerFactories()
     {
-        if (! app()->environment('production')) {
+        if (!app()->environment('production')) {
             app(Factory::class)->load(__DIR__ . '/../Database/factories');
         }
     }

@@ -80,7 +80,8 @@
     ],
     "post-autoload-dump": [
       "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-      "@php artisan package:discover"
+      "@php artisan package:discover",
+      "@php artisan vendor:cleanup"
     ]
   },
   "config": {
