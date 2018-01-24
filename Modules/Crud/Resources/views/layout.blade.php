@@ -17,7 +17,7 @@
             @include('core::components.panel', [
                 'id' => 'main_crud_panel',
                 'panel_type' => 'primary',
-                'panel_heading' => '<h1><i class="fa fa-th-large"></i> '.title().'</h1>',
+                'panel_heading' => '<h1><i class="glyphicon glyphicon-th"></i> '.title().'</h1>',
                 'show_panel_footer' => false,
             ])
         </div>

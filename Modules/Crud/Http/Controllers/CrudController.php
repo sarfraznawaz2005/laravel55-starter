@@ -110,7 +110,7 @@ class CrudController extends CoreController
                 $module = Module::find($moduleName);
 
                 if ($module && $module->delete()) {
-                    flash('Deleted Successfully!', 'danger');
+                    flash('Deleted Successfully!', 'success');
                     return redirect()->back();
                 }
             }
@@ -179,7 +179,7 @@ class CrudController extends CoreController
                 }
             }
 
-            flash($message ?: nl2br($result), $commandName === 'module:make' ? 'success' : 'info');
+            flash($message ?: nl2br($result), $commandName === 'module:make' ? 'info' : 'success');
 
             if ($commandName === 'module:make') {
                 shell_exec($this->getArtisan() . 'module:setup');

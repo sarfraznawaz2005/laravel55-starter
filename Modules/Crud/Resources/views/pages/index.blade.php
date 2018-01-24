@@ -4,7 +4,7 @@
 
     <div class="pull-right">
         <button data-placement="bottom" data-tooltip data-original-title="Add New Module" data-label="Add New Module"
-                class="btn btn-success" data-toggle="modal" data-target="#create-module-modal">
+                class="btn btn-info" data-toggle="modal" data-target="#create-module-modal">
             <i class="glyphicon glyphicon-plus"></i> Add New Module
         </button>
 
@@ -15,7 +15,7 @@
 
         <a data-placement="bottom" data-tooltip
            data-original-title="Publish all modules' assets/config/migrations/views/etc"
-           data-label="Publish all modules' assets/config/migrations/views/etc" class="btn btn-info"
+           data-label="Publish all modules' assets/config/migrations/views/etc" class="btn btn-success"
            href="{{route('crud.publish')}}">
             <i class="glyphicon glyphicon-globe"></i> Publish
         </a>
