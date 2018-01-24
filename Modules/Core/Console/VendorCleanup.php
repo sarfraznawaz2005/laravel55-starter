@@ -34,7 +34,6 @@ class VendorCleanup extends Command
         '*.xml',
         '*.log',
         '*.txt',
-        '*.json',
         '*.dist',
         '*.pdf',
         '*.xls',
