@@ -10,7 +10,10 @@ return [
     /**
      * The middleware(s) to apply before attempting to access routes page.
      */
-    'middlewares' => ['auth.very_basic'],
+    'middlewares' => [
+        'auth.very_basic',
+        'GrahamCampbell\Throttle\Http\Middleware\ThrottleMiddleware:50,30'
+    ],
 
     /**
      * Indicates whether to enable pretty routes only when debug is enabled (APP_DEBUG).

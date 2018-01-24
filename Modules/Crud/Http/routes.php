@@ -6,7 +6,12 @@ Route::group([
     'namespace' => 'Modules\Crud\Http\Controllers'
 ], function () {
 
-    Route::group(['middleware' => 'auth.very_basic'], function () {
+    Route::group([
+        'middleware' => [
+            'auth.very_basic',
+            'GrahamCampbell\Throttle\Http\Middleware\ThrottleMiddleware:50,30'
+        ]
+    ], function () {
         Route::get('/', 'CrudController@index')->name('crud.index');
     });
 
