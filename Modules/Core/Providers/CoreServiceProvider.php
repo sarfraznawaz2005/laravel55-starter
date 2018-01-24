@@ -38,7 +38,7 @@ class CoreServiceProvider extends ServiceProvider
         // register our custom middlewares
         #################################################
         // route middlewares
-        $router->middleware('XSSProtection', XSSProtection::class);
+        $router->aliasMiddleware('XSSProtection', XSSProtection::class);
         // global middlewares
         $kernel->pushMiddleware(Headers::class);
 

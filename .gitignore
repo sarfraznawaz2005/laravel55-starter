@@ -27,3 +27,5 @@ database/migrations/
 /resources/views/modules/
 push.sh
 /public/modules/
+/resources/lang/core/.gitkeep
+/resources/lang/crud/.gitkeep
