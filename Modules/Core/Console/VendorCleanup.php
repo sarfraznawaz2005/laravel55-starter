@@ -78,7 +78,6 @@ class VendorCleanup extends Command
         $directories = $this->expandTree(base_path('vendor'));
 
         $isDry = $this->option('dry');
-        $isVerbose = $this->option('o');
 
         foreach ($directories as $directory) {
             foreach ($patterns as $pattern) {
@@ -97,24 +96,20 @@ class VendorCleanup extends Command
                     $key = $this->arrayFind($excluded, $files);
 
                     if ($key !== false) {
-                        echo ('SKIPPED: ' . $files[$key]) . PHP_EOL;
+                        $this->out('SKIPPED: ' . $files[$key]);
                         unset($files[$key]);
                     }
                 }
 
                 foreach ($files as $file) {
                     if (is_dir($file)) {
-                        if ($isVerbose) {
-                            echo ('DELETING DIR: ' . $file) . PHP_EOL;
-                        }
+                        $this->out('DELETING DIR: ' . $file);
 
                         if (!$isDry) {
                             $this->delTree($file);
                         }
                     } else {
-                        if ($isVerbose) {
-                            echo ('DELETING FILE: ' . $file) . PHP_EOL;
-                        }
+                        $this->out('DELETING FILE: ' . $file);
 
                         if (!$isDry) {
                             @unlink($file);
@@ -196,5 +191,12 @@ class VendorCleanup extends Command
         }
 
         return false;
+    }
+
+    protected function out($message)
+    {
+        if ($this->option('o')) {
+            echo $message . PHP_EOL;
+        }
     }
 }
