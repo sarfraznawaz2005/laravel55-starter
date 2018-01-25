@@ -7,7 +7,7 @@ use RecursiveIteratorIterator;
 
 class VendorCleanup extends Command
 {
-    protected $signature = 'vendor:cleanup {--o : Verbose Output}';
+    protected $signature = 'vendor:cleanup {--o : Verbose Output} {--dry : Runs in dry mode without deleting files.}';
     protected $description = 'Cleans up useless files from vendor folder.';
 
     // Default patterns for common files
@@ -51,6 +51,11 @@ class VendorCleanup extends Command
         'composer.lock',
     ];
 
+    // These paths/patterns will NOT be deleted
+    protected $excluded = [
+        'laravel-mail-preview'
+    ];
+
     /**
      * Create a new command instance.
      *
@@ -68,30 +73,52 @@ class VendorCleanup extends Command
      */
     public function handle()
     {
+        $patterns = array_diff($this->patterns, $this->excluded);
+
         $directories = $this->expandTree(base_path('vendor'));
 
+        $isDry = $this->option('dry');
         $isVerbose = $this->option('o');
 
         foreach ($directories as $directory) {
-            foreach ($this->patterns as $pattern) {
+            foreach ($patterns as $pattern) {
 
                 $casePattern = preg_replace_callback('/([a-z])/i', [$this, 'prepareWord'], $pattern);
 
-                foreach (glob($directory . '/' . $casePattern, GLOB_BRACE) as $file) {
+                $files = glob($directory . '/' . $casePattern, GLOB_BRACE);
 
+                if (!$files) {
+                    continue;
+                }
+
+                $files = array_diff($files, $this->excluded);
+
+                foreach ($this->excluded as $excluded) {
+                    $key = $this->arrayFind($excluded, $files);
+
+                    if ($key !== false) {
+                        echo ('SKIPPED: ' . $files[$key]) . PHP_EOL;
+                        unset($files[$key]);
+                    }
+                }
+
+                foreach ($files as $file) {
                     if (is_dir($file)) {
-
                         if ($isVerbose) {
                             echo ('DELETING DIR: ' . $file) . PHP_EOL;
                         }
 
-                        $this->delTree($file);
+                        if (!$isDry) {
+                            $this->delTree($file);
+                        }
                     } else {
                         if ($isVerbose) {
                             echo ('DELETING FILE: ' . $file) . PHP_EOL;
                         }
 
-                        @unlink($file);
+                        if (!$isDry) {
+                            @unlink($file);
+                        }
                     }
                 }
             }
@@ -158,5 +185,16 @@ class VendorCleanup extends Command
     protected function prepareWord($matches)
     {
         return '[' . strtolower($matches[1]) . strtoupper($matches[1]) . ']';
+    }
+
+    protected function arrayFind($needle, array $haystack)
+    {
+        foreach ($haystack as $key => $value) {
+            if (false !== stripos($value, $needle)) {
+                return $key;
+            }
+        }
+
+        return false;
     }
 }
