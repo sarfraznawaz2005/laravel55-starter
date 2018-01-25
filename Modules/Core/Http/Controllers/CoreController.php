@@ -19,6 +19,10 @@ class CoreController extends Controller
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     use Crudable;
 
+    const ADD_MESSAGE = 'Added Successfully!';
+    const DELETE_MESSAGE = 'Deleted Successfully!';
+    const UPDATE_MESSAGE = 'Updated Successfully!';
+
     public function __construct()
     {
         // any common stuff that will be available in whole app
