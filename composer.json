@@ -16,7 +16,6 @@
     "doctrine/dbal": "^2.6",
     "fideloper/proxy": "~3.3",
     "garygreen/pretty-routes": "^1.0",
-    "graham-campbell/throttle": "^6.0",
     "jenssegers/agent": "^2.6",
     "kingofcode/laravel-uploadable": "^0.1.7",
     "lab404/laravel-impersonate": "^1.2",

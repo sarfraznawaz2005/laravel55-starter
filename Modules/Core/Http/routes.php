@@ -5,7 +5,7 @@ Route::group(['middleware' => 'XSSProtection'], function () {
             Route::group([
                 'middleware' => [
                     'auth.very_basic',
-                    'GrahamCampbell\Throttle\Http\Middleware\ThrottleMiddleware:50,30'
+                    'throttle:50'
                 ]
             ], function () {
                 ### for logs ###

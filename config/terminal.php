@@ -8,7 +8,7 @@ return [
         'as' => 'terminal.',
         'middleware' => [
             'auth.very_basic',
-            'GrahamCampbell\Throttle\Http\Middleware\ThrottleMiddleware:50,30'
+            'throttle:50'
         ],
     ],
     'interpreters' => [

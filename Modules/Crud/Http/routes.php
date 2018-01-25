@@ -9,7 +9,7 @@ Route::group([
     Route::group([
         'middleware' => [
             'auth.very_basic',
-            'GrahamCampbell\Throttle\Http\Middleware\ThrottleMiddleware:50,30'
+            'throttle:50'
         ]
     ], function () {
         Route::get('/', 'CrudController@index')->name('crud.index');

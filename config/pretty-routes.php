@@ -12,7 +12,7 @@ return [
      */
     'middlewares' => [
         'auth.very_basic',
-        'GrahamCampbell\Throttle\Http\Middleware\ThrottleMiddleware:50,30'
+        'throttle:50'
     ],
 
     /**

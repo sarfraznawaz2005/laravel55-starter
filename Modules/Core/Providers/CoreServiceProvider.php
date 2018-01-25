@@ -8,6 +8,7 @@ use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Modules\Core\Console\Cleanup;
 use Modules\Core\Console\VendorCleanup;
+use Modules\Core\Http\Middleware\CollapseWhitespace;
 use Modules\Core\Http\Middleware\Headers;
 use Modules\Core\Http\Middleware\HttpsProtocol;
 use Modules\Core\Http\Middleware\XSSProtection;
@@ -42,9 +43,6 @@ class CoreServiceProvider extends ServiceProvider
         $router->aliasMiddleware('XSSProtection', XSSProtection::class);
         // global middlewares
         $kernel->pushMiddleware(Headers::class);
-
-        // creating problem with js scripts
-        //$kernel->pushMiddleware(Minify::class);
 
         #################################################
         // register our commands
