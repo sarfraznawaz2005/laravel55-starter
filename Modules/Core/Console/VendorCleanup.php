@@ -53,7 +53,7 @@ class VendorCleanup extends Command
 
     // These paths/patterns will NOT be deleted
     protected $excluded = [
-        'laravel-mail-preview'
+        'laravel-mail-preview/tests'
     ];
 
     /**
