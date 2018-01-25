@@ -16,9 +16,13 @@ class VendorCleanup extends Command
         '.github',
         'test',
         'tests',
+        'docs',
         'travis',
         'demo',
         'demos',
+        'example',
+        'examples',
+        'todo',
         'license',
         'changelog*',
         'contributing*',
@@ -28,6 +32,8 @@ class VendorCleanup extends Command
         '.vagrant',
         'readme*',
         '_ide_helper.php',
+        '{,.}*.yml',
+        '*.dist',
         '*.md',
         '*.log',
         '*.txt',
@@ -37,23 +43,40 @@ class VendorCleanup extends Command
         '*.docx',
         '*.png',
         '*.gif',
-        '*.jpg',
         '*.bmp',
-        '*.jpeg',
         '*.ico',
+        '*.jpg',
+        '*.jpeg',
         '.php_cs*',
         '.scrutinizer',
         '.gitignore',
         '.gitattributes',
         '.editorconfig',
         'dockerfile',
+        'phpcs.xml',
+        'phpunit.xml',
+        'build.xml',
+        'package.xml',
+        'package.json',
+        'Makefile',
+        'Doxyfile',
+        'gulpfile.js',
+        'bower.json',
+        'karma.conf.js',
+        'yarn.lock',
+        '.babelrc',
+        'package.js',
+        '.htaccess',
+        'CNAME',
+        'LICENSE*',
+        '.gitmodules',
         'composer.json',
         'composer.lock',
     ];
 
     // These paths/patterns will NOT be deleted
     protected $excluded = [
-        'laravel-mail-preview/tests'
+        'laravel-mail-preview/tests',
     ];
 
     /**
@@ -195,7 +218,7 @@ class VendorCleanup extends Command
 
     protected function out($message)
     {
-        if ($this->option('o')) {
+        if ($this->option('o') || $this->option('dry')) {
             echo $message . PHP_EOL;
         }
     }
