@@ -114,13 +114,11 @@ $(function () {
     });
 
     // validate forms
-    /*
     $('form.validate').validator({
         html: true,
         disable: false,
         focus: true
     });
-    */
 
     // disable scroll change value on input type number
     $(':input[type=number]').on('mousewheel', function (e) {
