@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Modules\Core\Http\Controllers\CoreController;
 use Nwidart\Modules\Facades\Module;
 use Meta;
+use function title;
 
 class CrudController extends CoreController
 {
@@ -23,7 +24,7 @@ class CrudController extends CoreController
 
     public function index()
     {
-        Meta::set('title', 'Module Manager');
+        title('Module Manager');
 
         return view('crud::pages.index');
     }

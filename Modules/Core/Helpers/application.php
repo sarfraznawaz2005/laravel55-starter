@@ -168,6 +168,11 @@ function noDataTableResponse()
     ]);
 }
 
+function title($title = '')
+{
+    \Meta::set('title', $title ?: appName());
+}
+
 function sendNotification($email, $object)
 {
     $recipient = new DynamicRecipient($email);
