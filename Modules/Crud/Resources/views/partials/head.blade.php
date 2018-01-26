@@ -13,13 +13,17 @@
 
     <title>{{title()}} :: {{appName()}}</title>
 
-    <link rel="stylesheet" href="/modules/crud/css/bootstrap/css/theme.min.css">
-    <link rel="stylesheet" href="/modules/crud/css/bootstrap/css/custom.css">
-    <link rel="stylesheet" href="/modules/core/js/plugins/sweetalert/dist/sweetalert.css">
-    <link rel="stylesheet" href="/modules/core/js/plugins/select2/select2.min.css">
-    <link rel="stylesheet" href="/modules/core/css/loader.css">
-    <link rel="stylesheet" href="/modules/crud/css/custom.css">
-    <link rel="stylesheet" href="/modules/core/css/animate.css">
+    {!! Packer::css([
+    '/modules/crud/css/bootstrap/css/theme.min.css',
+    '/modules/crud/css/bootstrap/css/custom.css',
+    '/modules/core/js/plugins/sweetalert/dist/sweetalert.css',
+    '/modules/core/js/plugins/select2/select2.min.css',
+    '/modules/core/css/loader.css',
+    '/modules/crud/css/custom.css',
+    '/modules/core/css/animate.css',
+    ],
+    '/storage/cache/css/')
+    !!}
 
     @stack('styles')
 
