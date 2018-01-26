@@ -168,19 +168,6 @@ function noDataTableResponse()
     ]);
 }
 
-function title($title = '')
-{
-    if (trim($title)) {
-        request()->session()->flash('page.title', $title);
-    }
-
-    if (request()->session()->has('page.title')) {
-        return request()->session()->get('page.title');
-    }
-
-    return appName();
-}
-
 function sendNotification($email, $object)
 {
     $recipient = new DynamicRecipient($email);

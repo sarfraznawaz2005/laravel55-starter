@@ -23,7 +23,7 @@ return array(
     |
     */
 
-    'ignore_environments' => ['localxxx'],
+    'ignore_environments' => ['local'],
 
     /*
     |--------------------------------------------------------------------------

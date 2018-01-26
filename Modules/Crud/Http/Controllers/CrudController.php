@@ -13,6 +13,7 @@ use File;
 use Illuminate\Http\Request;
 use Modules\Core\Http\Controllers\CoreController;
 use Nwidart\Modules\Facades\Module;
+use Meta;
 
 class CrudController extends CoreController
 {
@@ -22,7 +23,7 @@ class CrudController extends CoreController
 
     public function index()
     {
-        title('Module Manager');
+        Meta::set('title', 'Module Manager');
 
         return view('crud::pages.index');
     }

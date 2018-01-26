@@ -8,11 +8,13 @@
 
 namespace Modules\Core\Http\Controllers;
 
+use function appName;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller;
 use Modules\Core\Traits\Crudable;
+use Meta;
 
 class CoreController extends Controller
 {
@@ -23,8 +25,14 @@ class CoreController extends Controller
     const DELETE_MESSAGE = 'Deleted Successfully!';
     const UPDATE_MESSAGE = 'Updated Successfully!';
 
+    // any common stuff that will be available in whole app
     public function __construct()
     {
-        // any common stuff that will be available in whole app
+        # Default title
+        Meta::set('title', appName());
+        Meta::set('description', appName());
+
+        # Default robots
+        Meta::set('robots', 'index,follow');
     }
 }
