@@ -15,6 +15,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller;
 use Modules\Core\Traits\Crudable;
 use Meta;
+use function request;
 
 class CoreController extends Controller
 {
@@ -28,11 +29,12 @@ class CoreController extends Controller
     // any common stuff that will be available in whole app
     public function __construct()
     {
-        # Default title
+        # Default meta settings
         Meta::set('title', appName());
         Meta::set('description', appName());
-
-        # Default robots
+        Meta::set('site_name', appName());
+        Meta::set('url', request()->url());
+        Meta::set('locale', 'en_EN');
         Meta::set('robots', 'index,follow');
     }
 }

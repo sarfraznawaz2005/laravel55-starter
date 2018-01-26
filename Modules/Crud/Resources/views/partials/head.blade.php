@@ -10,10 +10,11 @@
     {!! Meta::tag('robots') !!}
 
     {!! Meta::tag('title') !!}
+
     {!! Meta::tag('description') !!}
-    {!! Meta::tag('site_name', appName()) !!}
-    {!! Meta::tag('url', Request::url()); !!}
-    {!! Meta::tag('locale', 'en_EN') !!}
+    {!! Meta::tag('site_name') !!}
+    {!! Meta::tag('url') !!}
+    {!! Meta::tag('locale') !!}
 
     <link rel="shortcut icon" href="/favicon.ico">
 
