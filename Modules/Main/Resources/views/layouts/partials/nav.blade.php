@@ -36,13 +36,13 @@
 
                     @if (Auth::guest())
                         @if(Module::isEnabled('User'))
-                            <li class="nav-item nav-item {{active('login')}}">
-                                <a class="nav-link" href="{{ url('/user/login') }}">
-                                    <i class="fa fa-lock"></i> Sign In
-                                </a>
-                            </li>
-
                             @if(config('user.allow_user_registration', true))
+                                <li class="nav-item nav-item {{active('login')}}">
+                                    <a class="nav-link" href="{{ url('/user/login') }}">
+                                        <i class="fa fa-lock"></i> Sign In
+                                    </a>
+                                </li>
+
                                 <li class="nav-item {{active('register')}}">
                                     <a class="nav-link" href="{{ url('/user/register') }}">
                                         <i class="fa fa-user"></i> Create Account
@@ -52,29 +52,31 @@
                         @endif
                     @else
                         @if(Module::isEnabled('User'))
-                            <li class="dropdown">
-                                <a class="nav-link" href="#" class="dropdown-toggle"
-                                   data-toggle="dropdown"
-                                   role="button"
-                                   aria-expanded="false">
-                                    {{ user()->full_name }} <span class="caret"></span>
-                                </a>
+                            @if(config('user.allow_user_registration', true))
+                                <li class="dropdown">
+                                    <a class="nav-link" href="#" class="dropdown-toggle"
+                                       data-toggle="dropdown"
+                                       role="button"
+                                       aria-expanded="false">
+                                        {{ user()->full_name }} <span class="caret"></span>
+                                    </a>
 
-                                <ul class="dropdown-menu" role="menu">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ url('/user/logout') }}"
-                                           onclick="event.preventDefault();
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ url('/user/logout') }}"
+                                               onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                                            Sign Out
-                                        </a>
+                                                Sign Out
+                                            </a>
 
-                                        <form id="logout-form" action="{{ url('/user/logout') }}" method="POST"
-                                              style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
+                                            <form id="logout-form" action="{{ url('/user/logout') }}" method="POST"
+                                                  style="display: none;">
+                                                {{ csrf_field() }}
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </li>
+                            @endif
                         @endif
                     @endif
                 </ul>
