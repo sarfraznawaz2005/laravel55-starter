@@ -1,25 +1,24 @@
 {
-    "name": "eTeam/main",
-    "description": "",
-    "authors": [
-        {
-            "name": "Sarfraz Ahmed",
-            "email": "sarfraznawaz2005@gmail.com"
-        }
-    ],
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Modules\\Main\\Providers\\MainServiceProvider"
-            ],
-            "aliases": {
-                
-            }
-        }
-    },
-    "autoload": {
-        "psr-4": {
-            "Modules\\Main\\": ""
-        }
+  "name": "eTeam/main",
+  "description": "The main/frontend module.",
+  "authors": [
+    {
+      "name": "Sarfraz Ahmed",
+      "email": "sarfraznawaz2005@gmail.com"
     }
+  ],
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Modules\\Main\\Providers\\MainServiceProvider"
+      ],
+      "aliases": {
+      }
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Modules\\Main\\": ""
+    }
+  }
 }

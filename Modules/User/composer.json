@@ -1,25 +1,24 @@
 {
-    "name": "eTeam/user",
-    "description": "",
-    "authors": [
-        {
-            "name": "Sarfraz Ahmed",
-            "email": "sarfraznawaz2005@gmail.com"
-        }
-    ],
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Modules\\User\\Providers\\UserServiceProvider"
-            ],
-            "aliases": {
-                
-            }
-        }
-    },
-    "autoload": {
-        "psr-4": {
-            "Modules\\User\\": ""
-        }
+  "name": "eTeam/user",
+  "description": "The user management module.",
+  "authors": [
+    {
+      "name": "Sarfraz Ahmed",
+      "email": "sarfraznawaz2005@gmail.com"
     }
+  ],
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Modules\\User\\Providers\\UserServiceProvider"
+      ],
+      "aliases": {
+      }
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Modules\\User\\": ""
+    }
+  }
 }

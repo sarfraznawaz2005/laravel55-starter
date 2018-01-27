@@ -15,9 +15,10 @@
     "arrilot/laravel-widgets": "^3.9",
     "davejamesmiller/laravel-breadcrumbs": "^4.2",
     "doctrine/dbal": "^2.6",
+    "eusonlito/laravel-meta": "^3.1",
+    "eusonlito/laravel-packer": "^2.1",
     "fideloper/proxy": "~3.3",
     "garygreen/pretty-routes": "^1.0",
-    "graham-campbell/throttle": "^6.0",
     "jenssegers/agent": "^2.6",
     "kingofcode/laravel-uploadable": "^0.1.7",
     "lab404/laravel-impersonate": "^1.2",
@@ -30,6 +31,7 @@
     "olssonm/l5-very-basic-auth": "^4.1",
     "propaganistas/laravel-fakeid": "^2.0",
     "recca0120/terminal": "^1.6",
+    "rinvex/cacheable": "dev-develop",
     "sarfraznawaz2005/applog": "^1.0",
     "sarfraznawaz2005/eventable": "^1.0",
     "sarfraznawaz2005/queryline": "^1.0",
@@ -40,6 +42,7 @@
     "themsaid/laravel-mail-preview": "^2.0",
     "uxweb/sweet-alert": "^1.4",
     "watson/active": "^2.0",
+    "watson/validating": "^3.1",
     "yajra/laravel-datatables-oracle": "~8.0"
   },
   "require-dev": {

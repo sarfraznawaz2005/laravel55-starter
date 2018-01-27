@@ -1,25 +1,24 @@
 {
-    "name": "eTeam/admin",
-    "description": "",
-    "authors": [
-        {
-            "name": "Sarfraz Ahmed",
-            "email": "sarfraznawaz2005@gmail.com"
-        }
-    ],
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Modules\\Admin\\Providers\\AdminServiceProvider"
-            ],
-            "aliases": {
-                
-            }
-        }
-    },
-    "autoload": {
-        "psr-4": {
-            "Modules\\Admin\\": ""
-        }
+  "name": "eTeam/admin",
+  "description": "Backend/admin module.",
+  "authors": [
+    {
+      "name": "Sarfraz Ahmed",
+      "email": "sarfraznawaz2005@gmail.com"
     }
+  ],
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Modules\\Admin\\Providers\\AdminServiceProvider"
+      ],
+      "aliases": {
+      }
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Modules\\Admin\\": ""
+    }
+  }
 }

@@ -108,7 +108,7 @@ return [
         'messages' => true,  // Messages
         'time' => true,  // Time Datalogger
         'memory' => true,  // Memory usage
-        'exceptions' => true,  // Exception displayer
+        'exceptions' => false,  // Exception displayer
         'log' => true,  // Logs from Monolog (merged in messages if enabled)
         'db' => true,  // Show database (PDO) queries and bindings
         'views' => true,  // Views with their data
@@ -143,7 +143,7 @@ return [
         'db' => [
             'with_params' => true,   // Render SQL with the parameters substituted
             'backtrace' => true,   // Use a backtrace to find the origin of the query in your files.
-            'timeline' => false,  // Add the queries to the timeline
+            'timeline' => true,  // Add the queries to the timeline
             'explain' => [                 // Show EXPLAIN output on queries
                 'enabled' => true,
                 'types' => ['SELECT'],     // ['SELECT', 'INSERT', 'UPDATE', 'DELETE']; for MySQL 5.6.3+
@@ -163,7 +163,7 @@ return [
             'file' => null
         ],
         'cache' => [
-            'values' => true // collect cache values
+            'values' => false // collect cache values
         ],
     ],
 

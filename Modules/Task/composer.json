@@ -1,25 +1,24 @@
 {
-    "name": "eTeam/task",
-    "description": "",
-    "authors": [
-        {
-            "name": "Sarfraz Ahmed",
-            "email": "sarfraznawaz2005@gmail.com"
-        }
-    ],
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Modules\\Task\\Providers\\TaskServiceProvider"
-            ],
-            "aliases": {
-                
-            }
-        }
-    },
-    "autoload": {
-        "psr-4": {
-            "Modules\\Task\\": ""
-        }
+  "name": "eTeam/task",
+  "description": "The sample task management module.",
+  "authors": [
+    {
+      "name": "Sarfraz Ahmed",
+      "email": "sarfraznawaz2005@gmail.com"
     }
+  ],
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Modules\\Task\\Providers\\TaskServiceProvider"
+      ],
+      "aliases": {
+      }
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Modules\\Task\\": ""
+    }
+  }
 }

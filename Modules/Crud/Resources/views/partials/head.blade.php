@@ -8,15 +8,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{Meta::get('title') . ' :: ' . appName()}}</title>
 
-    {!! Meta::tag('robots') !!}
-
-    {!! Meta::tag('title') !!}
-
-    {!! Meta::tag('description') !!}
-    {!! Meta::tag('site_name') !!}
-    {!! Meta::tag('url') !!}
-    {!! Meta::tag('locale') !!}
-
     <link rel="shortcut icon" href="/favicon.ico">
 
     {!! Packer::css([
