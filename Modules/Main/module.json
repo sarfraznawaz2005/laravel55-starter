@@ -1,0 +1,18 @@
+{
+  "name": "Main",
+  "alias": "main",
+  "description": "The frontend/app module.",
+  "keywords": [],
+  "active": 1,
+  "order": 2,
+  "providers": [
+    "Modules\\Main\\Providers\\MainServiceProvider"
+  ],
+  "aliases": {},
+  "files": [
+    "start.php"
+  ],
+  "requires": [
+    "Core"
+  ]
+}

@@ -11,8 +11,8 @@
 // System modules that should NOT be deleted
 Module::macro('getSystemModules', function () {
     return [
-        "Backend",
-        "Frontend",
+        "Admin",
+        "Main",
         "Core",
         "Crud",
         "User",

@@ -24,7 +24,11 @@ Usage:
 
 <div class="panel panel-{{(isset($panel_type) && $panel_type) ? $panel_type : 'default'}}">
     @if (isset($panel_heading) && $panel_heading)
-        <div class="panel-heading page-header">{!! $panel_heading !!}</div>
+        <div class="panel-heading page-header">
+            <div class="pull-left" style="padding-top: 5px;">{!! $panel_heading !!}</div>
+            <div class="pull-right">@yield($id . '.component_panel_buttons')</div>
+            <div class="clearfix"></div>
+        </div>
     @endif
     @yield($id . '.component_panel_body_before')
     <div class="panel-body">@yield($id . '.component_panel_content')</div>

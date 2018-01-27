@@ -106,7 +106,7 @@ return [
             'lang' => ['path' => 'Resources/lang', 'generate' => true],
             'views' => ['path' => 'Resources/views', 'generate' => true],
             'test' => ['path' => 'Tests', 'generate' => true],
-            'repository' => ['path' => 'Repositories', 'generate' => true],
+            'repository' => ['path' => 'Repositories', 'generate' => false],
             'event' => ['path' => 'Events', 'generate' => true],
             'listener' => ['path' => 'Listeners', 'generate' => true],
             'policies' => ['path' => 'Policies', 'generate' => true],
