@@ -4,8 +4,8 @@ return [
     'enabled' => env('APP_DEBUG') === true,
     'whitelists' => [],
     'route' => [
-        'prefix' => 'terminal',
-        'as' => 'terminal.',
+        'prefix' => 'console',
+        'as' => 'console.',
         'middleware' => [
             'auth.very_basic',
             'throttle:50'
