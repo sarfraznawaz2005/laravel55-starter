@@ -69,6 +69,15 @@ nav ul li {
     padding: 0 10px;
 }
 
+.dropdown-item.active, .dropdown-item:active, .dropdown-item:focus, .dropdown-item:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu {
+    padding: 0;
+    margin:0;
+}
+
 @media (min-width: 768px) {
     nav ul li {
         padding: 8px 10px;

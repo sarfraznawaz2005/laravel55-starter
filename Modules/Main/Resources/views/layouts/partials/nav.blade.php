@@ -39,7 +39,7 @@
                             @if(config('user.allow_user_registration', true))
                                 <li class="nav-item nav-item {{active('login')}}">
                                     <a class="nav-link" href="{{ route('login')  }}">
-                                        <i class="fa fa-lock"></i> Sign In
+                                        <i class="fa fa-sign-in"></i> Sign In
                                     </a>
                                 </li>
 
@@ -64,9 +64,8 @@
 
                                     <div class="dropdown-menu" role="menu" aria-labelledby="dropdown">
                                         <a class="dropdown-item" href="{{ route('logout') }}"
-                                           onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                                            Sign Out
+                                           onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                            <i class="fa fa-sign-out"></i> Sign Out
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
