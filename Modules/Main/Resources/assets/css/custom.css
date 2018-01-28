@@ -12,6 +12,10 @@ body {
     font-size: 14px;
 }
 
+a {
+    outline: none;
+}
+
 header {
     padding: 55px 0 5px;
 }
@@ -50,4 +54,26 @@ body > .container {
 
 code {
     font-size: 80%;
+}
+
+::selection {
+    color: #fff;
+    background: #6f42c1;
+}
+
+
+nav ul li {
+    padding: 8px 10px;
+}
+
+nav ul li:hover, nav ul li.active {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+nav.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top {
+    padding: 0;
+}
+
+li.nav-item {
+    height: 50px;
 }
