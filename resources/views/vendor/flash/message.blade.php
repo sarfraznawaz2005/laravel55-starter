@@ -19,7 +19,7 @@
             >&times;
             </button>
 
-            <strong><i class="glyphicon glyphicon-info-sign"></i>
+            <strong><i class="fa fa-info-circle"></i>
                 {!! ucwords($message['message']) !!}
             </strong>
         </div>

@@ -13,6 +13,7 @@ use Modules\Core\Traits\Model\Purgeable;
 use Modules\Task\Models\Task;
 use Modules\User\Notifications\PasswordWasReset;
 use Propaganistas\LaravelFakeId\FakeIdTrait;
+use Rinvex\Cacheable\CacheableEloquent;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends CoreModel implements AuthenticatableContract, CanResetPasswordContract
@@ -24,6 +25,9 @@ class User extends CoreModel implements AuthenticatableContract, CanResetPasswor
 
     // automatic fake model id
     use FakeIdTrait;
+
+    // cache queries on the model
+    use CacheableEloquent;
 
     // to log who created, updated or deleted
     // use ModelLogger;
@@ -48,6 +52,9 @@ class User extends CoreModel implements AuthenticatableContract, CanResetPasswor
         'name',
         'email',
         'password',
+        'confirmation_code',
+        'active',
+        'confirmed',
     ];
 
     protected $guarded = ['id'];
@@ -64,10 +71,10 @@ class User extends CoreModel implements AuthenticatableContract, CanResetPasswor
 
     /**
      * The validation rules.
-     *-
+     *
      * @var array
      */
-    public static $rules = [
+    protected $rules = [
         'name' => 'required|max:50',
         'email' => 'required|email|unique:users',
     ];

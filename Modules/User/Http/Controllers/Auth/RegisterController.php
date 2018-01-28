@@ -65,7 +65,7 @@ class RegisterController extends CoreController
         $instance = $user->create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => $data['password'],
+            'password' => bcrypt($data['password']),
             'confirmation_code' => $confirmationCode,
             'active' => config('user.activate_user_on_registration') ? 1 : 0,
             'confirmed' => config('user.account_email_verification') ? 0 : 1,
