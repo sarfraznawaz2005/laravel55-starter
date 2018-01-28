@@ -27,13 +27,13 @@ Usage:
 <div class="card bg-{{$card_type ?? 'light'}} mb-3">
     @if (isset($card_heading) && $card_heading)
         <div class="card-header bg-{{$card_heading_type ?? 'light'}} {{$card_heading_color ?? ''}}">
-            <div class="pull-left" style="padding-top: 5px;"><strong>{!! $card_heading !!}</strong></div>
+            <div class="pull-left" style="padding-top: 2px;"><strong>{!! $card_heading !!}</strong></div>
             <div class="pull-right">@yield($id . '.component_card_buttons')</div>
             <div class="clearfix"></div>
         </div>
     @endif
     @yield($id . '.component_card_body_before')
-    <div class="card-body" style="{{$style}}">
+    <div class="card-body" style="padding:5px 20px;">
         <p class="card-text">@yield($id . '.component_card_content')</p>
     </div>
     @if ($show_card_footer)

@@ -39,7 +39,6 @@
                 'card_heading_type' => '',
                 'card_heading_color' => '',
                 'show_card_footer' => true,
-                'style' => 'padding:5px 20px'
             ])
 
         </div>
