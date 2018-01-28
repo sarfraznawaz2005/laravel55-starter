@@ -9,6 +9,10 @@ Usage:
     This is content
 @endsection
 
+@section('panel_id.component_panel_buttons')
+        <button class="btn btn-success btn-sm">Submit</button>
+@endsection
+
 @section('panel_id.component_panel_footer')
     This is footer
 @endsection

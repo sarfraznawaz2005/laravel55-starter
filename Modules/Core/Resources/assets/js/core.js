@@ -18,16 +18,13 @@ $(function () {
     $('#flash-overlay-modal').modal();
 
     // avoid onkeyup search in datatables filter, use Enter button instead
-    if (!isMobile.any) {
-        $dataTable.dataTable().fnFilterOnReturn();
-    }
+    $dataTable.dataTable().fnFilterOnReturn();
 
     // throw datatables errors to console instead of alert box
     $.fn.dataTable.ext.errMode = 'throw';
 
     // select 2 for dropdowns
-    var $select2 = $('select').not('.no_select2').select2();
-    $select2.length && $select2.data('select2').$container.addClass('wrap');
+    $('select').not('.no_select2').select2();
 
     // file upload style
     $(':file').filestyle({
@@ -135,32 +132,34 @@ $('body').on('click', '.confirm-delete', function (e) {
     swal({
         title: "Are you sure?",
         text: label + " will be deleted!",
-        type: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#DD6B55",
-        confirmButtonText: "Yes, delete it!",
-        closeOnConfirm: false
-    }, function () {
-        swal.disableButtons();
-        $form.submit();
-    });
+        icon: "warning",
+        buttons: ["Cancel", "Yes, delete it!"],
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                document.querySelector('.swal-button').disabled = true;
+                $form.submit();
+            }
+        });
 
     return false;
 });
 
-function showAlert(message, type, closeOnEscapeKey, callback) {
+function showAlert(message, title, type, closeOnEscapeKey, callback) {
     type = type || '';
+    title = title || '';
 
     if (typeof closeOnEscapeKey === 'undefined') {
         closeOnEscapeKey = true;
     }
 
     swal({
-        title: "Information",
+        title: title,
         text: message,
-        type: type,
-        html: true,
-        allowEscapeKey: closeOnEscapeKey
+        icon: type,
+        content: message,
+        closeOnEsc: closeOnEscapeKey
     });
 
     if (typeof callback !== 'undefined' && typeof callback === 'function') {
@@ -170,19 +169,15 @@ function showAlert(message, type, closeOnEscapeKey, callback) {
 
 function showConfirm(message, callback) {
     swal({
-            title: "Are you sure?",
-            text: message,
-            type: "warning",
-            showCancelButton: true,
-            closeOnEscapeKey: true,
-            confirmButtonColor: '#DD6B55',
-            confirmButtonText: 'Yes, I am sure!',
-            cancelButtonText: "No, cancel it!",
-            closeOnConfirm: true,
-            closeOnCancel: true
-        },
-        function (isConfirm) {
-            if (isConfirm) {
+        title: "Are you sure?",
+        text: message,
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                document.querySelector('.swal-button').disabled = true;
                 callback();
             }
         });

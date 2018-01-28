@@ -5,7 +5,7 @@ return [
     'slogan' => '',
 
     # specify whether to use breadcrumb feature
-    'breadcrumb' => true,
+    'breadcrumb' => false,
 
     'datatable' => [
         # rows per page

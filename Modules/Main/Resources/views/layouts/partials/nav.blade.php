@@ -1,5 +1,5 @@
-<header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+<header class="bg-primary text-white">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="/">
                 <strong><i class="fa fa-code"></i> {{appName()}}</strong>
@@ -84,4 +84,9 @@
             </div>
         </div>
     </nav>
+
+    <div class="text-center page-title animated bounceInDown">
+        <h1 class="display-4">{{Meta::get('title')}}</h1>
+    </div>
+
 </header>

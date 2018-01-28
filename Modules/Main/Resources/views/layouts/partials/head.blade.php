@@ -21,7 +21,6 @@
     '/modules/core/css/bootstrap/bootstrap.min.css',
     '/modules/core/js/plugins/datatables/datatables.bootstrap.css',
     '/modules/core/js/plugins/datatables/responsive/responsive.dataTables.min.css',
-    '/modules/core/js/plugins/sweetalert/dist/sweetalert.css',
     '/modules/core/js/plugins/select2/select2.min.css',
     '/modules/core/js/plugins/summernote/summernote.css',
     '/modules/core/css/loader.css',
@@ -32,6 +31,7 @@
     !!}
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
     @stack('styles')
 
