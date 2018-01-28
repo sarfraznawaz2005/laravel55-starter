@@ -9,7 +9,7 @@
                     {!! Former::open()->action(route('register'))->method('post')->class('validate') !!}
 
                     {!!
-                         Former::email('name')
+                         Former::text('name')
                          ->required()
                          ->label('')
                          ->placeholder('Name')
@@ -24,7 +24,7 @@
                     !!}
 
                     {!!
-                        Former::email('password', 'Password')
+                        Former::password('password', 'Password')
                         ->required()
                         ->label('')
                         ->placeholder('Password')
@@ -32,7 +32,7 @@
                     !!}
 
                     {!!
-                         Former::email('password_confirmation', 'Confirm Password')
+                         Former::password('password_confirmation', 'Confirm Password')
                          ->required()
                          ->label('')
                          ->placeholder('Confirm Password')

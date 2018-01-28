@@ -17,7 +17,7 @@
                     !!}
 
                     {!!
-                        Former::email('password', 'Password')
+                        Former::password('password', 'Password')
                         ->required()
                         ->label('')
                         ->placeholder('Password')
