@@ -1,4 +1,4 @@
-<header class="bg-primary text-white">
+<header style="background: #d0d0d0;">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
