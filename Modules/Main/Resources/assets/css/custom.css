@@ -3,6 +3,7 @@
 html {
     position: relative;
     min-height: 100%;
+    font-size: 14px;
 }
 
 body {
@@ -12,11 +13,11 @@ body {
 }
 
 header {
-    padding: 70px 0 5px;
+    padding: 55px 0 5px;
 }
 
 header .page-title h1 {
-    font-size: 24px;
+    font-size: 30px;
 }
 
 .footer {

@@ -75,7 +75,7 @@ class LoginController extends CoreController
         if ($this->guard()->attempt($credentials, $request->has('remember'))) {
 
             // success
-            alert(user()->name . '!', 'Welcome!');
+            alert(user()->name . '!', 'Welcome!')->autoclose(3000);
 
             VisitLog::save();
 

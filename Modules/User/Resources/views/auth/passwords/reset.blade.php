@@ -7,6 +7,7 @@
 
                 @section('mycard.component_card_content')
                     {!! Former::open()->action(route('password.request'))->method('post')->class('validate') !!}
+                    {!! Former::hidden('token')->value($token) !!}
 
                     {!!
                         Former::email('email', 'E-Mail Address')
@@ -47,7 +48,7 @@
                     'card_type' => '',
                     'card_heading_type' => '',
                     'card_heading_color' => '',
-                    'show_card_footer' => true,
+                    'show_card_footer' => false,
                     'style' => 'padding:5px 20px'
                 ])
 

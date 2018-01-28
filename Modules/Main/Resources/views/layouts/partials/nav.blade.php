@@ -53,28 +53,27 @@
                     @else
                         @if(Module::isEnabled('User'))
                             @if(config('user.allow_user_registration', true))
-                                <li class="dropdown">
-                                    <a class="nav-link" href="#" class="dropdown-toggle"
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#"
                                        data-toggle="dropdown"
+                                       id="dropdown"
                                        role="button"
                                        aria-expanded="false">
                                         {{ user()->full_name }} <span class="caret"></span>
                                     </a>
 
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('logout') }}"
-                                               onclick="event.preventDefault();
+                                    <div class="dropdown-menu" role="menu" aria-labelledby="dropdown">
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                                                Sign Out
-                                            </a>
+                                            Sign Out
+                                        </a>
 
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                                  style="display: none;">
-                                                {{ csrf_field() }}
-                                            </form>
-                                        </li>
-                                    </ul>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                              style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </div>
                                 </li>
                             @endif
                         @endif
