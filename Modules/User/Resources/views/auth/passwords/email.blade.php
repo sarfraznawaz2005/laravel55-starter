@@ -3,44 +3,45 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
+        <div class="col-md-6 offset-3">
 
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+            @section('mycard.component_card_content')
+                {!! Former::open()->action(route('password.email'))->method('post')->class('validate') !!}
 
-                    <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
-                        {{ csrf_field() }}
+                {!!
+                    Former::email('email', 'E-Mail Address')
+                    ->required()
+                    ->label('')
+                    ->placeholder('E-Mail Address')
+                    ->autocomplete('off')
+                !!}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                {!!
+                Former::actions(Former::primary_button('<span class="fa fa-paper-plane"></span> Reset Password')
+                ->type('submit')
+                ->class('btn btn-block btn-success btn-raised'))
+                !!}
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                {!! Former::close() !!}
+            @endsection
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+            @section('mycard.component_card_footer')
+                    <div class="text-center">
+                        <i class="fa fa-info-circle"></i> Already have an account?
+                        <a href="{{ route('login') }}">Sign In</a>
+                    </div>
+            @endsection
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Send Password Reset Link
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            @include('core::components.card', [
+                'id' => 'mycard',
+                'card_heading' => '<i class="fa fa-lock"></i> Reset Password',
+                'card_type' => '',
+                'card_heading_type' => '',
+                'card_heading_color' => '',
+                'show_card_footer' => true,
+                'style' => 'padding:5px 20px'
+            ])
+
         </div>
     </div>
 </div>

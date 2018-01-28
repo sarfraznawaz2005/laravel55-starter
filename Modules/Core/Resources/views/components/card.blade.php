@@ -1,10 +1,6 @@
 {{--
 Usage:
 
-@section('card_id.component_card_body_before')
-    This is content before body
-@endsection
-
 @section('card_id.component_card_content')
     This is content
 @endsection
@@ -18,7 +14,7 @@ Usage:
 @endsection
 
 @include('core::components.card', [
-    'id' => 'main_frontend_card',
+    'id' => 'card_id',
     'card_heading' => 'Some Title',
     'card_type' => 'light',
     'card_heading_type' => 'secondary',
@@ -37,7 +33,7 @@ Usage:
         </div>
     @endif
     @yield($id . '.component_card_body_before')
-    <div class="card-body">
+    <div class="card-body" style="{{$style}}">
         <p class="card-text">@yield($id . '.component_card_content')</p>
     </div>
     @if ($show_card_footer)

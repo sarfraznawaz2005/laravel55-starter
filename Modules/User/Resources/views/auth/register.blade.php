@@ -1,77 +1,71 @@
 @extends('main::layouts.master')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-3">
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
+                @section('mycard.component_card_content')
+                    {!! Former::open()->action(route('register'))->method('post')->class('validate') !!}
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+                    {!!
+                         Former::email('name')
+                         ->required()
+                         ->label('')
+                         ->placeholder('Name')
+                     !!}
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                    {!!
+                        Former::email('email', 'E-Mail Address')
+                        ->required()
+                        ->label('')
+                        ->placeholder('E-Mail Address')
+                        ->autocomplete('off')
+                    !!}
 
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+                    {!!
+                        Former::email('password', 'Password')
+                        ->required()
+                        ->label('')
+                        ->placeholder('Password')
+                        ->autocomplete('off')
+                    !!}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                    {!!
+                         Former::email('password_confirmation', 'Confirm Password')
+                         ->required()
+                         ->label('')
+                         ->placeholder('Confirm Password')
+                         ->autocomplete('off')
+                     !!}
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                    {!!
+                    Former::actions(Former::primary_button('<span class="fa fa-paper-plane"></span> Sign Up')
+                    ->type('submit')
+                    ->class('btn btn-block btn-success btn-raised'))
+                    !!}
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+                    {!! Former::close() !!}
+                @endsection
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+                @section('mycard.component_card_footer')
+                    <div class="text-center">
+                        <i class="fa fa-info-circle"></i> Already have an account?
+                        <a href="{{ route('login') }}">Sign In</a>
+                    </div>
+                @endsection
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
+                @include('core::components.card', [
+                    'id' => 'mycard',
+                    'card_heading' => '<i class="fa fa-user"></i> Account Details',
+                    'card_type' => '',
+                    'card_heading_type' => '',
+                    'card_heading_color' => '',
+                    'show_card_footer' => true,
+                    'style' => 'padding:5px 20px'
+                ])
 
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

@@ -1,69 +1,74 @@
 @extends('main::layouts.master')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-3">
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
+                @section('mycard.component_card_content')
+                    {!! Former::open()->action(route('login'))->method('post')->class('validate') !!}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                    {!!
+                        Former::email('email', 'E-Mail Address')
+                        ->required()
+                        ->label('')
+                        ->placeholder('E-Mail Address')
+                        ->autocomplete('off')
+                    !!}
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                    {!!
+                        Former::email('password', 'Password')
+                        ->required()
+                        ->label('')
+                        ->placeholder('Password')
+                        ->autocomplete('off')
+                    !!}
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
+                    @if(config('user.remember_me_checkbox', true))
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                                    Remember Me
+                                </label>
                             </div>
                         </div>
+                    @endif
 
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
+                    {!!
+                    Former::actions(Former::primary_button('<span class="fa fa-paper-plane"></span> Sign In')
+                    ->type('submit')
+                    ->class('btn btn-block btn-success btn-raised'))
+                    !!}
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                    {!! Former::close() !!}
+                @endsection
+
+                @section('mycard.component_card_footer')
+                    <div class="pull-left">
+                        <a href="{{ route('password.request') }}">
+                            Forgot Password
+                        </a>
+                    </div>
+                    <div class="pull-right">
+                        <a href="{{ route('register') }}">
+                            Create Account
+                        </a>
+                    </div>
+                    <div class="clearfix"></div>
+                @endsection
+
+                @include('core::components.card', [
+                    'id' => 'mycard',
+                    'card_heading' => '<i class="fa fa-lock"></i> Account Details',
+                    'card_type' => '',
+                    'card_heading_type' => '',
+                    'card_heading_color' => '',
+                    'show_card_footer' => true,
+                    'style' => 'padding:5px 20px'
+                ])
+
             </div>
         </div>
     </div>
-</div>
 @endsection
