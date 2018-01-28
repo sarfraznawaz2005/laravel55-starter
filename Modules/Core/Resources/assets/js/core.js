@@ -133,7 +133,21 @@ $('body').on('click', '.confirm-delete', function (e) {
         title: "Are you sure?",
         text: label + " will be deleted!",
         icon: "warning",
-        buttons: ["Cancel", "Yes, delete it!"],
+        buttons: {
+            cancel: {
+                text: "Cancel",
+                value: null,
+                visible: true,
+                closeModal: true,
+            },
+            confirm: {
+                text: "Yes, delete it!",
+                value: true,
+                visible: true,
+                closeModal: false
+            }
+        },
+        closeOnEsc: true,
         dangerMode: true,
     })
         .then((willDelete) => {
@@ -149,9 +163,14 @@ $('body').on('click', '.confirm-delete', function (e) {
 function showAlert(message, title, type, closeOnEscapeKey, callback) {
     type = type || '';
     title = title || '';
+    var closeOnClickOutside = true;
 
     if (typeof closeOnEscapeKey === 'undefined') {
         closeOnEscapeKey = true;
+    }
+
+    if (closeOnEscapeKey === false) {
+        closeOnClickOutside = false;
     }
 
     swal({
@@ -159,7 +178,8 @@ function showAlert(message, title, type, closeOnEscapeKey, callback) {
         text: message,
         icon: type,
         content: message,
-        closeOnEsc: closeOnEscapeKey
+        closeOnEsc: closeOnEscapeKey,
+        closeOnClickOutside: closeOnClickOutside
     });
 
     if (typeof callback !== 'undefined' && typeof callback === 'function') {
@@ -172,7 +192,21 @@ function showConfirm(message, callback) {
         title: "Are you sure?",
         text: message,
         icon: "warning",
-        buttons: true,
+        buttons: {
+            cancel: {
+                text: "Cancel",
+                value: null,
+                visible: true,
+                closeModal: true,
+            },
+            confirm: {
+                text: "Okay",
+                value: true,
+                visible: true,
+                closeModal: false
+            }
+        },
+        closeOnEsc: true,
         dangerMode: true,
     })
         .then((willDelete) => {

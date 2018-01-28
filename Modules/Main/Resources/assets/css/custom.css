@@ -18,7 +18,8 @@ header {
 
 header .page-title h1 {
     font-family: 'Raleway', sans-serif;
-    font-size: 40px;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .footer {

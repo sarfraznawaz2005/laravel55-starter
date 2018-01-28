@@ -1,4 +1,6 @@
 <?php
-Route::group(['middleware' => 'XSSProtection'], function () {
 
+Route::group(['middleware' => 'XSSProtection'], function () {
+    // abandoned area...
 });
+

@@ -8,18 +8,17 @@
 
 namespace Modules\Core\Http\Controllers;
 
-use function appName;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Routing\Controller;
-use Modules\Core\Traits\Crudable;
+use Illuminate\Routing\Controller as BaseController;
 use Meta;
-use function request;
+use Modules\Core\Traits\Crudable;
 
-class CoreController extends Controller
+class CoreController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
     use Crudable;
 
     const ADD_MESSAGE = 'Added Successfully!';

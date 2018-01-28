@@ -1,7 +1,7 @@
 <header class="bg-primary text-white">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" href="{{ url('/') }}">
                 <strong><i class="fa fa-code"></i> {{appName()}}</strong>
             </a>
 
@@ -15,7 +15,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item {{active(['/', 'home'])}}">
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" href="{{ url('/') }}">Home</a>
                     </li>
 
                     @if(Module::isEnabled('Task'))
@@ -38,13 +38,13 @@
                         @if(Module::isEnabled('User'))
                             @if(config('user.allow_user_registration', true))
                                 <li class="nav-item nav-item {{active('login')}}">
-                                    <a class="nav-link" href="{{ url('/user/login') }}">
+                                    <a class="nav-link" href="{{ route('login')  }}">
                                         <i class="fa fa-lock"></i> Sign In
                                     </a>
                                 </li>
 
                                 <li class="nav-item {{active('register')}}">
-                                    <a class="nav-link" href="{{ url('/user/register') }}">
+                                    <a class="nav-link" href="{{ route('register') }}">
                                         <i class="fa fa-user"></i> Create Account
                                     </a>
                                 </li>
@@ -63,13 +63,13 @@
 
                                     <ul class="dropdown-menu" role="menu">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ url('/user/logout') }}"
+                                            <a class="nav-link" href="{{ route('logout') }}"
                                                onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
                                                 Sign Out
                                             </a>
 
-                                            <form id="logout-form" action="{{ url('/user/logout') }}" method="POST"
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                                   style="display: none;">
                                                 {{ csrf_field() }}
                                             </form>
