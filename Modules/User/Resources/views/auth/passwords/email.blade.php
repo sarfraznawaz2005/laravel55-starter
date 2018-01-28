@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-6 offset-3">
+        <div class="col-md-6 offset-md-3">
 
             @section('mycard.component_card_content')
                 {!! Former::open()->action(route('password.email'))->method('post')->class('validate') !!}
