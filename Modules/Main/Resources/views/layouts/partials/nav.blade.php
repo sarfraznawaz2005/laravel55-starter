@@ -1,5 +1,5 @@
-<header style="background: #d0d0d0;">
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+<header class="{{getThemeColor()['textColor']}}" style="background: {{getThemeColor()['titleColor']}};">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark {{getThemeColor()['navColor']}} fixed-top">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 <strong><i class="fa fa-code"></i> {{appName()}}</strong>

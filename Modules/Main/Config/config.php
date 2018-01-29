@@ -3,6 +3,7 @@
 return [
     'name' => 'Main',
     'slogan' => '',
+    'theme' => 'default', // available: default, dark, gray, purple, blue, green, red, orange
 
     # specify whether to use breadcrumb feature
     'breadcrumb' => false,
