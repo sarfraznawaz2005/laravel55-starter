@@ -142,7 +142,7 @@ class VendorCleanup extends Command
             }
         }
 
-        echo ('Vendor Cleanup Done!') . PHP_EOL;
+        $this->out('Vendor Cleanup Done!');
     }
 
     /**
