@@ -4,7 +4,7 @@ return [
     'enabled' => env('APP_DEBUG') === true,
     'whitelists' => [],
     'route' => [
-        'prefix' => 'console',
+        'prefix' => 'console__',
         'as' => 'console.',
         'middleware' => [
             'auth.very_basic',
