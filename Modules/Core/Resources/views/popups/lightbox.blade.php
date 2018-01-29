@@ -36,37 +36,35 @@
     // example
     // <img data-lightbox="path to original big image" data-toggle="modal" data-target="#lightbox" src="path to small image">
 
-    (function ($) {
-        $.fn.lightbox = function () {
-            var $lightbox = $('#lightbox');
+    $.fn.lightbox = function () {
+        var $lightbox = $('#lightbox');
 
-            $(this).on('click', function (event) {
-                var $img = $(this).is('img') ? $(this) : $(this).find('img');
-                var
-                    src = $img.data('lightbox'),
-                    alt = $img.attr('alt'),
-                    css = {
-                        'maxWidth': $(window).width() - 100,
-                        'maxHeight': $(window).height() - 100
-                    };
+        $(this).on('click', function (event) {
+            var $img = $(this).is('img') ? $(this) : $(this).find('img');
+            var
+                src = $img.data('lightbox'),
+                alt = $img.attr('alt'),
+                css = {
+                    'maxWidth': $(window).width() - 100,
+                    'maxHeight': $(window).height() - 100
+                };
 
-                $lightbox.find('.close').addClass('hidden');
-                $lightbox.find('img').attr('src', src);
-                $lightbox.find('img').attr('alt', alt);
-                $lightbox.find('img').css(css);
-            });
+            $lightbox.find('.close').addClass('hidden');
+            $lightbox.find('img').attr('src', src);
+            $lightbox.find('img').attr('alt', alt);
+            $lightbox.find('img').css(css);
+        });
 
-            $lightbox.on('shown.bs.modal', function (e) {
-                var $img = $lightbox.find('img');
+        $lightbox.on('shown.bs.modal', function (e) {
+            var $img = $lightbox.find('img');
 
-                // remove modal cache
-                $(this).removeData('bs.modal');
+            // remove modal cache
+            $(this).removeData('bs.modal');
 
-                $lightbox.find('.modal-dialog').css({'width': $img.width()});
-                $lightbox.find('.close').removeClass('hidden');
-            });
-        }
-    })(jQuery);
+            $lightbox.find('.modal-dialog').css({'width': $img.width()});
+            $lightbox.find('.close').removeClass('hidden');
+        });
+    };
 
     $(document).ready(function () {
         $('[data-target="#lightbox"]').lightbox();
