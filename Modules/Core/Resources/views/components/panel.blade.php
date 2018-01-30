@@ -1,4 +1,8 @@
 {{--
+///////////////////////////////////////
+This is for bootstrap 3 only.
+///////////////////////////////////////
+
 Usage:
 
 @section('panel_id.component_panel_body_before')

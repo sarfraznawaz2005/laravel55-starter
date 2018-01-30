@@ -6,7 +6,7 @@ Route::group(['middleware' => 'XSSProtection'], function () {
         ### PUBLIC ROUTES START ###
         #===========================================================#
 
-        Route::get('/', 'MainController')->name('home');
+        Route::get('/', 'MainController');
         Route::get('/home', 'MainController')->name('home');
 
         ### PUBLIC ROUTES END ###

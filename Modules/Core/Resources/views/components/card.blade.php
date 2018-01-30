@@ -32,7 +32,6 @@ Usage:
             <div class="clearfix"></div>
         </div>
     @endif
-    @yield($id . '.component_card_body_before')
     <div class="card-body" style="padding:5px 20px;">
         <p class="card-text">@yield($id . '.component_card_content')</p>
     </div>

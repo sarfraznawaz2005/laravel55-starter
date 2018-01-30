@@ -32,9 +32,9 @@
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
-    @stack('styles')
-
     <script>
         window.Laravel = <?=json_encode(['csrfToken' => csrf_token()]); ?>
     </script>
+
+    @stack('styles')
 </head>

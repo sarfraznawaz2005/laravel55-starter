@@ -29,14 +29,14 @@
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
-                                    Remember Me
+                                    Stay Signed In
                                 </label>
                             </div>
                         </div>
                     @endif
 
                     {!!
-                    Former::actions(Former::primary_button('<span class="fa fa-paper-plane"></span> Sign In')
+                    Former::actions(Former::primary_button('<span class="fa fa-sign-in"></span> Sign In')
                     ->type('submit')
                     ->class('btn btn-block btn-success btn-raised'))
                     !!}
