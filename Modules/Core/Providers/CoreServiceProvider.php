@@ -2,17 +2,17 @@
 
 namespace Modules\Core\Providers;
 
-use function config;
+use Bepsvpt\SecureHeaders\SecureHeadersServiceProvider;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Modules\Core\Console\Cleanup;
 use Modules\Core\Console\VendorCleanup;
-use Modules\Core\Http\Middleware\Headers;
 use Modules\Core\Http\Middleware\HttpsProtocol;
 use Modules\Core\Http\Middleware\MinifyResponse;
 use Modules\Core\Http\Middleware\XSSProtection;
+use function config;
 
 class CoreServiceProvider extends ServiceProvider
 {
@@ -40,11 +40,9 @@ class CoreServiceProvider extends ServiceProvider
         #################################################
         // register our custom middlewares
         #################################################
+
         // route middlewares
         $router->aliasMiddleware('XSSProtection', XSSProtection::class);
-
-        // global middlewares
-        $kernel->pushMiddleware(Headers::class);
 
         if (config('core.settings.minify_html_response')) {
             $kernel->pushMiddleware(MinifyResponse::class);
@@ -65,6 +63,9 @@ class CoreServiceProvider extends ServiceProvider
 
             // turn on https mode
             $kernel->pushMiddleware(HttpsProtocol::class);
+
+            // setup secure headers
+            $kernel->pushMiddleware(SecureHeadersServiceProvider::class);
 
             // disable query log
             queryLog(false);
