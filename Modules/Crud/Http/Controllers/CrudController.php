@@ -224,7 +224,7 @@ class CrudController extends CoreController
             }
         }
 
-        $command = $this->getArtisan() . 'migrate';
+        $command = $this->getArtisan() . 'migrate --force';
 
         $output .= shell_exec($command . ' 2>&1');
 
