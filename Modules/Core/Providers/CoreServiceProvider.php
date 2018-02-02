@@ -10,7 +10,7 @@ use Illuminate\Support\ServiceProvider;
 use Modules\Core\Console\Cleanup;
 use Modules\Core\Console\VendorCleanup;
 use Modules\Core\Http\Middleware\HttpsProtocol;
-use Modules\Core\Http\Middleware\MinifyResponse;
+use Modules\Core\Http\Middleware\OptimizeMiddleware;
 use Modules\Core\Http\Middleware\XSSProtection;
 use function config;
 
@@ -45,7 +45,7 @@ class CoreServiceProvider extends ServiceProvider
         $router->aliasMiddleware('XSSProtection', XSSProtection::class);
 
         if (config('core.settings.minify_html_response')) {
-            $kernel->pushMiddleware(MinifyResponse::class);
+            $kernel->pushMiddleware(OptimizeMiddleware::class);
         }
 
         #################################################
