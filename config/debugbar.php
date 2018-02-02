@@ -21,6 +21,7 @@ return [
         'crud',
         'applogs__',
         'routes__',
+        'admin',
     ],
 
     /*

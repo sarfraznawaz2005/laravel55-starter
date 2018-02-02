@@ -4,6 +4,8 @@ namespace Modules\Admin\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\Admin\Http\Middleware\AdminMiddleware;
+use Illuminate\Routing\Router;
 
 class AdminServiceProvider extends ServiceProvider
 {
@@ -19,13 +21,19 @@ class AdminServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(Router $router)
     {
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
         $this->registerFactories();
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
+
+        #################################################
+        // register our custom middlewares
+        #################################################
+        // route middlewares
+        $router->aliasMiddleware('admin', AdminMiddleware::class);
     }
 
     /**
@@ -46,10 +54,10 @@ class AdminServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            __DIR__.'/../Config/config.php' => config_path('admin.php'),
+            __DIR__ . '/../Config/config.php' => config_path('admin.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            __DIR__.'/../Config/config.php', 'admin'
+            __DIR__ . '/../Config/config.php', 'admin'
         );
     }
 
@@ -62,11 +70,11 @@ class AdminServiceProvider extends ServiceProvider
     {
         $viewPath = resource_path('views/modules/admin');
 
-        $sourcePath = __DIR__.'/../Resources/views';
+        $sourcePath = __DIR__ . '/../Resources/views';
 
         $this->publishes([
             $sourcePath => $viewPath
-        ],'views');
+        ], 'views');
 
         $this->loadViewsFrom(array_merge(array_map(function ($path) {
             return $path . '/modules/admin';
@@ -85,7 +93,7 @@ class AdminServiceProvider extends ServiceProvider
         if (is_dir($langPath)) {
             $this->loadTranslationsFrom($langPath, 'admin');
         } else {
-            $this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'admin');
+            $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'admin');
         }
     }
 
@@ -95,7 +103,7 @@ class AdminServiceProvider extends ServiceProvider
      */
     public function registerFactories()
     {
-        if (! app()->environment('production')) {
+        if (!app()->environment('production')) {
             app(Factory::class)->load(__DIR__ . '/../Database/factories');
         }
     }

@@ -1,5 +1,8 @@
 <?php
 
 return [
-    'name' => 'Admin'
+    'name' => 'Admin',
+
+    # specify whether to use breadcrumb feature
+    'breadcrumb' => true,
 ];

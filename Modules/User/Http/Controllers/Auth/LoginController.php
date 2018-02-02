@@ -72,10 +72,15 @@ class LoginController extends CoreController
         // also check if user is active
         $credentials['active'] = 1;
 
+        // also check if user is confirmed
+        if (config('user.account_email_verification')) {
+            $credentials['confirmed'] = 1;
+        }
+
         if ($this->guard()->attempt($credentials, $request->has('remember'))) {
 
             // success
-            alert(user()->name . '!', 'Welcome!')->autoclose(3000);
+            alert(user()->full_name . '!', 'Welcome!')->autoclose(3000);
 
             VisitLog::save();
 
@@ -112,6 +117,8 @@ class LoginController extends CoreController
         $request->session()->regenerate();
 
         $request->session()->invalidate();
+
+        @session_regenerate_id(true);
 
         flash('You are logged out.', 'success');
 

@@ -1,0 +1,124 @@
+/* custom backend css here */
+
+.page-header {
+    margin: 5px 0 0 0;
+}
+
+.page-header {
+    border: none;
+}
+
+.page-header h1 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.panel-heading.page-header {
+    margin: 0;
+}
+
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    vertical-align: inherit;
+    font-size: 12px;
+}
+
+.table-bordered > thead > tr > th, .table-bordered > thead > tr > td {
+    border-bottom-width: 0;
+}
+
+table.dataTable thead th {
+    color: #666;
+    text-align: left;
+    background-image: linear-gradient(#eee, #ddd);
+}
+
+.details-tables td, th {
+    padding: 5px 15px;
+}
+
+th:last-child, td:last-child {
+    width: auto;
+}
+
+td a {
+    text-decoration: none;
+}
+
+table.dataTable {
+    max-width: none !important;
+    width: 100% !important;
+}
+
+legend {
+    border-style: none;
+    border-width: 0;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    margin-bottom: 0;
+    width: auto;
+    padding: 0 10px;
+    border: 1px solid #e0e0e0;
+    background: #eee;
+}
+
+fieldset {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* fix summernote toolbar colors */
+.note-editor.panel-default .btn-default {
+    color: #000 !important;
+    background: #ddd !important;;
+    border-color: #ddd !important;;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.highlight {
+    background-color: slategray;
+    color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.highlight2 {
+    background-color: #ddd;
+    color: #000;
+    padding: 5px;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.highlight3 {
+    background-color: #fff5c7;
+    color: #000;
+    padding: 5px;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.nav-tabs > li > a {
+    font-weight: bold;
+}
+
+.select2 .select2-selection--single, .select2 .select2-selection__rendered {
+    line-height: 35px !important;
+    height: 35px !important;
+}

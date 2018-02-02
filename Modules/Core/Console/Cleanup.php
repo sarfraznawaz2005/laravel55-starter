@@ -62,10 +62,7 @@ class Cleanup extends Command
         // clean minify plugin cache folders
         File::cleanDirectory(public_path('storage/cache/js'));
         File::cleanDirectory(public_path('storage/cache/css'));
-        File::cleanDirectory(public_path('storage/backend/cache/js'));
-        File::cleanDirectory(public_path('storage/backend/cache/css'));
-        File::cleanDirectory(public_path('storage/frontend/cache/js'));
-        File::cleanDirectory(public_path('storage/frontend/cache/css'));
+
 
         File::cleanDirectory(storage_path('email-previews'));
         File::cleanDirectory(storage_path('debugbar'));

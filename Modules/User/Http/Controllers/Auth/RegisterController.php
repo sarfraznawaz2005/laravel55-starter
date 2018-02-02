@@ -58,6 +58,10 @@ class RegisterController extends CoreController
      */
     protected function create(array $data)
     {
+        if (!config('user.allow_user_registration')) {
+            abort(404);
+        }
+
         $user = new User();
 
         $confirmationCode = str_random(30);
