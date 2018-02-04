@@ -59,6 +59,31 @@ HTML;
     return $html;
 }
 
+function listingDeleteButtonOld($link, $title = 'this', $showTip = true, $icon = true)
+{
+    $tooltipClass = $showTip ? 'data-tooltip' : '';
+    $csrf_field = csrf_field();
+    $method_field = method_field('DELETE');
+    $text = $icon ? '<b class="btn btn-danger btn-sm glyphicon glyphicon-trash"></b>' : 'Delete';
+    $btnClass = $icon ? '' : 'btn btn-danger btn-sm';
+
+    $html = <<< HTML
+    <form action="$link" method="POST" style="display: inline;">
+        $csrf_field
+        $method_field
+
+        <a data-placement="top" $tooltipClass data-original-title="Delete" 
+        class="delete_btn confirm-delete $btnClass"
+        data-label="$title"
+        href="javascript:void(0);">
+            $text
+        </a>
+    </form>
+HTML;
+
+    return $html;
+}
+
 /**
  * make listing view button
  *

@@ -104,7 +104,7 @@
                     </td>
                     <td align="center">
                         @if (! in_array($module->name, Module::getSystemModules()))
-                            {!! listingDeleteButton(route('crud.destroy', [$module->name]), 'Module')!!}
+                            {!! listingDeleteButtonOld(route('crud.destroy', [$module->name]), 'Module')!!}
                         @else
                             N/A
                         @endif
