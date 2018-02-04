@@ -1,7 +1,5 @@
 <?php
 
-Route::fakeIdModel('task', \Modules\Task\Models\Task::class);
-
 Route::group(['middleware' => 'XSSProtection'], function () {
     Route::group(['middleware' => 'web', 'namespace' => 'Modules\Task\Http\Controllers'],
         function () {

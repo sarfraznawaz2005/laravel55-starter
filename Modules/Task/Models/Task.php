@@ -2,10 +2,10 @@
 
 namespace Modules\Task\Models;
 
+use Balping\HashSlug\HasHashSlug;
 use Modules\Core\Models\CoreModel;
 use Modules\Core\Traits\Model\Playable;
 use Modules\User\Models\User;
-use Propaganistas\LaravelFakeId\FakeIdTrait;
 use Rinvex\Cacheable\CacheableEloquent;
 
 class Task extends CoreModel
@@ -14,7 +14,7 @@ class Task extends CoreModel
     use Playable;
 
     // automatic fake model id
-    use FakeIdTrait;
+    use HasHashSlug;
 
     // cache queries on the model
     use CacheableEloquent;
