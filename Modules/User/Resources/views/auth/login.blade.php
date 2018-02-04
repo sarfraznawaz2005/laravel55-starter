@@ -35,11 +35,7 @@
                         </div>
                     @endif
 
-                    {!!
-                    Former::actions(Former::primary_button('<span class="fa fa-sign-in"></span> Sign In')
-                    ->type('submit')
-                    ->class('btn btn-block btn-success btn-raised'))
-                    !!}
+                    @include ('core::shared.submit', ['title' => '<span class="fa fa-sign-in"></span> Sign In', 'btnClass' => 'btn btn-block btn-success btn-raised'])
 
                     {!! Former::close() !!}
                 @endsection

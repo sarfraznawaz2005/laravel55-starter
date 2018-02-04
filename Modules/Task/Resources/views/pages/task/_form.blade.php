@@ -14,10 +14,6 @@
 
 {!! Former::file('file', 'Optional Image')->accept('image/jpeg', 'image/png')->max(2, 'MB') !!}
 
-{!!
-Former::actions(Former::primary_button('<i class="fa fa-save"></i> Save')
-->type('submit')
-->class('btn btn-success'))
-!!}
+@include ('core::shared.submit')
 
 {!! Former::close() !!}

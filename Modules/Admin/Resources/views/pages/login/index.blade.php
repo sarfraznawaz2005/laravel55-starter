@@ -62,11 +62,7 @@
                     ->autocomplete('off')
                 !!}
 
-                {!!
-                Former::actions(Former::primary_button('<span class="glyphicon glyphicon-log-in"></span> Sign In')
-                ->type('submit')
-                ->class('btn btn-block btn-success'))
-                !!}
+                @include ('core::shared.submit', ['title' => '<span class="glyphicon glyphicon-log-in"></span> Sign In'])
 
                 {!! Former::close() !!}
             @endsection

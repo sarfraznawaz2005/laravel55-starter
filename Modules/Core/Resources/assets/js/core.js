@@ -88,19 +88,19 @@ $(function () {
         height: 250,
         focus: false,
         toolbar: [
-            ['undo', ['undo']],
-            ['redo', ['redo']],
-            ['style',
+            ["undo", ["undo"]],
+            ["redo", ["redo"]],
+            ["style",
                 [
-                    'clear', 'bold', 'italic', 'underline', 'fontsize',
-                    'strikethrough', /*'superscript', 'subscript',*/ 'color'
+                    "clear", "bold", "italic", "underline", "fontsize",
+                    "strikethrough", "superscript", "subscript", "color"
                 ]
             ],
-            ['para', ['ul', 'ol', 'paragraph']],
-            ['insert', ['hr', 'link', 'picture', 'table']],
-            ['fullscreen', ['fullscreen']]
-            //['codeview', ['codeview']],
-            //['help', ['help']]
+            ["para", ["ul", "ol", "paragraph"]],
+            ["insert", ["hr", "link", "picture", "table"]],
+            ["fullscreen", ["fullscreen"]],
+            ["codeview", ["codeview"]],
+            ["help", ["help"]]
         ]
     });
 

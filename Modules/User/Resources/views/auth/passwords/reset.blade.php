@@ -33,11 +33,7 @@
                          ->autocomplete('off')
                      !!}
 
-                    {!!
-                    Former::actions(Former::primary_button('<span class="fa fa-paper-plane"></span> Reset Password')
-                    ->type('submit')
-                    ->class('btn btn-block btn-success btn-raised'))
-                    !!}
+                    @include ('core::shared.submit', ['title' => '<span class="fa fa-paper-plane"></span> Reset Password', 'btnClass' => 'btn btn-block btn-success btn-raised'])
 
                     {!! Former::close() !!}
                 @endsection
