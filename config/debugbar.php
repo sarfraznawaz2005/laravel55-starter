@@ -18,7 +18,7 @@ return [
     'except' => [
         'terminal',
         'console__',
-        'crud',
+        'crud__',
         'applogs__',
         'routes__',
         'admin',
