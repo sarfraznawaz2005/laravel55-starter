@@ -6,7 +6,7 @@ return [
     'theme' => 'default', // available: default, dark, gray, purple, blue, green, red, orange
 
     # specify whether to use breadcrumb feature
-    'breadcrumb' => true,
+    'breadcrumb' => false,
 
     'datatable' => [
         # rows per page
@@ -21,7 +21,9 @@ return [
         'responsive' => true,
         # entry length change dropdown
         'bLengthChange' => true,
+        # whether to enable buttons - see below option
+        'allow_export_buttons' => true,
         # export buttons
-        'buttons' => ['export', 'print', 'reset', 'reload'],
+        'buttons' => ['excel', 'print'], // 'csv', 'excel', 'pdf', 'print', 'reset', 'reload'
     ],
 ];

@@ -54,6 +54,10 @@ body {
     font-size: 14px;
 }
 
+.main {
+    margin-bottom: 100px;
+}
+
 a {
     outline: none;
 }
@@ -129,7 +133,29 @@ nav ul li {
         padding: 0;
     }
 
-    li.nav-item {
+    nav li.nav-item {
         height: 50px;
     }
+}
+
+table.dataTable thead tr {
+    background-image: radial-gradient(#eee, #eee) !important;
+    color: #666;
+}
+
+.nav-tabs a.nav-link {
+    font-weight: bold;
+}
+
+.nav-tabs .nav-link {
+    padding: 0.9rem 1rem;
+}
+
+.table td, .table td {
+    padding: 0.10rem 0.50rem;
+    vertical-align: middle;
+}
+
+table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child:before, table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > th:first-child:before {
+    top: 2px;
 }

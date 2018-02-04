@@ -44,13 +44,21 @@ trait Crudable
      */
     public function createRecord($model, $redirectBack = true)
     {
-        $result = $model->save(request()->all());
+        try {
 
-        if (!$result) {
-            return $this->response($redirectBack, $model);
+            $model->fill(request()->all());
+
+            $result = $model->save();
+
+            if (!$result) {
+                return $this->response($redirectBack, $model);
+            }
+
+            return $this->response($redirectBack, null, self::ADD_MESSAGE);
+
+        } catch (\Exception $e) {
+            return $this->response($redirectBack, null, $e->getMessage(), true);
         }
-
-        return $this->response($redirectBack, null, self::ADD_MESSAGE);
     }
 
     /**
@@ -62,11 +70,19 @@ trait Crudable
      */
     public function updateRecord($model, $redirectBack = true)
     {
-        if (!$model->save()) {
-            return $this->response($redirectBack, $model);
-        }
+        try {
 
-        return $this->response($redirectBack, null, self::UPDATE_MESSAGE);
+            $model->fill(request()->all());
+
+            if (!$model->save()) {
+                return $this->response($redirectBack, $model);
+            }
+
+            return $this->response($redirectBack, null, self::UPDATE_MESSAGE);
+
+        } catch (\Exception $e) {
+            return $this->response($redirectBack, null, $e->getMessage(), true);
+        }
     }
 
     /**
@@ -88,13 +104,13 @@ trait Crudable
     /**
      * @param $redirectBack
      * @param $model
-     * @param $message
+     * @param string $message
+     * @param bool $isError
      * @return mixed
      */
-    protected function response($redirectBack, $model, $message = '')
+    protected function response($redirectBack, $model, $message = '', $isError = false)
     {
         if ($model) {
-
             if (count($model->getErrors())) {
                 if ($redirectBack) {
                     return redirect()->back()->withInput($model->toArray())
@@ -109,8 +125,7 @@ trait Crudable
 
         if ($redirectBack) {
             if ($message) {
-                flash($message, 'success');
-                //alert()->success($message, 'Success')->autoclose(3000);
+                flash($message, $isError === false ? 'success' : 'danger');
             }
 
             return redirect()->back()->with('selected_tab', $this->tab);

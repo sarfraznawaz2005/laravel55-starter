@@ -16,8 +16,8 @@
 function listingEditButton($link, $title = 'Edit')
 {
     $html = <<< HTML
-    <a data-placement="top" data-tooltip data-original-title="$title" class="edit_btn" href="$link">
-        <b class="btn btn-primary btn-sm glyphicon glyphicon-pencil"></b>
+    <a data-placement="top" data-tooltip data-original-title="$title" style="text-decoration: none;" href="$link">
+        <b class="btn btn-primary fa fa-pencil"></b>
     </a>
 HTML;
 
@@ -39,8 +39,7 @@ function listingDeleteButton($link, $title = 'this', $showTip = true, $icon = tr
     $tooltipClass = $showTip ? 'data-tooltip' : '';
     $csrf_field = csrf_field();
     $method_field = method_field('DELETE');
-    $text = $icon ? '<b class="btn btn-danger btn-sm glyphicon glyphicon-trash"></b>' : 'Delete';
-    $btnClass = $icon ? '' : 'btn btn-danger btn-sm';
+    $text = $icon ? '<b class="btn btn-danger fa fa-trash"></b>' : 'Delete';
 
     $html = <<< HTML
     <form action="$link" method="POST" style="display: inline;">
@@ -48,7 +47,8 @@ function listingDeleteButton($link, $title = 'this', $showTip = true, $icon = tr
         $method_field
 
         <a data-placement="top" $tooltipClass data-original-title="Delete" 
-        class="delete_btn confirm-delete $btnClass"
+        class="confirm-delete"
+        style="text-decoration: none;"
         data-label="$title"
         href="javascript:void(0);">
             $text
@@ -69,8 +69,8 @@ HTML;
 function listingViewButton($link, $title = 'View')
 {
     $html = <<< HTML
-    <a data-placement="top" data-tooltip data-original-title="$title" class="edit_btn" href="$link">
-        <b class="btn btn-success btn-sm glyphicon glyphicon-eye-open"></b>
+    <a data-placement="top" data-tooltip data-original-title="$title" style="text-decoration: none;" href="$link">
+        <b class="btn btn-success fa fa-eye"></b>
     </a>
 HTML;
 
@@ -157,7 +157,6 @@ SELECT;
                 
                 if(jQuery().select2) {
                     var \$select2 = select_$column.select2();
-                    \$select2.length && \$select2.data('select2').\$container.addClass('wrap');                
                 }
                 
                 \n\n
@@ -288,7 +287,7 @@ function popoverShortText($text, $length = 30, $title = 'Info')
 // create BTS popover with smaller help icon
 function popoverTip($text, $title = 'Info')
 {
-    return '<span data-placement="top" data-tooltip data-toggle="tooltip" title="' . $text . '"><b style="margin-top:2px;" class="glyphicon glyphicon-question-sign"></b></span>';
+    return '<span data-placement="top" data-tooltip data-toggle="tooltip" title="' . $text . '"><b style="margin-top:2px;" class="fa fa-question-circle"></b></span>';
 }
 
 function tdModal($text, $title = 'Details')
@@ -325,8 +324,8 @@ function tdModal($text, $title = 'Details')
     </div>
 </div>
 
-<a data-toggle="modal" data-target="#mod_dtls_$id" href="javascript:void(0);">
-    <b class="btn btn-primary btn-sm glyphicon glyphicon-info-sign"></b>
+<a data-toggle="modal" data-target="#mod_dtls_$id" href="javascript:void(0);" style="text-decoration: none;">
+    <b class="btn btn-primary fa fa-info-circle"></b>
 </a>
 
 HTML;
@@ -363,8 +362,8 @@ function tdModalPicture($path, $title = 'Details')
     </div>
 </div>
 
-<a data-toggle="modal" data-target="#mod_dtls_pic_$id" href="javascript:void(0);">
-    <b class="btn btn-primary btn-sm glyphicon glyphicon-camera"></b>
+<a data-toggle="modal" data-target="#mod_dtls_pic_$id" href="javascript:void(0);" style="text-decoration: none;">
+    <b class="btn btn-primary fa fa-camera"></b>
 </a>
 
 HTML;
@@ -405,7 +404,7 @@ function tdCheckBox($id, $column, $target, $checked = false)
  */
 function tdLabel($type, $text, $width = '60px')
 {
-    return "<label class='label label-$type tdcenter' style='width: $width;  line-height: 15px; margin-top: 7px; display: inline-block;'>$text</label>";
+    return "<label class='badge badge-$type tdcenter' style='width: $width;  line-height: 15px; margin-top: 7px; display: inline-block;'>$text</label>";
 }
 
 function dropdown($data, $appendEmptyOption = false)

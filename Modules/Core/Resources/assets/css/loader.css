@@ -6,3 +6,8 @@
 .has-error .help-block { color: #dc3545; }
 .has-error .col-form-label{ color: #dc3545; }
 .has-error .form-control { border-color: #dc3545; -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075); box-shadow: inset 0 1px 1px rgba(0,0,0,.075); }
+
+/* add spacing in content divs of tabs of bootstrap */
+.tab-content .tab-pane {
+    margin: 15px 0;
+}

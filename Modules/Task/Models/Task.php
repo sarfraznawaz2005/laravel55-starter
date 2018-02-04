@@ -30,6 +30,14 @@ class Task extends CoreModel
         'description' => 'required',
     ];
 
+    // Array of uploadable images. These fields need to be existent in your database table
+    protected $uploadableImages = [
+        'file',
+    ];
+
+    public $uploadFolderName = 'tasks';
+
+
     ###################################################################
     # RELATIONSHIPS START
     ###################################################################

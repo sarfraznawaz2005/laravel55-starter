@@ -3,11 +3,15 @@
 namespace Modules\Task\Http\Controllers;
 
 use Modules\Core\Http\Controllers\CoreController;
+use Modules\Task\DataTables\TaskDataTable;
+use Modules\Task\Models\Task;
+use function addRequestVar;
+use function user;
 
 class TaskController extends CoreController
 {
     // show listing
-    public function index(TasksDataTable $dataTable)
+    public function index(TaskDataTable $dataTable)
     {
         title('Task List');
 
@@ -17,6 +21,8 @@ class TaskController extends CoreController
     // create
     public function store(Task $task)
     {
+        addRequestVar('user_id', user()->id);
+
         return $this->createRecord($task);
     }
 

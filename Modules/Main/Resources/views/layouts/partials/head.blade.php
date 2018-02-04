@@ -22,7 +22,7 @@
     '/modules/core/js/plugins/datatables/datatables.bootstrap.css',
     '/modules/core/js/plugins/datatables/responsive/responsive.dataTables.min.css',
     '/modules/core/js/plugins/select2/select2.min.css',
-    '/modules/core/js/plugins/summernote/summernote.css',
+    '/modules/core/js/plugins/summernote/summernote-bs4.css',
     '/modules/core/css/loader.css',
     '/modules/main/css/custom.css',
     '/modules/core/css/animate.css',

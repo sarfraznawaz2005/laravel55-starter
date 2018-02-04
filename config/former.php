@@ -20,7 +20,7 @@
 
     // Whether Former should automatically fetch error messages and
     // display them next to the matching fields
-    'error_messages' => true,
+    'error_messages' => false,
 
     // Checkables
     ////////////////////////////////////////////////////////////////////

@@ -15,13 +15,13 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id')->indext()->default(0);
+            $table->unsignedInteger('user_id')->default(0);
             $table->text('description');
-            $table->string('file');
+            $table->string('file')->nullable();
             $table->boolean('completed')->default(false);
 
-            $table->unsignedInteger('created_by')->nullable()->default(0);
-            $table->unsignedInteger('updated_by')->nullable()->default(0);
+            $table->unsignedInteger('created_by')->default(0);
+            $table->unsignedInteger('updated_by')->default(0);
 
             $table->timestamps();
         });

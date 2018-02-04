@@ -21,7 +21,9 @@ return [
         'responsive' => true,
         # entry length change dropdown
         'bLengthChange' => true,
-        # export buttons
-        'buttons' => ['export', 'print', 'reset', 'reload'],
+        # whether to enable buttons - see below option
+        'allow_export_buttons' => false,
+        # specify export buttons
+        'buttons' => ['excel', 'print'], // 'csv', 'excel', 'pdf', 'print', 'reset', 'reload'
     ],
 ];
