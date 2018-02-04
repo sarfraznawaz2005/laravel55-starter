@@ -20,71 +20,43 @@ class OptimizeMiddleware
 
         if ($response instanceof \Symfony\Component\HttpFoundation\BinaryFileResponse) {
             return $response;
-        } else {
-            $buffer = $response->getContent();
-
-            if (strpos($buffer, '<pre>') !== false) {
-                $replace = array(
-                    '/<!--[^\[](.*?)[^\]]-->/s' => '',
-                    "/<\?php/" => '<?php ',
-                    "/\r/" => '',
-                    "/>\n</" => '><',
-                    "/>\s+\n</" => '><',
-                    "/>\n\s+</" => '><',
-                );
-            } else {
-                $replace = array(
-                    '/<!--[^\[](.*?)[^\]]-->/s' => '',
-                    "/<\?php/" => '<?php ',
-                    "/\n([\S])/" => '$1',
-                    "/\r/" => '',
-                    "/\n+/" => "\n",
-                    "/\t/" => '',
-                    "/ +/" => ' ',
-                );
-            }
-
-            $buffer = preg_replace(array_keys($replace), array_values($replace), $buffer);
-
-            /////////////////////////////////////////////////////////
-            // comment this line if any issue with things like JS
-            /////////////////////////////////////////////////////////
-            $buffer = $this->filterContent($buffer);
-
-            $response->setContent($buffer);
-
-            //enable GZip, too!
-            ini_set('zlib.output_compression', 'On');
-
-            return $response;
-        }
-    }
-
-    /**
-     * Filter the spaces in the DOM.
-     *
-     * @param $content
-     *
-     * @return mixed
-     */
-    protected function filterContent($content)
-    {
-        $search = [
-            '/\>[^\S ]+/s',
-            '/[^\S ]+\</s',
-            '/(\s)+/s',
-        ];
-
-        $replace = [
-            '>',
-            '<',
-            '\\1',
-        ];
-
-        if (preg_match("/\<html/i", $content) == 1 && preg_match("/\<\/html\>/i", $content) == 1) {
-            return preg_replace($search, $replace, $content);
         }
 
-        return $content;
+        $buffer = $response->getContent();
+
+        ini_set("pcre.recursion_limit", "16777");
+
+        // enable GZip, too!
+        ini_set('zlib.output_compression', 'On');
+
+        $regEx = '%# Collapse whitespace everywhere but in blacklisted elements.
+        (?>             # Match all whitespans other than single space.
+          [^\S ]\s*     # Either one [\t\r\n\f\v] and zero or more ws,
+        | \s{2,}        # or two or more consecutive-any-whitespace.
+        ) # Note: The remaining regex consumes no text at all...
+        (?=             # Ensure we are not in a blacklist tag.
+          [^<]*+        # Either zero or more non-"<" {normal*}
+          (?:           # Begin {(special normal*)*} construct
+            <           # or a < starting a non-blacklist tag.
+            (?!/?(?:textarea|pre|script)\b)
+            [^<]*+      # more non-"<" {normal*}
+          )*+           # Finish "unrolling-the-loop"
+          (?:           # Begin alternation group.
+            <           # Either a blacklist start tag.
+            (?>textarea|pre|script)\b
+          | \z          # or end of file.
+          )             # End alternation group.
+        )  # If we made it here, we are not in a blacklist tag.
+        %Six';
+
+        $newBuffer = preg_replace($regEx, " ", $buffer);
+
+        if (!is_null($newBuffer)) {
+            $buffer = $newBuffer;
+        }
+
+        $response->setContent($buffer);
+
+        return $response;
     }
 }

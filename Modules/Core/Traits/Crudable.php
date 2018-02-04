@@ -8,8 +8,6 @@
 
 namespace Modules\Core\Traits;
 
-use Redirect;
-
 trait Crudable
 {
     public $tab = '';
@@ -21,15 +19,18 @@ trait Crudable
      *
      * @param $model
      * @param string $userField
+     * @param bool $abort
      * @return bool
      */
-    public function isOwner($model, $userField = 'user_id')
+    public function isOwner($model, $userField = 'user_id', $abort = true)
     {
         if ($model->$userField == user()->id) {
             return true;
         }
 
-        abort(404);
+        if ($abort) {
+            abort(404);
+        }
 
         return false;
     }
@@ -38,23 +39,18 @@ trait Crudable
      * create a record and optionally redirect back
      *
      * @param $model
-     * @param array $data
      * @param bool $redirectBack
      * @return mixed
      */
-    public function createRecord($model, $data = [], $redirectBack = true)
+    public function createRecord($model, $redirectBack = true)
     {
-        if ($data) {
-            $result = $model->save($data);
-        } else {
-            $result = $model->save();
-        }
+        $result = $model->save(request()->all());
 
         if (!$result) {
             return $this->response($redirectBack, $model);
         }
 
-        return $this->response($redirectBack, null, 'Added Successfully!');
+        return $this->response($redirectBack, null, self::ADD_MESSAGE);
     }
 
     /**
@@ -66,13 +62,11 @@ trait Crudable
      */
     public function updateRecord($model, $redirectBack = true)
     {
-        $model->forceEntityHydrationFromInput = true;
-
         if (!$model->save()) {
             return $this->response($redirectBack, $model);
         }
 
-        return $this->response($redirectBack, null, 'Updated Successfully!');
+        return $this->response($redirectBack, null, self::UPDATE_MESSAGE);
     }
 
     /**
@@ -88,7 +82,7 @@ trait Crudable
             return $this->response($redirectBack, $model);
         }
 
-        return $this->response($redirectBack, null, 'Deleted Successfully!');
+        return $this->response($redirectBack, null, self::DELETE_MESSAGE);
     }
 
     /**
@@ -100,14 +94,16 @@ trait Crudable
     protected function response($redirectBack, $model, $message = '')
     {
         if ($model) {
-            if (count($model->errors())) {
+
+            if (count($model->getErrors())) {
                 if ($redirectBack) {
-                    return Redirect::back()->withInput($model->toArray())->withErrors($model->errors())->with('selected_tab',
-                        $this->tab);
+                    return redirect()->back()->withInput($model->toArray())
+                        ->withErrors($model->getErrors())
+                        ->with('selected_tab', $this->tab);
                 }
 
                 // in case of ajax, etc
-                return $model->errors();
+                return $model->getErrors();
             }
         }
 
@@ -117,7 +113,7 @@ trait Crudable
                 //alert()->success($message, 'Success')->autoclose(3000);
             }
 
-            return Redirect::back()->with('selected_tab', $this->tab);
+            return redirect()->back()->with('selected_tab', $this->tab);
         }
 
         // in case of ajax, etc

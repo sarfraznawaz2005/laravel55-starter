@@ -86,8 +86,6 @@ class AdminController extends CoreController
 
         $request->session()->invalidate();
 
-        @session_regenerate_id(true);
-
         flash('You are logged out.', 'success');
 
         return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : 'admin');

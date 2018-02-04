@@ -118,10 +118,8 @@ class LoginController extends CoreController
 
         $request->session()->invalidate();
 
-        @session_regenerate_id(true);
-
         flash('You are logged out.', 'success');
 
-        return redirect('/');
+        return redirect(config('user.redirect_route_after_logout', '/'));
     }
 }
