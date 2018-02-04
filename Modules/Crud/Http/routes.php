@@ -2,7 +2,6 @@
 
 Route::group([
     'middleware' => 'web',
-    'prefix' => 'crud',
     'namespace' => 'Modules\Crud\Http\Controllers'
 ], function () {
 
@@ -12,7 +11,7 @@ Route::group([
             'throttle:50'
         ]
     ], function () {
-        Route::get('/', 'CrudController@index')->name('crud.index');
+        Route::get('crud__', 'CrudController@index')->name('crud.index');
     });
 
     Route::post('/store', 'CrudController@store')->name('crud.store');
