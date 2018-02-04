@@ -13,6 +13,7 @@
     "akaunting/setting": "^1.0",
     "anahkiasen/former": "^4.1",
     "arrilot/laravel-widgets": "^3.9",
+    "bepsvpt/secure-headers": "^4.1",
     "davejamesmiller/laravel-breadcrumbs": "^4.2",
     "doctrine/dbal": "^2.6",
     "eusonlito/laravel-meta": "^3.1",

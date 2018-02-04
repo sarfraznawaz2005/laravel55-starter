@@ -5,6 +5,6 @@ return [
 
     'settings' => [
         'global_date_format' => 'm/d/Y',
-        'minify_html_response' => 1,
+        'minify_html_response' => false,
     ],
 ];

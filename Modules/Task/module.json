@@ -6,11 +6,13 @@
   "active": 1,
   "order": 5,
   "providers": [
-    "Modules\\Task\\Providers\\TaskServiceProvider"
+    "Modules\\Task\\Providers\\TaskServiceProvider",
+    "Modules\\Task\\Providers\\EventServiceProvider"
   ],
   "aliases": {},
   "files": [
-    "start.php"
+    "start.php",
+    "Http\/breadcrumbs.php"
   ],
   "requires": [
     "Core"

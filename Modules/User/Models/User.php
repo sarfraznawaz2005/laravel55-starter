@@ -85,7 +85,7 @@ class User extends CoreModel implements AuthenticatableContract, CanResetPasswor
 
     public function tasks()
     {
-        return $this->hasMany(Task::class, 'created_by');
+        return $this->hasMany(Task::class);
     }
 
     ###################################################################
@@ -121,6 +121,8 @@ class User extends CoreModel implements AuthenticatableContract, CanResetPasswor
     ###################################################################
     # MUTATORS START
     ###################################################################
+
+    //
 
     ###################################################################
     # MUTATORS END

@@ -18,7 +18,7 @@
                         <a class="nav-link" href="{{ url('/') }}">Home</a>
                     </li>
 
-                    @if(Module::isEnabled('Task'))
+                    @if(Auth::check() && Module::isEnabled('Task'))
                         <li class="nav-item"><a class="nav-link" href="{{route('task.index')}}">Tasks</a></li>
                     @endif
                 </ul>

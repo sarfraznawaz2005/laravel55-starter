@@ -2,71 +2,52 @@
 
 namespace Modules\Task\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Routing\Controller;
+use Modules\Core\Http\Controllers\CoreController;
 
-class TaskController extends Controller
+class TaskController extends CoreController
 {
-    /**
-     * Display a listing of the resource.
-     * @return Response
-     */
-    public function index()
+    // show listing
+    public function index(TasksDataTable $dataTable)
     {
-        return view('task::index');
+        title('Task List');
+
+        return $dataTable->render('task::pages.task.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Response
-     */
-    public function create()
+    // create
+    public function store(Task $task)
     {
-        return view('task::create');
+        return $this->createRecord($task);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     * @param  Request $request
-     * @return Response
-     */
-    public function store(Request $request)
+    // update task "complete" status
+    public function complete(Task $task)
     {
+        $task->completed = $task->completed === 'No' ? 1 : 0;
+
+        return $this->updateRecord($task);
     }
 
-    /**
-     * Show the specified resource.
-     * @return Response
-     */
-    public function show()
+    // edit page
+    public function edit(Task $task)
     {
-        return view('task::show');
+        title('Edit Task');
+
+        // show only if logged user is owner of this record
+        $this->isOwner($task);
+
+        return view('task::pages.task.edit', compact('task'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     * @return Response
-     */
-    public function edit()
+    // update
+    public function update(Task $task)
     {
-        return view('task::edit');
+        return $this->updateRecord($task);
     }
 
-    /**
-     * Update the specified resource in storage.
-     * @param  Request $request
-     * @return Response
-     */
-    public function update(Request $request)
+    // delete
+    public function destroy(Task $task)
     {
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     * @return Response
-     */
-    public function destroy()
-    {
+        return $this->deleteRecord($task);
     }
 }
