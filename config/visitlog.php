@@ -2,6 +2,8 @@
 
 return array(
 
+    'route' => 'visitlog__',
+
     /*
     |--------------------------------------------------------------------------
     | IP to Location Service
@@ -52,7 +54,7 @@ return array(
     */
 
     'log_user' => true,
-    'user_name_fields' => ['first_name', 'last_name'],
+    'user_name_fields' => ['name'],
 
     /*
     |--------------------------------------------------------------------------

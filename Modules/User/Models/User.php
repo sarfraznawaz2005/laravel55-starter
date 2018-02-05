@@ -2,17 +2,16 @@
 
 namespace Modules\User\Models;
 
+use Balping\HashSlug\HasHashSlug;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Notifications\Notifiable;
 use Modules\Core\Models\CoreModel;
-use Modules\Core\Traits\Model\ModelLogger;
 use Modules\Core\Traits\Model\Purgeable;
 use Modules\Task\Models\Task;
 use Modules\User\Notifications\PasswordWasReset;
-use Propaganistas\LaravelFakeId\FakeIdTrait;
 use Rinvex\Cacheable\CacheableEloquent;
 use Spatie\Permission\Traits\HasRoles;
 
@@ -24,13 +23,10 @@ class User extends CoreModel implements AuthenticatableContract, CanResetPasswor
     use Notifiable;
 
     // automatic fake model id
-    use FakeIdTrait;
+    use HasHashSlug;
 
     // cache queries on the model
     use CacheableEloquent;
-
-    // to log who created, updated or deleted
-    // use ModelLogger;
 
     use Purgeable;
     protected $purge = [
