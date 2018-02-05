@@ -30,9 +30,12 @@ $(function () {
     $(':file').filestyle({
         badge: true,
         input: false,
-        size: 'sm',
-        buttonText: '&nbsp;Choose File',
-        buttonName: 'btn-primary'
+        dragdrop: false,
+        text: '&nbsp;Choose File',
+        btnClass: 'btn-primary',
+        placeholder: "No file chosen",
+        htmlIcon: '<span class="fa fa-file"></span>',
+        size: 'sm'
     });
 
     $('.pulsate').pulsate();

@@ -17,3 +17,4 @@
 @include ('core::shared.submit')
 
 {!! Former::close() !!}
+
