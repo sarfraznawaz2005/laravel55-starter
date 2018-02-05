@@ -19,7 +19,7 @@
                     </li>
 
                     @if(Auth::check() && Module::isEnabled('Task'))
-                        <li class="nav-item {{active(['task'])}}"><a class="nav-link" href="{{route('task.index')}}">Tasks</a></li>
+                        <li class="nav-item {{active(['task.index', 'task.edit'])}}"><a class="nav-link" href="{{route('task.index')}}">Tasks</a></li>
                     @endif
                 </ul>
 
