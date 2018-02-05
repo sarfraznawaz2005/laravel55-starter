@@ -5,6 +5,7 @@ namespace Modules\Admin\Http\Controllers;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Modules\Core\Http\Controllers\CoreController;
+use Sarfraznawaz2005\VisitLog\Facades\VisitLog;
 
 class AdminController extends CoreController
 {
@@ -58,6 +59,8 @@ class AdminController extends CoreController
 
             // success
             alert(user()->full_name . '!', 'Welcome!')->autoclose(3000);
+
+            VisitLog::save();
 
             return $this->sendLoginResponse($request);
         }

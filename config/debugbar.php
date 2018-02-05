@@ -21,6 +21,8 @@ return [
         'crud__',
         'applogs__',
         'routes__',
+        'visitlog__',
+        'visitlog',
         'admin',
     ],
 
