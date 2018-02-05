@@ -38,7 +38,6 @@
     "sarfraznawaz2005/visitlog": "^1.0",
     "spatie/laravel-blade-javascript": "^2.0",
     "spatie/laravel-permission": "^2.7",
-    "spatie/laravel-query-builder": "^1.1",
     "themsaid/laravel-mail-preview": "^2.0",
     "uxweb/sweet-alert": "^1.4",
     "watson/active": "^2.0",
