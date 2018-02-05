@@ -6,7 +6,7 @@
     {!! Former::open_for_files()->action(route('task.store'))->method('post')->class('validate') !!}
 @endif
 
-{!! Former::textarea('description', 'Task Description')->required()->class('editor') !!}
+{!! Former::text('description', 'Task Description')->required() !!}
 
 @if (isset($task) && $task->file)
     <img src="{!! $task->getImagePath('file', 'thumb'); !!}" alt="Image">
