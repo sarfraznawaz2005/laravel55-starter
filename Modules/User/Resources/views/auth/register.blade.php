@@ -39,7 +39,11 @@
                          ->autocomplete('off')
                      !!}
 
-                    @include ('core::shared.submit', ['title' => '<span class="fa fa-paper-plane"></span> Sign Up', 'btnClass' => 'btn btn-block btn-success btn-raised'])
+                    {!!
+                    Former::actions(Former::primary_button('<span class="fa fa-paper-plane"></span> Sign Up')
+                    ->type('submit')
+                    ->class('btn btn-block btn-success btn-raised'))
+                    !!}
 
                     {!! Former::close() !!}
                 @endsection
@@ -47,7 +51,7 @@
                 @section('mycard.component_card_footer')
                     <div class="text-center">
                         <i class="fa fa-info-circle"></i> Already have an account?
-                        <a href="{{ route('login') }}">Sign In</a>
+                        <a href="{{ route('login') }}" class="text-dark">Sign In</a>
                     </div>
                 @endsection
 

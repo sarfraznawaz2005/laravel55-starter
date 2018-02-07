@@ -28,6 +28,16 @@
         .panel {
             box-shadow: 0 0 10px #000000;
         }
+
+        body {
+            background: #4e555b;
+            background: radial-gradient(black 15%, transparent 16%) 0 0,
+            radial-gradient(black 15%, transparent 16%) 8px 8px,
+            radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 0 1px,
+            radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 8px 9px;
+            background-color: #282828;
+            background-size: 16px 16px;
+        }
     </style>
 
     <script>
@@ -62,7 +72,7 @@
                     ->autocomplete('off')
                 !!}
 
-                @include ('core::shared.submit', ['title' => '<span class="glyphicon glyphicon-log-in"></span> Sign In'])
+                @include ('core::shared.submit', ['title' => '<span class="glyphicon glyphicon-log-in"></span> Sign In', 'btnClass' => 'btn btn-success btn-block'])
 
                 {!! Former::close() !!}
             @endsection
@@ -77,6 +87,7 @@
         </div>
     </div>
 </div>
+
 
 {!! Packer::js([
 '/modules/core/js/jquery.js',

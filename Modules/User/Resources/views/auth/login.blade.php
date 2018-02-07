@@ -35,19 +35,23 @@
                         </div>
                     @endif
 
-                    @include ('core::shared.submit', ['title' => '<span class="fa fa-sign-in"></span> Sign In', 'btnClass' => 'btn btn-block btn-success btn-raised'])
+                    {!!
+                    Former::actions(Former::primary_button('<span class="fa fa-sign-in"></span> Sign In')
+                    ->type('submit')
+                    ->class('btn btn-block btn-success btn-raised'))
+                    !!}
 
                     {!! Former::close() !!}
                 @endsection
 
                 @section('mycard.component_card_footer')
                     <div class="pull-left">
-                        <a href="{{ route('password.request') }}">
+                        <a href="{{ route('password.request') }}" class="text-dark">
                             Forgot Password
                         </a>
                     </div>
                     <div class="pull-right">
-                        <a href="{{ route('register') }}">
+                        <a href="{{ route('register') }}" class="text-dark">
                             Create Account
                         </a>
                     </div>
