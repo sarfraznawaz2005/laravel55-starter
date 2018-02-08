@@ -8,6 +8,7 @@
 
 namespace Modules\Core\Models;
 
+use Appstract\Meta\Metable;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use KingOfCode\Upload\Uploadable;
@@ -24,6 +25,7 @@ class CoreModel extends Model
     use ValidatingTrait;
     use Uploadable;
     use Eventable;
+    use Metable;
 
     /**
      * created_at column accessor.

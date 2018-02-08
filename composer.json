@@ -11,6 +11,7 @@
     "php": ">=7.0.0",
     "akaunting/setting": "^1.0",
     "anahkiasen/former": "^4.1",
+    "appstract/laravel-meta": "^1.0",
     "arrilot/laravel-widgets": "^3.9",
     "balping/laravel-hashslug": "^1.1",
     "bepsvpt/secure-headers": "^4.1",
