@@ -11,10 +11,16 @@ namespace Modules\Core\Console;
 use Artisan;
 use File;
 use Illuminate\Console\Command;
+use Modules\Core\Traits\CoreCommand;
 use function public_path;
 
 class Cleanup extends Command
 {
+    use CoreCommand;
+
+    // log finish message
+    protected $logCompletion = true;
+
     protected $signature = 'app:cleanup';
     protected $description = 'Cleans useless data and cache files.';
 
@@ -28,8 +34,6 @@ class Cleanup extends Command
         $this->cleanClockworkDir();
         $this->cleanModuleViews();
         $this->deleteCache();
-
-        out('Cleanup Done!');
     }
 
     protected function cleanClockworkDir()
@@ -62,7 +66,6 @@ class Cleanup extends Command
         // clean minify plugin cache folders
         File::cleanDirectory(public_path('storage/cache/js'));
         File::cleanDirectory(public_path('storage/cache/css'));
-
 
         File::cleanDirectory(storage_path('email-previews'));
         File::cleanDirectory(storage_path('debugbar'));
