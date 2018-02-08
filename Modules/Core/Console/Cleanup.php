@@ -10,24 +10,14 @@ namespace Modules\Core\Console;
 
 use Artisan;
 use File;
-use Illuminate\Console\Command;
-use Modules\Core\Traits\CoreCommand;
-use function public_path;
 
-class Cleanup extends Command
+class Cleanup extends CoreCommand
 {
-    use CoreCommand;
-
-    // log finish message
-    protected $logCompletion = true;
-
     protected $signature = 'app:cleanup';
     protected $description = 'Cleans useless data and cache files.';
 
-    public function __construct()
-    {
-        parent::__construct();
-    }
+    // log finish message
+    protected $logCompletion = true;
 
     public function handle()
     {

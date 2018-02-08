@@ -1,18 +1,18 @@
 <?php
-
-namespace Modules\Core\Traits;
-
 /**
  * Created by PhpStorm.
  * User: Sarfraz
- * Date: 2/8/2018
- * Time: 11:04 PM
+ * Date: 10/02/2018
+ * Time: 9:11 PM
  */
 
+namespace Modules\Core\Console;
+
+use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-trait CoreCommand
+class CoreCommand extends Command
 {
     /**
      * Runs the command.
