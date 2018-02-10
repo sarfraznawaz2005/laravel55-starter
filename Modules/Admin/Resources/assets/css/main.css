@@ -3507,7 +3507,7 @@ tbody.collapse.show {
 .dropdown-item:hover, .dropdown-item:focus {
     color: #16181b;
     text-decoration: none;
-    background-color: #f8f9fa;
+    background-color: #ddd;
 }
 
 .dropdown-item.active, .dropdown-item:active {
@@ -11340,4 +11340,9 @@ a.text-dark:hover, a.text-dark:focus {
 
 .app-nav__item {
     text-decoration: none !important;
+}
+
+.app-nav__item.active {
+    background: rgba(0, 0, 0, 0.1);
+    color: #f6f6f6;
 }

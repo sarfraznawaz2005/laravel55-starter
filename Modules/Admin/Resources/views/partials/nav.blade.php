@@ -1,6 +1,26 @@
 <header class="app-header">
-    <a class="app-header__logo" href="{{route('admin_panel')}}">{{appName()}}</a>
+    <a class="app-header__logo" href="/" target="_blank">{{appName()}}</a>
     <a class="app-sidebar__toggle" href="#" data-toggle="sidebar"></a>
+
+    <!-- Navbar Left -->
+    {{-- hiding top left links because they were not showing up good on small screen --}}
+    {{--
+    <a class="app-nav__item {{active('admin_panel')}}" href="{{route('admin_panel')}}">Dashboard</a>
+
+    <a class="app-nav__item dropdown-toggle" id="dropdownNav"
+       data-toggle="dropdown"
+       aria-haspopup="true"
+       href="#"
+       aria-expanded="false">
+        Quick Links
+    </a>
+
+    <div class="dropdown-menu" aria-labelledby="dropdownNav">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+    </div>
+    --}}
 
     <!-- Navbar Right Menu-->
     <ul class="app-nav">
@@ -121,11 +141,13 @@
 
         <!-- User Menu-->
         <li class="dropdown">
-            <a class="app-nav__item" href="#" data-toggle="dropdown">
-                {{user()->full_name}} <i class="fa fa-caret-down"></i>
+            <a class="app-nav__item dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-user fa-lg"></i>
             </a>
 
             <ul class="dropdown-menu settings-menu dropdown-menu-right">
+                <li class="app-notification__title">{{user()->full_name}}</li>
+
                 <li>
                     <a class="dropdown-item" href="#">
                         <i class="fa fa-cog fa-lg"></i> Settings

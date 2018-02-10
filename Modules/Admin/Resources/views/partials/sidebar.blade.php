@@ -22,7 +22,7 @@
             </a>
         </li>
 
-        <li class="treeview">
+        <li class="treeview {{active('admin_panel', 'is-expanded')}}">
             <a class="app-menu__item" href="#" data-toggle="treeview">
                 <i class="app-menu__icon fa fa-laptop"></i>
                 <span class="app-menu__label">Sub Level</span>
@@ -31,7 +31,7 @@
             <ul class="treeview-menu">
                 <li><a class="treeview-item" href="#">Link 1</a></li>
                 <li><a class="treeview-item" href="#">Link 2</a></li>
-                <li><a class="treeview-item" href="#">Link 3</a></li>
+                <li><a class="treeview-item {{active('admin_panel')}}" href="#">Link 3</a></li>
             </ul>
         </li>
 
