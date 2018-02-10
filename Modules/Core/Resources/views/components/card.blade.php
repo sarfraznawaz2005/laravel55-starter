@@ -1,6 +1,10 @@
 {{--
 Usage:
 
+@section('card_id.component_card_before')
+    This is content
+@endsection
+
 @section('card_id.component_card_content')
     This is content
 @endsection
@@ -24,6 +28,8 @@ Usage:
 
 --}}
 
+@yield($id . '.component_card_before')
+
 <div class="card bg-{{$card_type ?? 'light'}} mb-3">
     @if (isset($card_heading) && $card_heading)
         <div class="card-header bg-{{$card_heading_type ?? 'light'}} {{$card_heading_color ?? ''}}">
@@ -35,7 +41,7 @@ Usage:
     <div class="card-body" style="padding:5px 20px;">
         <p class="card-text">@yield($id . '.component_card_content')</p>
     </div>
-    @if ($show_card_footer)
+    @if (isset($show_card_footer) && $show_card_footer)
         <div class="card-footer">@yield($id . '.component_card_footer')</div>
     @endif
 </div>

@@ -10,12 +10,11 @@
     <title>{{Meta::get('title') . ' :: Admin Panel'}}</title>
 
     {!! Packer::css([
-    '/modules/admin/css/bootstrap/css/bootstrap.min.css',
+    '/modules/admin/css/main.css',
     '/modules/core/js/plugins/datatables/datatables.bootstrap.css',
     '/modules/core/js/plugins/datatables/responsive/responsive.dataTables.min.css',
     '/modules/core/js/plugins/select2/select2.min.css',
     '/modules/core/js/plugins/summernote/summernote.css',
-    '/modules/admin/css/backend.css',
     '/modules/admin/css/custom.css',
     '/modules/core/css/loader.css',
     '/modules/core/css/animate.css',

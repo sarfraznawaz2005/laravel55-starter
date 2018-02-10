@@ -1,12 +1,8 @@
-<footer class="pull-left footer">
-    <hr class="divider">
-    &copy; {{date('Y')}} <a href="/">{{appName()}}</a> - All rights reserved.
-</footer>
-
 <!-- Scripts -->
 {!! Packer::js([
 '/modules/core/js/jquery.js',
-'/modules/admin/css/bootstrap/js/bootstrap.min.js',
+'/modules/core/css/bootstrap/popper.min.js',
+'/modules/core/css/bootstrap/bootstrap.min.js',
 '/modules/core/js/plugins/datatables/jquery.dataTables.min.js',
 '/modules/core/js/plugins/datatables/datatables.bootstrap.js',
 '/modules/core/js/plugins/datatables/fnFilterOnReturn.js',

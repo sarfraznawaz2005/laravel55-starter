@@ -1,42 +1,39 @@
-<div class="col-md-2 sidebar">
-    <div class="row">
-        <!-- uncomment code for absolute positioning tweek see top comment in css -->
-        <div class="absolute-wrapper"></div>
-        <!-- Menu -->
-        <div class="side-menu">
-            <nav class="navbar navbar-default" role="navigation">
-                <!-- Main Menu -->
-                <div class="side-menu-container">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a>
-                        </li>
-                        <li><a href="#"><span class="glyphicon glyphicon-plane"></span> Active Link</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-cloud"></span> Link</a></li>
+<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 
-                        <!-- Dropdown-->
-                        <li class="panel panel-default" id="dropdown">
-                            <a data-toggle="collapse" href="#dropdown-lvl1">
-                                <span class="glyphicon glyphicon-user"></span> Sub Level <span class="caret"></span>
-                            </a>
+<aside class="app-sidebar">
+    <ul class="app-menu">
+        <li>
+            <a class="app-menu__item {{active('admin_panel')}}" href="{{route('admin_panel')}}">
+                <i class="app-menu__icon fa fa-dashboard"></i>
+                <span class="app-menu__label">Dashboard</span>
+            </a>
+        </li>
 
-                            <!-- Dropdown level 1 -->
-                            <div id="dropdown-lvl1" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <ul class="nav navbar-nav">
-                                        <li><a href="#">Link</a></li>
-                                        <li><a href="#">Link</a></li>
-                                        <li><a href="#">Link</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
+        <li>
+            <a class="app-menu__item" href="#">
+                <i class="app-menu__icon fa fa-pencil"></i>
+                <span class="app-menu__label">Link 1</span>
+            </a>
+        </li>
+        <li>
+            <a class="app-menu__item" href="#">
+                <i class="app-menu__icon fa fa-pencil"></i>
+                <span class="app-menu__label">Link 2</span>
+            </a>
+        </li>
 
-                        <li><a href="#"><span class="glyphicon glyphicon-signal"></span> Link</a></li>
+        <li class="treeview">
+            <a class="app-menu__item" href="#" data-toggle="treeview">
+                <i class="app-menu__icon fa fa-laptop"></i>
+                <span class="app-menu__label">Sub Level</span>
+                <i class="treeview-indicator fa fa-angle-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li><a class="treeview-item" href="#">Link 1</a></li>
+                <li><a class="treeview-item" href="#">Link 2</a></li>
+                <li><a class="treeview-item" href="#">Link 3</a></li>
+            </ul>
+        </li>
 
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-            </nav>
-
-        </div>
-    </div>
-</div>
+    </ul>
+</aside>

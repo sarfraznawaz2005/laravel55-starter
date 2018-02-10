@@ -1,73 +1,148 @@
-<nav class="navbar navbar-default navbar-static-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle navbar-toggle-sidebar collapsed">
-                MENU
-            </button>
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{route('admin_panel')}}">
-                {{appName()}}
+<header class="app-header">
+    <a class="app-header__logo" href="{{route('admin_panel')}}">{{appName()}}</a>
+    <a class="app-sidebar__toggle" href="#" data-toggle="sidebar"></a>
+
+    <!-- Navbar Right Menu-->
+    <ul class="app-nav">
+
+        <li class="app-search">
+            <input class="app-search__input" type="search" placeholder="Search">
+            <button class="app-search__button"><i class="fa fa-search"></i></button>
+        </li>
+
+        <!--Notification Menu-->
+        <li class="dropdown">
+            <a class="app-nav__item" href="#" data-toggle="dropdown">
+                <i class="fa fa-bell-o fa-lg"></i>
             </a>
-        </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="{{route('admin_panel')}}">
-                        <i class="glyphicon glyphicon-dashboard"></i> Dashboard
+            <ul class="app-notification dropdown-menu dropdown-menu-right">
+                <li class="app-notification__title">You have 4 new notifications</li>
+
+                <div class="app-notification__content">
+
+                    <li>
+                        <a class="app-notification__item" href="javascript:;">
+                            <span class="app-notification__icon">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </span>
+                            <div>
+                                <p class="app-notification__message">Lisa sent you a mail</p>
+                                <p class="app-notification__meta">2 min ago</p>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="app-notification__item" href="javascript:;">
+                            <span class="app-notification__icon">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x text-danger"></i>
+                                    <i class="fa fa-hdd-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </span>
+                            <div>
+                                <p class="app-notification__message">Mail server not working</p>
+                                <p class="app-notification__meta">5 min ago</p>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="app-notification__item" href="javascript:;">
+                            <span class="app-notification__icon">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x text-success"></i>
+                                    <i class="fa fa-money fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </span>
+                            <div>
+                                <p class="app-notification__message">Transaction complete</p>
+                                <p class="app-notification__meta">2 days ago</p>
+                            </div>
+                        </a>
+                    </li>
+
+                    <div class="app-notification__content">
+                        <li>
+                            <a class="app-notification__item" href="javascript:;">
+                                <span class="app-notification__icon">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                                        <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </span>
+                                <div>
+                                    <p class="app-notification__message">Lisa sent you a mail</p>
+                                    <p class="app-notification__meta">2 min ago</p>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="app-notification__item" href="javascript:;">
+                                <span class="app-notification__icon">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x text-danger"></i>
+                                        <i class="fa fa-hdd-o fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </span>
+                                <div>
+                                    <p class="app-notification__message">Mail server not working</p>
+                                    <p class="app-notification__meta">5 min ago</p>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="app-notification__item" href="javascript:;">
+                                <span class="app-notification__icon">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x text-success"></i>
+                                        <i class="fa fa-money fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </span>
+                                <div>
+                                    <p class="app-notification__message">Transaction complete</p>
+                                    <p class="app-notification__meta">2 days ago</p>
+                                </div>
+                            </a>
+                        </li>
+
+                    </div>
+                </div>
+
+                <li class="app-notification__footer"><a href="#">See all notifications</a></li>
+            </ul>
+        </li>
+
+        <!-- User Menu-->
+        <li class="dropdown">
+            <a class="app-nav__item" href="#" data-toggle="dropdown">
+                {{user()->full_name}} <i class="fa fa-caret-down"></i>
+            </a>
+
+            <ul class="dropdown-menu settings-menu dropdown-menu-right">
+                <li>
+                    <a class="dropdown-item" href="#">
+                        <i class="fa fa-cog fa-lg"></i> Settings
                     </a>
                 </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-file-code-o"></i> Dropdown <b class="caret"></b>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        <i class="fa fa-user fa-lg"></i> Profile
                     </a>
-                    <ul class="dropdown-menu code_entry">
-                        <li>
-                            <a href="javascript:void(0);">Link 1</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);">Link 2</a>
-                        </li>
-                    </ul>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="{{route('admin_logout')}}">
+                        <i class="fa fa-sign-out fa-lg"></i> Logout
+                    </a>
                 </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/" target="_blank"><i class="glyphicon glyphicon-globe"></i> Visit Site</a></li>
+        </li>
 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="glyphicon glyphicon-bullhorn"></i>
-                        <b class="caret"></b>
-                        <span class="badge">4</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Notification 1</a></li>
-                        <li><a href="#">Notification 2</a></li>
-                        <li><a href="#">Notification 3</a></li>
-                        <li><a href="#">Notification 4</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown ">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        <i class="glyphicon glyphicon-user"></i> {{user()->full_name}}
-                        <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li class="dropdown-header">SETTINGS</li>
-                        <li class=""><a href="#"><i class="glyphicon glyphicon-edit"></i> Edit Profile</a></li>
-                        <li class="divider"></li>
-                        <li><a href="{{route('admin_logout')}}"><i class="glyphicon glyphicon-log-out"></i> Sign Out</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
+    </ul>
+</header>

@@ -3,153 +3,110 @@
 @section('content')
 
     <div class="row">
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-success">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-comments fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">26</div>
-                            <div>New Comments!</div>
-                        </div>
-                    </div>
+        <div class="col-md-3">
+            <div class="widget-small primary"><i class="icon fa fa-users fa-3x"></i>
+                <div class="info">
+                    <h4>Users</h4>
+                    <p><b>5</b></p>
                 </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-tasks fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">12</div>
-                            <div>New Tasks!</div>
-                        </div>
-                    </div>
+        <div class="col-md-3">
+            <div class="widget-small success"><i class="icon fa fa-thumbs-o-up fa-3x"></i>
+                <div class="info">
+                    <h4>Likes</h4>
+                    <p><b>25</b></p>
                 </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-warning">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-shopping-cart fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">124</div>
-                            <div>New Orders!</div>
-                        </div>
-                    </div>
+        <div class="col-md-3">
+            <div class="widget-small warning"><i class="icon fa fa-files-o fa-3x"></i>
+                <div class="info">
+                    <h4>Uploades</h4>
+                    <p><b>10</b></p>
                 </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-support fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">13</div>
-                            <div>Support Tickets!</div>
-                        </div>
-                    </div>
+        <div class="col-md-3">
+            <div class="widget-small danger"><i class="icon fa fa-star fa-3x"></i>
+                <div class="info">
+                    <h4>Stars</h4>
+                    <p><b>500</b></p>
                 </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
             </div>
         </div>
     </div>
 
-@section('notifications_panel.component_panel_content')
-    <div class="list-group">
-        <a href="#" class="list-group-item">
-            <i class="fa fa-comment fa-fw"></i> New Comment
-                                    <span class="pull-right text-muted small"><em>4 minutes ago</em>
-                                    </span>
-        </a>
-        <a href="#" class="list-group-item">
-            <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                    <span class="pull-right text-muted small"><em>12 minutes ago</em>
-                                    </span>
-        </a>
-        <a href="#" class="list-group-item">
-            <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                    <span class="pull-right text-muted small"><em>27 minutes ago</em>
-                                    </span>
-        </a>
-        <a href="#" class="list-group-item">
-            <i class="fa fa-tasks fa-fw"></i> New Task
-                                    <span class="pull-right text-muted small"><em>43 minutes ago</em>
-                                    </span>
-        </a>
-        <a href="#" class="list-group-item">
-            <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                    <span class="pull-right text-muted small"><em>11:32 AM</em>
-                                    </span>
-        </a>
-        <a href="#" class="list-group-item">
-            <i class="fa fa-bolt fa-fw"></i> Server Crashed!
-                                    <span class="pull-right text-muted small"><em>11:13 AM</em>
-                                    </span>
-        </a>
-        <a href="#" class="list-group-item">
-            <i class="fa fa-warning fa-fw"></i> Server Not Responding
-                                    <span class="pull-right text-muted small"><em>10:57 AM</em>
-                                    </span>
-        </a>
-        <a href="#" class="list-group-item">
-            <i class="fa fa-shopping-cart fa-fw"></i> New Order Placed
-                                    <span class="pull-right text-muted small"><em>9:49 AM</em>
-                                    </span>
-        </a>
-        <a href="#" class="list-group-item">
-            <i class="fa fa-money fa-fw"></i> Payment Received
-                                    <span class="pull-right text-muted small"><em>Yesterday</em>
-                                    </span>
-        </a>
-    </div>
-    <!-- /.list-group -->
-    <a href="#" class="btn btn-default btn-block">View All Alerts</a>
-@endsection
+    <div class="row">
+        <div class="col-md-6">
+            <div class="tile">
+                <h3 class="tile-title">Animated Checkbox and Radio Buttons</h3>
+                <!--Radio Button Markup-->
+                <div class="animated-radio-button">
+                    <label>
+                        <input type="radio"><span class="label-text">Radio Button</span>
+                    </label>
+                </div>
+                <!--Checkbox Markup-->
+                <div class="animated-checkbox">
+                    <label>
+                        <input type="checkbox"><span class="label-text">Checkbox</span>
+                    </label>
+                </div>
+                <h4>Disabled state</h4>
+                <div class="animated-radio-button">
+                    <label>
+                        <input type="radio" disabled=""><span class="label-text">Radio Button</span>
+                    </label>
+                </div>
+                <div class="animated-checkbox">
+                    <label>
+                        <input type="checkbox" disabled=""><span class="label-text">Checkbox</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="tile">
+                <h3 class="tile-title">Animated Toggle Button</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><b>Toggle Button</b></p>
+                        <div class="toggle">
+                            <label>
+                                <input type="checkbox"><span class="button-indecator"></span>
+                            </label>
+                        </div>
+                        <div class="toggle lg">
+                            <label>
+                                <input type="checkbox"><span class="button-indecator"></span>
+                            </label>
+                        </div>
+                        <h5>Disabled state</h5>
+                        <div class="toggle">
+                            <label>
+                                <input type="checkbox" disabled=""><span class="button-indecator"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <p><b>Fliping Toggle Button</b></p>
+                        <div class="toggle-flip">
+                            <label>
+                                <input type="checkbox"><span class="flip-indecator" data-toggle-on="ON" data-toggle-off="OFF"></span>
+                            </label>
+                        </div>
+                        <h5>Disabled state</h5>
+                        <div class="toggle-flip">
+                            <label>
+                                <input type="checkbox" disabled=""><span class="flip-indecator" data-toggle-on="ON" data-toggle-off="OFF"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-@include('core::components.panel', [
-    'id' => 'notifications_panel',
-    'panel_type' => 'success',
-    'panel_heading' => '<i class="fa fa-bell fa-fw"></i> Notifications Panel',
-    'show_panel_footer' => false,
-])
+    </div>
 
 @endsection
