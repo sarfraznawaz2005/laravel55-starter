@@ -83,7 +83,7 @@
         </div>
     </nav>
 
-    <div class="text-center page-title animated bounceInDown">
+    <div class="text-center page-title animated zoomInDown">
         <h1 class="display-4">{{Meta::get('title')}}</h1>
     </div>
 
