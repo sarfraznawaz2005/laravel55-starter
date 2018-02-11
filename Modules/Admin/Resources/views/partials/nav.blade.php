@@ -3,16 +3,13 @@
     <a class="app-sidebar__toggle" href="#" data-toggle="sidebar"></a>
 
     <!-- Navbar Left -->
-    {{-- hiding top left links because they were not showing up good on small screen --}}
-    {{--
-    <a class="app-nav__item {{active('admin_panel')}}" href="{{route('admin_panel')}}">Dashboard</a>
-
+    {{-- many links create problem on smaller screen so haivng just Quick Links here --}}
     <a class="app-nav__item dropdown-toggle" id="dropdownNav"
        data-toggle="dropdown"
        aria-haspopup="true"
        href="#"
        aria-expanded="false">
-        Quick Links
+        Quick Access
     </a>
 
     <div class="dropdown-menu" aria-labelledby="dropdownNav">
@@ -20,7 +17,6 @@
         <a class="dropdown-item" href="#">Another action</a>
         <a class="dropdown-item" href="#">Something else here</a>
     </div>
-    --}}
 
     <!-- Navbar Right Menu-->
     <ul class="app-nav">

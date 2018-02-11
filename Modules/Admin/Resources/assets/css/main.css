@@ -9935,7 +9935,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 @media (max-width: 480px) {
-    .app-search {
+    .app-search, .app-header__logo {
         display: none;
     }
 }
