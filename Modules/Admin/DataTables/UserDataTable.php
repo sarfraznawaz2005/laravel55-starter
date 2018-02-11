@@ -1,13 +1,11 @@
 <?php
 
-namespace Modules\Task\DataTables;
+namespace Modules\Admin\DataTables;
 
-use Modules\Task\Models\Task;
-use function strip_tags;
-use function substr;
+use Modules\User\Models\User;
 use Yajra\DataTables\Services\DataTable;
 
-class TaskDataTable extends DataTable
+class UserDataTable extends DataTable
 {
     /**
      * Display ajax response.
@@ -20,28 +18,19 @@ class TaskDataTable extends DataTable
     {
         return datatables()
             ->of($query)
-            ->editColumn('action', function ($object) {
-                $actions = '';
+            ->editColumn('admin', function ($object) {
+                $text = $object->admin == '1' ? 'Yes' : 'No';
+                $type = $text === 'Yes' ? 'success' : 'primary';
 
-                $actions .= $this->buttonMarkComplete(route('task.complete', [$object]), $object->completed === 'Yes');
-                $actions .= listingEditButton(route('task.edit', [$object]));
-                $actions .= listingDeleteButton(route('task.destroy', [$object]), 'Task');
-
-                return tdCenter($actions);
+                return tdLabel($type, $text);
             })
-            ->editColumn('completed', function ($object) {
-                $text = $object->completed;
+            ->editColumn('active', function ($object) {
+                $text = $object->active == '1' ? 'Yes' : 'No';
                 $type = $text === 'Yes' ? 'success' : 'danger';
 
                 return tdLabel($type, $text);
             })
-            ->editColumn('description', function ($object) {
-               return substr(strip_tags($object->description), 0, 80);
-            })
-            ->setRowClass(function ($object) {
-                //return $object->completed === 'Yes' ? 'table-success' : '';
-            })
-            ->rawColumns(['description', 'completed', 'action'])
+            ->rawColumns(['action', 'admin', 'active'])
             ->blacklist(['action']);
     }
 
@@ -53,7 +42,7 @@ class TaskDataTable extends DataTable
     public function query()
     {
         // ->get() has impact on search/filters
-        $query = Task::where('user_id', user()->id)->get();
+        $query = User::latest();
 
         return $this->applyScopes($query);
     }
@@ -68,7 +57,7 @@ class TaskDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '80px'])
+            //->addAction(['width' => '80px'])
             ->parameters($this->getBuilderParameters());
     }
 
@@ -80,8 +69,10 @@ class TaskDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'description',
-            'completed' => ['width' => '1px'], // auto-width to content
+            'name',
+            'email',
+            'admin' => ['width' => '1px'], // auto-width to content
+            'active' => ['width' => '1px'],
             'created_at' => ['width' => '180px'],
         ];
     }
@@ -94,7 +85,7 @@ class TaskDataTable extends DataTable
     protected function getBuilderParameters()
     {
         return [
-            'order' => [[2, 'desc']],
+            'order' => [[0, 'desc']],
             'dom' => 'Bfrtip',
             'ordering' => config('main.datatable.ordering'),
             'pageLength' => config('main.datatable.pageLength'),
@@ -116,7 +107,8 @@ class TaskDataTable extends DataTable
     public function filterColumns()
     {
         return [
-            'completed',
+            'name',
+            'email',
             'created_at',
         ];
     }
@@ -128,20 +120,6 @@ class TaskDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Task_' . date('YmdHis');
-    }
-
-    protected function buttonMarkComplete($link, $status)
-    {
-        $title = $status == 0 ? 'Mark as complete' : 'Mark as un-complete';
-        $type = $status == 0 ? 'secondary' : 'success';
-
-        $html = <<< HTML
-        <a data-placement="top" data-tooltip data-original-title="$title" title="$title" style="text-decoration: none;" href="$link">
-            <b class="btn btn-$type fa fa-check-square"></b>
-        </a>
-HTML;
-
-        return $html;
+        return 'User_' . date('YmdHis');
     }
 }

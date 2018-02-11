@@ -10,15 +10,15 @@
         </li>
 
         <li>
-            <a class="app-menu__item" href="#">
+            <a class="app-menu__item {{active('admin_user_listing')}}" href="{{route('admin_user_listing')}}">
                 <i class="app-menu__icon fa fa-pencil"></i>
-                <span class="app-menu__label">Link 1</span>
+                <span class="app-menu__label">Users</span>
             </a>
         </li>
         <li>
             <a class="app-menu__item" href="#">
                 <i class="app-menu__icon fa fa-pencil"></i>
-                <span class="app-menu__label">Link 2</span>
+                <span class="app-menu__label">Another Link</span>
             </a>
         </li>
 

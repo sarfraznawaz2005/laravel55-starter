@@ -1,4 +1,4 @@
-@if (config('main.datatable.allow_export_buttons'))
+@if (isset($buttons) && $buttons)
     @push('styles')
         <link href="/modules/core/js/plugins/datatables/buttons/css/buttons.dataTables.min.css" rel="stylesheet"/>
     @endpush

@@ -11346,3 +11346,17 @@ a.text-dark:hover, a.text-dark:focus {
     background: rgba(0, 0, 0, 0.1);
     color: #f6f6f6;
 }
+
+table.dataTable thead tr {
+    background-image: radial-gradient(#eee, #eee) !important;
+    color: #666;
+}
+
+.table td, .table td {
+    padding: 0.10rem 0.50rem;
+    vertical-align: middle;
+}
+
+table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child:before, table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > th:first-child:before {
+    top: 2px;
+}

@@ -28,4 +28,4 @@
 
 @endsection
 
-@include('core::shared.datatables_export')
+@include('core::shared.datatables_export', ['buttons' => true])
