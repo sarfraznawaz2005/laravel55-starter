@@ -11357,6 +11357,6 @@ table.dataTable thead tr {
     vertical-align: middle;
 }
 
-table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child:before, table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > th:first-child:before {
-    top: 2px;
+table.dataTable {
+    width: 100% !important;
 }

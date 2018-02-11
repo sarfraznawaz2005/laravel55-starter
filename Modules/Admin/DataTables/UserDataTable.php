@@ -57,7 +57,7 @@ class UserDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            //->addAction(['width' => '80px'])
+            //->addAction(['width' => '120px'])
             ->parameters($this->getBuilderParameters());
     }
 

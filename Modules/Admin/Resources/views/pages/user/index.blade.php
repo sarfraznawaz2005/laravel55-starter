@@ -2,7 +2,7 @@
 
 @section('content')
 
-    {!! $dataTable->table(['class' => 'table table-condensed table-bordered table-hover nowrap']) !!}
+    {!! $dataTable->table(['class' => 'table table-condensed table-bordered table-hover']) !!}
 
 @endsection
 

@@ -17,7 +17,7 @@
         <div class="card-body">
             <div class="tab-content">
                 <div class="tab-pane active" id="list">
-                    {!! $dataTable->table(['class' => 'table table-condensed table-bordered table-hover nowrap']) !!}
+                    {!! $dataTable->table(['class' => 'table table-condensed table-bordered table-hover']) !!}
                 </div>
                 <div class="tab-pane" id="create">
                     @include('task::pages.task._form')
