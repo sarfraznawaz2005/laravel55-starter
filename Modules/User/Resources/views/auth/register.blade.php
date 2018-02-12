@@ -51,7 +51,7 @@
                 @section('mycard.component_card_footer')
                     <div class="text-center">
                         <i class="fa fa-info-circle"></i> Already have an account?
-                        <a href="{{ route('login') }}" class="text-dark">Sign In</a>
+                        <a href="{{ route('login') }}" class="text-blue">Sign In</a>
                     </div>
                 @endsection
 
