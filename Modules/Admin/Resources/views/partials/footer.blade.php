@@ -15,6 +15,7 @@
 '/modules/core/js/plugins/summernote/summernote.min.js',
 '/modules/core/js/plugins/disabler.min.js',
 '/modules/core/js/plugins/validator.min.js',
+'/modules/core/js/plugins/toast/jquery.toast.min.js',
 '/modules/core/js/core.js',
 '/modules/admin/js/custom.js',
 ],

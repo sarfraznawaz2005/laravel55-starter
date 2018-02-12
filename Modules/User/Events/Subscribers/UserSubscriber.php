@@ -2,7 +2,8 @@
 
 namespace Modules\User\Events\Subscribers;
 
-use Log;
+use Illuminate\Support\Facades\Log;
+use Modules\Core\Facades\Socket;
 use Modules\User\Models\User;
 
 class UserSubscriber
@@ -24,6 +25,11 @@ class UserSubscriber
 
     public function onLogin($event)
     {
+        Socket::send([
+            'user_id' => user()->id,
+            'message' => 'User #' . $event->user->id . ' logged in.'
+        ]);
+
         Log::info('User #' . $event->user->id . ' logged in.');
     }
 

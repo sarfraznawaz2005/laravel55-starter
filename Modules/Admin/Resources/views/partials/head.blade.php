@@ -15,6 +15,7 @@
     '/modules/core/js/plugins/datatables/responsive/responsive.dataTables.min.css',
     '/modules/core/js/plugins/select2/select2.min.css',
     '/modules/core/js/plugins/summernote/summernote.css',
+    '/modules/core/js/plugins/toast/jquery.toast.min.css',
     '/modules/admin/css/custom.css',
     '/modules/core/css/loader.css',
     '/modules/core/css/animate.css',

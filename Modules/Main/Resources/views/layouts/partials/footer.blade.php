@@ -5,6 +5,10 @@
     </div>
 </footer>
 
+<script>
+    window.cuid = {{auth()->check() ? user()->id : 0}};
+</script>
+
 <!-- Scripts -->
 {!! Packer::js([
 '/modules/core/js/jquery.js',
@@ -22,7 +26,9 @@
 '/modules/core/js/plugins/summernote/summernote-bs4.min.js',
 '/modules/core/js/plugins/disabler.min.js',
 '/modules/core/js/plugins/validator.min.js',
+'/modules/core/js/plugins/toast/jquery.toast.min.js',
 '/modules/core/js/core.js',
+'/modules/core/js/socket.js',
 '/modules/main/js/custom.js',
 ],
 '/storage/cache/js/')

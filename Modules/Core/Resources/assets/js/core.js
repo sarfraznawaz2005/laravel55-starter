@@ -219,3 +219,18 @@ function showConfirm(message, callback) {
             }
         });
 }
+
+function notify(message, heading, type, sticky) {
+    $.toast({
+        heading: heading || 'Notification',
+        text: message || '',
+        icon: type || 'success',
+        showHideTransition: 'slide',
+        loader: true,
+        allowToastClose: true,
+        stack: 10,
+        position: 'bottom-right',
+        hideAfter: sticky || 10000,
+        loaderBg: '#9EC600'
+    })
+}
