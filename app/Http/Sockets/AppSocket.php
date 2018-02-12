@@ -1,9 +1,12 @@
 <?php
 
+/* To start server: php artisan socket:serve */
+
 namespace App\Http\Sockets;
 
 use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 use Orchid\Socket\BaseSocketListener;
 use Ratchet\ConnectionInterface;
@@ -35,13 +38,13 @@ class AppSocket extends BaseSocketListener
         $this->clients->attach($conn);
 
         //take user id
-        $userId = $this->getUserFromSession($conn);
+        //$userId = $this->getUserFromSession($conn);
 
         //Create a list of users connected to the server
-        $this->userList[] = $userId;
+        //$this->userList[] = $userId;
 
         //We tell everything that happened
-        echo "New connection! user_id = ({$userId})\n";
+        //echo "New connection! user_id = ({$userId})\n";
     }
 
     /**
@@ -83,7 +86,7 @@ class AppSocket extends BaseSocketListener
         $cookies = $conn->WebSocket->request->getCookies();
 
         // Get the laravel's one
-        $laravelCookie = urldecode($cookies[Config::get('session.cookie')]);
+        $laravelCookie = urldecode($cookies[config('session.cookie')]);
 
         // get the user session id from it
         $idSession = Crypt::decrypt($laravelCookie);

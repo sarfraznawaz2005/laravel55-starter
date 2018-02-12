@@ -25,3 +25,5 @@
 @stack('scripts')
 
 @include('sweet::alert')
+
+@include('core::shared.socket')

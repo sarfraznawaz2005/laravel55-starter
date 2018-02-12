@@ -8,7 +8,6 @@
 
 namespace Modules\Core\Facades;
 
-use Config;
 use Ratchet\Client;
 
 class Socket
@@ -21,12 +20,16 @@ class Socket
      */
     public static function send(array $data, $route = 'socket')
     {
+        Client\connect(static::getSocketUrl())->then(function ($conn) use ($data) {
+            $conn->send(json_encode($data));
+            $conn->close();
+        });
+    }
+
+    public static function getSocketUrl($route = 'socket'): string
+    {
         $config = config('socket');
 
-        Client\connect('ws://' . $config['httpHost'] . ':' . $config['port'] . '/' . $route)
-            ->then(function ($conn) use ($data) {
-                $conn->send(json_encode($data));
-                $conn->close();
-            });
+        return 'ws://' . $config['httpHost'] . ':' . $config['port'] . '/' . $route;
     }
 }
