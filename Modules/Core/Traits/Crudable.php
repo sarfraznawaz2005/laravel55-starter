@@ -110,9 +110,6 @@ trait Crudable
      */
     protected function response($redirectBack, $model, $message = '', $isError = false)
     {
-        // default tab name
-        $tab = $this->tab ?: '#create';
-
         if ($model) {
             if (count($model->getErrors())) {
 
