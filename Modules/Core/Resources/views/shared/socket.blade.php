@@ -11,12 +11,8 @@
 
     socket.onmessage = function (event) {
         var data = JSON.parse(event.data);
-        var cusrid = {{auth()->check() ? user()->id : 0}};
 
-        // don't show notification to originator/same user
-        //if (cusrid != data.user_id) {
-            notify(data.message);
-        //}
+        notify(data.message);
     };
 
     socket.onerror = function (error) {

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Modules\Core\Console\Cleanup;
+use Modules\Core\Console\SocketServer;
 use Modules\Core\Console\VendorCleanup;
 use Modules\Core\Http\Middleware\HttpsProtocol;
 use Modules\Core\Http\Middleware\OptimizeMiddleware;
@@ -53,7 +54,8 @@ class CoreServiceProvider extends ServiceProvider
         #################################################
         $this->commands([
             Cleanup::class,
-            VendorCleanup::class
+            VendorCleanup::class,
+            SocketServer::class,
         ]);
 
         #################################################
