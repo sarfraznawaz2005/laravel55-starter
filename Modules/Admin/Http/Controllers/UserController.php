@@ -15,6 +15,8 @@ class UserController extends CoreController
      */
     public function __invoke(UserDataTable $dataTable)
     {
+        title('Users');
+
         return $dataTable->render('admin::pages.user.index');
     }
 }
