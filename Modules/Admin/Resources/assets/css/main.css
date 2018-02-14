@@ -11360,3 +11360,7 @@ table.dataTable thead tr {
 table.dataTable {
     width: 100% !important;
 }
+
+a.widget-link {
+    text-decoration: none;
+}
