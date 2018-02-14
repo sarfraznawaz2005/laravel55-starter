@@ -27,7 +27,7 @@ class UserSubscriber
     {
         Socket::send([
             'user_id' => user()->id,
-            'message' => 'User #' . $event->user->id . ' logged in.'
+            'message' => $event->user->name . ' just logged in.'
         ]);
 
         Log::info('User #' . $event->user->id . ' logged in.');
