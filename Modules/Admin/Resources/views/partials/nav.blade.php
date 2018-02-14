@@ -1,5 +1,5 @@
 <header class="app-header">
-    <a class="app-header__logo" href="/" target="_blank">{{appName()}}</a>
+    <a class="app-header__logo" href="{{route('admin_panel')}}">{{appName()}}</a>
     <a class="app-sidebar__toggle" href="#" data-toggle="sidebar"></a>
 
     <!-- Navbar Left -->
@@ -9,7 +9,7 @@
        aria-haspopup="true"
        href="#"
        aria-expanded="false">
-        Quick Access
+        Access
     </a>
 
     <div class="dropdown-menu" aria-labelledby="dropdownNav">
@@ -28,7 +28,7 @@
 
         <!--Notification Menu-->
         <li class="dropdown">
-            <a class="app-nav__item" href="#" data-toggle="dropdown">
+            <a class="app-nav__item dropdown-toggle" href="#" data-toggle="dropdown">
                 <i class="fa fa-bell-o fa-lg"></i>
             </a>
 
@@ -160,6 +160,17 @@
                     </a>
                 </li>
             </ul>
+        </li>
+
+        <li>
+            <a class="app-nav__item"
+               href="/"
+               data-placement="top"
+               data-tooltip
+               data-original-title="Visite Site"
+               target="_blank">
+                <i class="fa fa-globe fa-lg"></i>
+            </a>
         </li>
 
     </ul>
