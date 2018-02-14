@@ -31,7 +31,7 @@
 
         <h4><span class="label label-primary">Total Modules: {{Module::count()}}</span></h4>
 
-        <table class="table table-striped table-condensed table-bordered table-hover dt-responsive nowrap">
+        <table class="table table-condensed table-bordered table-hover">
             <thead>
             <tr>
                 <th>Name</th>

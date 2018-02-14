@@ -59,9 +59,8 @@ thead {
 }
 
 thead tr {
-    color: #333;
-    text-align: left;
-    background-image: radial-gradient(#eee, #bbbbbb);
+    background-image: radial-gradient(#eee, #eee) !important;
+    color: #666;
 }
 
 .table-bordered > thead > tr > th, .table-bordered > thead > tr > td {
