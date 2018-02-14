@@ -22,7 +22,7 @@ trait Crudable
      * @param bool $abort
      * @return bool
      */
-    public function isOwner($model, $userField = 'user_id', $abort = true)
+    public function isOwner($model, $userField = 'user_id', $abort = true): bool
     {
         if ($model->$userField == user()->id) {
             return true;
@@ -110,12 +110,17 @@ trait Crudable
      */
     protected function response($redirectBack, $model, $message = '', $isError = false)
     {
+        // default tab name
+        $tab = $this->tab ?: '#create';
+
         if ($model) {
             if (count($model->getErrors())) {
+
                 if ($redirectBack) {
-                    return redirect()->back()->withInput($model->toArray())
+                    return redirect()->back()
+                        ->withInput($model->toArray())
                         ->withErrors($model->getErrors())
-                        ->with('selected_tab', $this->tab);
+                        ->with('selected_tab', $tab);
                 }
 
                 // in case of ajax, etc
@@ -128,7 +133,20 @@ trait Crudable
                 flash($message, $isError === false ? 'success' : 'danger');
             }
 
-            return redirect()->back()->with('selected_tab', $this->tab);
+            if ($isError) {
+                return redirect()
+                    ->back()
+                    ->withInput(request()->except(['password']))
+                    ->with('selected_tab', $tab);
+            }
+
+            return redirect()->back()->with('selected_tab', $tab);
+
+        } else {
+            if ($isError) {
+                // in case of ajax, etc
+                return $message;
+            }
         }
 
         // in case of ajax, etc
