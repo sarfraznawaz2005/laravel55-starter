@@ -117,7 +117,7 @@ trait Crudable
                     return redirect()->back()
                         ->withInput($model->toArray())
                         ->withErrors($model->getErrors())
-                        ->with('selected_tab', $tab);
+                        ->with('selected_tab', $this->tab);
                 }
 
                 // in case of ajax, etc
@@ -134,10 +134,10 @@ trait Crudable
                 return redirect()
                     ->back()
                     ->withInput(request()->except(['password']))
-                    ->with('selected_tab', $tab);
+                    ->with('selected_tab', $this->tab);
             }
 
-            return redirect()->back()->with('selected_tab', $tab);
+            return redirect()->back()->with('selected_tab', $this->tab);
 
         } else {
             if ($isError) {
