@@ -13,6 +13,7 @@
 '/modules/core/js/plugins/datatables/jquery.dataTables.min.js',
 '/modules/core/js/plugins/datatables/datatables.bootstrap.js',
 '/modules/core/js/plugins/datatables/fnFilterOnReturn.js',
+'/modules/core/js/plugins/datatables/jquery.dataTables.columnFilter.js',
 '/modules/core/js/plugins/datatables/responsive/dataTables.responsive.min.js',
 '/modules/core/js/plugins/isMobile.min.js',
 '/modules/core/js/plugins/jquery.pulsate.min.js',
