@@ -35,7 +35,6 @@
     "rinvex/cacheable": "dev-develop",
     "sarfraznawaz2005/applog": "^1.0",
     "sarfraznawaz2005/eventable": "^1.0",
-    "sarfraznawaz2005/queryline": "^1.0",
     "sarfraznawaz2005/visitlog": "^1.0",
     "spatie/laravel-permission": "^2.7",
     "themsaid/laravel-mail-preview": "^2.0",
