@@ -1,12 +1,14 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Sarfaraz
+ * User: Sarfraz
  * Date: 2/12/2018
  * Time: 4:03 PM
  */
 
 namespace Modules\Core\Facades;
+
+use Carbon\Carbon;
 
 class Socket
 {
@@ -14,12 +16,19 @@ class Socket
      * Get the registered name of the component.
      *
      * @param array $data
+     * @return bool
      */
     public static function send(array $data)
     {
+        if (empty($data)) {
+            return false;
+        }
+
         try {
 
             $client = new \vakata\websocket\Client(static::getSocketUrl());
+
+            $data['time'] = Carbon::now()->toTimeString();
 
             $client->send(json_encode($data));
 

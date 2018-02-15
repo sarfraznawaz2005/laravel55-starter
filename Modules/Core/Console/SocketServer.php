@@ -7,7 +7,7 @@ use Modules\Core\Facades\Socket;
 
 class SocketServer extends Command
 {
-    protected $name = 'app:socket_serve';
+    protected $name = 'socket_serve';
     protected $description = 'Starts websocket server.';
 
     /**

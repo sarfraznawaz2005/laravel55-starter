@@ -33,6 +33,14 @@ class UserSubscriber
         Log::info('User #' . $event->user->id . ' logged in.');
     }
 
+    public function onLogout($event)
+    {
+        Socket::send([
+            'user_id' => user()->id,
+            'message' => $event->user->name . ' just logged out.'
+        ]);
+    }
+
     public function onRegister($event)
     {
         Log::info('User #' . $event->user->id . ' registered.');
@@ -47,6 +55,7 @@ class UserSubscriber
         # login, register, logout, etc events
         # ref: https://laravel.com/docs/5.5/authentication#events
         $events->listen('Illuminate\Auth\Events\Login', UserSubscriber::class . '@onLogin');
+        $events->listen('Illuminate\Auth\Events\Logout', UserSubscriber::class . '@onLogout');
         $events->listen('Illuminate\Auth\Events\Registered', UserSubscriber::class . '@onRegister');
     }
 }
