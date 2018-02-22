@@ -4,9 +4,9 @@ namespace Modules\Task\Models;
 
 use Balping\HashSlug\HasHashSlug;
 use Modules\Core\Models\CoreModel;
+use Modules\Core\Traits\Model\Cacheable\Cacheable;
 use Modules\Core\Traits\Model\Playable;
 use Modules\User\Models\User;
-use Rinvex\Cacheable\CacheableEloquent;
 
 class Task extends CoreModel
 {
@@ -17,7 +17,7 @@ class Task extends CoreModel
     use HasHashSlug;
 
     // cache queries on the model
-    use CacheableEloquent;
+    use Cacheable;
 
     protected $fillable = [
         'user_id',

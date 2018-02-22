@@ -8,7 +8,6 @@
 
 namespace Modules\Core\Models;
 
-use Appstract\Meta\Metable;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use KingOfCode\Upload\Uploadable;
@@ -25,7 +24,20 @@ class CoreModel extends Model
     use ValidatingTrait;
     use Uploadable;
     use Eventable;
-    use Metable;
+
+    # added to get Cacheable trait working because Ardent was changing this function
+    # which was affecting Cacheable trait
+    public function newQueryWithoutScopes()
+    {
+        $builder = $this->newEloquentBuilder(
+            $this->newBaseQueryBuilder()
+        );
+
+        // Once we have the query builders, we will set the model instances so the
+        // builder can easily access any information it may need from the model
+        // while it is constructing and executing various queries against it.
+        return $builder->setModel($this)->with($this->with);
+    }
 
     /**
      * created_at column accessor.

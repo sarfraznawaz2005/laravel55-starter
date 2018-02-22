@@ -72,7 +72,7 @@ trait Cacheable
      *
      * @return void
      */
-    abstract public function updated($callback, $priority = 0);
+    abstract public function updated($callback);
 
     /**
      * Register a created model event with the dispatcher.
@@ -82,7 +82,7 @@ trait Cacheable
      *
      * @return void
      */
-    abstract public function created($callback, $priority = 0);
+    abstract public function created($callback);
 
     /**
      * Register a deleted model event with the dispatcher.
@@ -92,7 +92,7 @@ trait Cacheable
      *
      * @return void
      */
-    abstract public function deleted($callback, $priority = 0);
+    abstract public function deleted($callback);
 
     /**
      * Forget model cache on create/update/delete.

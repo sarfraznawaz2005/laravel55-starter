@@ -12,7 +12,6 @@ use Modules\Core\Models\CoreModel;
 use Modules\Core\Traits\Model\Purgeable;
 use Modules\Task\Models\Task;
 use Modules\User\Notifications\PasswordWasReset;
-use Rinvex\Cacheable\CacheableEloquent;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends CoreModel implements AuthenticatableContract, CanResetPasswordContract
@@ -24,9 +23,6 @@ class User extends CoreModel implements AuthenticatableContract, CanResetPasswor
 
     // automatic fake model id
     use HasHashSlug;
-
-    // cache queries on the model
-    use CacheableEloquent;
 
     use Purgeable;
     protected $purge = [

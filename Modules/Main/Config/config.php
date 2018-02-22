@@ -22,6 +22,6 @@ return [
         # entry length change dropdown
         'bLengthChange' => true,
         # specify export buttons
-        'buttons' => ['excel', 'print'], // 'csv', 'excel', 'pdf', 'print', 'reset', 'reload'
+        'buttons' => ['csv', 'excel', 'print'], // 'csv', 'excel', 'pdf', 'print', 'reset', 'reload'
     ],
 ];
