@@ -25,6 +25,8 @@ class LoginController extends CoreController
         $this->middleware('guest')->except('logout');
 
         $this->redirectTo = config('user.redirect_route_after_login', '/');
+        
+        parent::__construct();
     }
 
     public function showLoginForm()

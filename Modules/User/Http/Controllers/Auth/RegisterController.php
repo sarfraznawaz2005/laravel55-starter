@@ -28,6 +28,8 @@ class RegisterController extends CoreController
         $this->middleware('guest');
 
         $this->redirectTo = config('user.redirect_route_after_register', '/');
+        
+        parent::__construct();
     }
 
     public function showRegistrationForm()
