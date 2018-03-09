@@ -11,7 +11,8 @@
   "providers": [
     "Modules\\Core\\Providers\\CoreServiceProvider",
     "Modules\\Core\\Providers\\ScheduleServiceProvider",
-    "Modules\\Core\\Providers\\DirectiveServiceProvider"
+    "Modules\\Core\\Providers\\DirectiveServiceProvider",
+    "Modules\\Core\\Providers\\LogEnhancer"
   ],
   "aliases": {},
   "files": [
