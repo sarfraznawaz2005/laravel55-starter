@@ -31,9 +31,13 @@
     <div class="cover"></div>
 </section>
 <section class="login-content">
+
     <div class="logo">
         <h1>{{appName()}}</h1>
     </div>
+    
+    @include('flash::message')
+    @include('core::shared.errors')    
 
     <div class="login-box">
 
