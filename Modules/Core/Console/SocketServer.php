@@ -18,6 +18,11 @@ class SocketServer extends Command
      */
     public function handle()
     {
+        set_time_limit(0);
+
+        # keep script running always
+        ignore_user_abort(true);
+
         try {
 
             $server = new \vakata\websocket\Server(Socket::getSocketUrl());
