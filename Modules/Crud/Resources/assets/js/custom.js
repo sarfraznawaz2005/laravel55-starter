@@ -15,9 +15,6 @@ $(function () {
 
     $('#flash-overlay-modal').modal();
 
-    // select 2 for dropdowns
-    $('select').not('.no_select2').select2();
-
     // BTS Popover
     $('[rel="popover"]').addClass('text-primary').popover({"trigger": "hover", "html": true});
 
@@ -35,22 +32,11 @@ $(function () {
 
 // confirm delete
 $('body').on('click', '.confirm-delete', function (e) {
-    var label = $(this).data('label');
     var $form = $(this).closest('form');
 
-    swal({
-        title: "Are you sure?",
-        text: label + " will be deleted!",
-        icon: "warning",
-        buttons: ["Cancel", "Yes, delete it!"],
-        dangerMode: true,
-    })
-        .then((willDelete) => {
-            if (willDelete) {
-                document.querySelector('.swal-button').disabled = true;
-                $form.submit();
-            }
-        });
+    if (confirm('Are you sure?')) {
+        $form.submit();
+    }
 
     return false;
 });

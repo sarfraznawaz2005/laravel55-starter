@@ -13,10 +13,8 @@
     {!! Packer::css([
     '/modules/crud/css/bootstrap/css/theme.min.css',
     '/modules/crud/css/bootstrap/css/custom.css',
-    '/modules/core/js/plugins/select2/select2.min.css',
     '/modules/core/css/loader.css',
     '/modules/crud/css/custom.css',
-    '/modules/core/css/animate.css',
     ],
     '/storage/cache/css/')
     !!}

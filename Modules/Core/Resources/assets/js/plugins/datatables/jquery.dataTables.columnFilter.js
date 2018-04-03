@@ -3,17 +3,17 @@ https://github.com/tduchateau/jquery-datatables-column-filter
 
 * File:        jquery.dataTables.columnFilter.js
 * Version:     0.9.0
-* Author:      Jovan Popovic 
-* 
+* Author:      Jovan Popovic
+*
 * Copyright 2011 Jovan Popovic, all rights reserved.
 *
 * This source file is free software, under either the GPL v2 license or a
 * BSD style license, as supplied with this software.
-* 
-* This source file is distributed in the hope that it will be useful, but 
-* WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY 
-* or FITNESS FOR A PARTICULAR PURPOSE. 
-* 
+*
+* This source file is distributed in the hope that it will be useful, but
+* WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+* or FITNESS FOR A PARTICULAR PURPOSE.
+*
 * Parameters:
 * @sPlaceHolder                 String      Place where inline filtering function should be place ("tfoot", "thead"). Default is "tfoot"
 * @sRangeSeparator              String      Separatot that will be used when range values are sent to the server-side. Default value is "~".
@@ -25,10 +25,6 @@ http://www.datatables.net/plug-ins/filtering
 
 */
 (function ($) {
-
-
-
-
 
 
     var asInitVals, i, label, th;
@@ -97,7 +93,6 @@ http://www.datatables.net/plug-ins/filtering
         aiCustomSearch_Indexes.push(i);
 
 
-
         //------------start range filtering function
 
 
@@ -105,27 +100,26 @@ http://www.datatables.net/plug-ins/filtering
         *	Author: 	Allan Jardine, Modified by Jovan Popovic
         */
         $.fn.dataTableExt.afnFiltering.push(
-	        function (oSettings, aData, iDataIndex) {
-	            var iMin = document.getElementById(sFromId).value * 1;
-	            var iMax = document.getElementById(sToId).value * 1;
-	            var iValue = aData[index] == "-" ? 0 : aData[index] * 1;
-	            if (iMin == "" && iMax == "") {
-	                return true;
-	            }
-	            else if (iMin == "" && iValue < iMax) {
-	                return true;
-	            }
-	            else if (iMin < iValue && "" == iMax) {
-	                return true;
-	            }
-	            else if (iMin < iValue && iValue < iMax) {
-	                return true;
-	            }
-	            return false;
-	        }
+            function (oSettings, aData, iDataIndex) {
+                var iMin = document.getElementById(sFromId).value * 1;
+                var iMax = document.getElementById(sToId).value * 1;
+                var iValue = aData[index] == "-" ? 0 : aData[index] * 1;
+                if (iMin == "" && iMax == "") {
+                    return true;
+                }
+                else if (iMin == "" && iValue < iMax) {
+                    return true;
+                }
+                else if (iMin < iValue && "" == iMax) {
+                    return true;
+                }
+                else if (iMin < iValue && iValue < iMax) {
+                    return true;
+                }
+                return false;
+            }
         );
         //------------end range filtering function
-
 
 
         $('#' + sFromId + ',#' + sToId, th).keyup(function () {
@@ -164,30 +158,30 @@ http://www.datatables.net/plug-ins/filtering
         //------------start date range filtering function
 
         $.fn.dataTableExt.afnFiltering.push(
-	        function (oSettings, aData, iDataIndex) {
-	            var dStartDate = from.datepicker("getDate");
+            function (oSettings, aData, iDataIndex) {
+                var dStartDate = from.datepicker("getDate");
 
-	            var dEndDate = to.datepicker("getDate");
+                var dEndDate = to.datepicker("getDate");
 
-	            var dCellDate = $.datepicker.parseDate($.datepicker.regional[""].dateFormat, aData[index]);
+                var dCellDate = $.datepicker.parseDate($.datepicker.regional[""].dateFormat, aData[index]);
 
-	            if (dCellDate == null)
-	                return false;
+                if (dCellDate == null)
+                    return false;
 
-	            if (dStartDate == null && dEndDate == null) {
-	                return true;
-	            }
-	            else if (dStartDate == null && dCellDate < dEndDate) {
-	                return true;
-	            }
-	            else if (dStartDate < dCellDate && dEndDate == null) {
-	                return true;
-	            }
-	            else if (dStartDate < dCellDate && dCellDate < dEndDate) {
-	                return true;
-	            }
-	            return false;
-	        }
+                if (dStartDate == null && dEndDate == null) {
+                    return true;
+                }
+                else if (dStartDate == null && dCellDate < dEndDate) {
+                    return true;
+                }
+                else if (dStartDate < dCellDate && dEndDate == null) {
+                    return true;
+                }
+                else if (dStartDate < dCellDate && dCellDate < dEndDate) {
+                    return true;
+                }
+                return false;
+            }
         );
         //------------end date range filtering function
 
@@ -201,7 +195,8 @@ http://www.datatables.net/plug-ins/filtering
 
     function fnCreateSelect(aData) {
         var index = i;
-        var r = '<select class="search_init select_filter"><option value="" class="search_init">' + label + '</option>', j, iLen = aData.length;
+        var r = '<select class="search_init select_filter"><option value="" class="search_init">' + label + '</option>',
+            j, iLen = aData.length;
 
         for (j = 0; j < iLen; j++) {
             r += '<option value="' + aData[j] + '">' + aData[j] + '</option>';
@@ -220,15 +215,15 @@ http://www.datatables.net/plug-ins/filtering
         });
     }
 
-    function _fnRangeLabelPart(iPlace){
-        switch(iPlace){
-        case 0:
-            return sRangeFormat.substring(0, sRangeFormat.indexOf("{from}"));
-        case 1:
-            return sRangeFormat.substring(sRangeFormat.indexOf("{from}") + 6, sRangeFormat.indexOf("{to}"));
-        default:
-            return sRangeFormat.substring(sRangeFormat.indexOf("{to}") + 4);
-	}
+    function _fnRangeLabelPart(iPlace) {
+        switch (iPlace) {
+            case 0:
+                return sRangeFormat.substring(0, sRangeFormat.indexOf("{from}"));
+            case 1:
+                return sRangeFormat.substring(sRangeFormat.indexOf("{from}") + 6, sRangeFormat.indexOf("{to}"));
+            default:
+                return sRangeFormat.substring(sRangeFormat.indexOf("{to}") + 4);
+        }
     }
 
 
@@ -261,7 +256,8 @@ http://www.datatables.net/plug-ins/filtering
 
             $(sFilterRow + " th", oTable).each(function (index) {
                 i = index;
-                var aoColumn = { type: "text",
+                var aoColumn = {
+                    type: "text",
                     bRegex: false,
                     bSmart: true
                 };
@@ -325,7 +321,7 @@ http://www.datatables.net/plug-ins/filtering
                                 aoData[k].value = afnSearch_[j]();
                         }
                     }
-                    aoData.push({ "name": "sRangeSeparator", "value": properties.sRangeSeparator });
+                    aoData.push({"name": "sRangeSeparator", "value": properties.sRangeSeparator});
 
                     if (fnServerDataOriginal != null) {
                         fnServerDataOriginal(sSource, aoData, fnCallback);
@@ -360,8 +356,5 @@ http://www.datatables.net/plug-ins/filtering
         });
 
     };
-
-
-
 
 })(jQuery);

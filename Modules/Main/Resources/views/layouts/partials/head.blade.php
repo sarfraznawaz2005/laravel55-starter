@@ -17,21 +17,14 @@
 
     <link rel="shortcut icon" href="/favicon.ico">
 
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+
     {!! Packer::css([
-    '/modules/core/css/bootstrap/bootstrap.min.css',
-    '/modules/core/js/plugins/datatables/datatables.bootstrap.css',
-    '/modules/core/js/plugins/datatables/responsive/responsive.dataTables.min.css',
-    '/modules/core/js/plugins/select2/select2.min.css',
-    '/modules/core/js/plugins/summernote/summernote-bs4.css',
-    '/modules/core/js/plugins/toast/jquery.toast.min.css',
     '/modules/core/css/loader.css',
     '/modules/main/css/custom.css',
-    '/modules/core/css/animate.css',
     ],
     '/storage/cache/css/')
     !!}
-
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
     <script>
         window.Laravel = <?=json_encode(['csrfToken' => csrf_token()]); ?>

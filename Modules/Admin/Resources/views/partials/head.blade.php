@@ -9,21 +9,15 @@
 
     <title>{{Meta::get('title') . ' :: Admin Panel'}}</title>
 
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+
     {!! Packer::css([
     '/modules/admin/css/main.css',
-    '/modules/core/js/plugins/datatables/datatables.bootstrap.css',
-    '/modules/core/js/plugins/datatables/responsive/responsive.dataTables.min.css',
-    '/modules/core/js/plugins/select2/select2.min.css',
-    '/modules/core/js/plugins/summernote/summernote.css',
-    '/modules/core/js/plugins/toast/jquery.toast.min.css',
     '/modules/admin/css/custom.css',
     '/modules/core/css/loader.css',
-    '/modules/core/css/animate.css',
     ],
     '/storage/cache/css/')
     !!}
-
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
     @stack('styles')
 

@@ -9,7 +9,7 @@
     {!! Breadcrumbs::render() !!}
 @endif
 
-<main role="main" class="container main">
+<main role="main" class="container main" id="app">
     <div class="row">
         <div class="col-md-12">
             @include('flash::message')

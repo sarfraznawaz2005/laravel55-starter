@@ -133,32 +133,31 @@ $('body').on('click', '.confirm-delete', function (e) {
     var $form = $(this).closest('form');
 
     swal({
-        title: "Are you sure?",
+        title: 'Are you sure?',
         text: label + " will be deleted!",
-        icon: "warning",
-        buttons: {
-            cancel: {
-                text: "Cancel",
-                value: null,
-                visible: true,
-                closeModal: true,
-            },
-            confirm: {
-                text: "Yes, delete it!",
-                value: true,
-                visible: true,
-                closeModal: false
-            }
-        },
-        closeOnEsc: true,
-        dangerMode: true,
-    })
-        .then((willDelete) => {
-            if (willDelete) {
-                document.querySelector('.swal-button').disabled = true;
-                $form.submit();
-            }
-        });
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it',
+        cancelButtonText: 'No, cancel',
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        showLoaderOnConfirm: true,
+        buttonsStyling: true,
+        reverseButtons: true,
+        preConfirm: function() {
+            return new Promise(function(resolve) {
+                setTimeout(function() {
+                    resolve()
+                }, 2000)
+            })
+        }
+    }).then((result) => {
+        if (result.value) {
+            document.querySelector('.btn.swal2-confirm').disabled = true;
+            $form.submit();
+        }
+    });
 
     return false;
 });

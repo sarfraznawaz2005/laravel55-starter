@@ -28,4 +28,6 @@
 
 @endsection
 
-@include('core::shared.datatables_export', ['buttons' => true])
+@push('scripts')
+    {!! $dataTable->scripts() !!}
+@endpush

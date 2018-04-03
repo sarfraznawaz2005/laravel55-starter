@@ -2,7 +2,7 @@
 
 <body class="animated fadeIn">
 
-<div class="container" style="margin-top: 20px; padding: 0;">
+<div class="container" style="margin-top: 20px; padding: 0;" id="app">
     <div class="row">
         <div class="col-md-12">
 

@@ -31,3 +31,7 @@ push.sh
 /resources/lang/crud/.gitkeep
 /storage/framework/cache/.gitignore
 /.env
+/package-lock.json
+/public/fonts/
+/public/css/app.css
+/public/js/app.js

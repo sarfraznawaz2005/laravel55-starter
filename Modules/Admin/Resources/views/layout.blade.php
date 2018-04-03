@@ -5,7 +5,7 @@
 @include('admin::partials.nav')
 @include('admin::partials.sidebar')
 
-<main class="app-content">
+<main class="app-content" id="app">
 
     @section('card_admin.component_card_before')
         @if (config('admin.breadcrumb'))
