@@ -35,3 +35,4 @@ push.sh
 /public/fonts/
 /public/css/app.css
 /public/js/app.js
+/public/mix-manifest.json

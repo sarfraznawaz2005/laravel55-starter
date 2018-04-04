@@ -23,4 +23,6 @@
 
 @include('sweet::alert')
 
-@include('core::shared.socket')
+@if (config('core.settings.enable_socket'))
+    @include('core::shared.socket')
+@endif
