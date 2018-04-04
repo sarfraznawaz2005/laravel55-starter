@@ -18,5 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 // for API/Vue Task Component (Sample)
-Route::get('tasks', 'API\TaskAPIController@index');
-Route::post('tasks', 'API\TaskAPIController@store');
+Route::resource('/tasks', 'API\TaskAPIController', [
+    'except' => ['create', 'show']
+]);
+
