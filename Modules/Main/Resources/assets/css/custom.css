@@ -67,7 +67,9 @@ header {
 }
 
 header .page-title h1 {
-    font-size: 30px;
+    font-size: 26px;
+    margin-bottom: 0;
+    padding: 5px 0;
 }
 
 .footer {

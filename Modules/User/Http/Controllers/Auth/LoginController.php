@@ -25,7 +25,7 @@ class LoginController extends CoreController
         $this->middleware('guest')->except('logout');
 
         $this->redirectTo = config('user.redirect_route_after_login', '/');
-        
+
         parent::__construct();
     }
 
@@ -80,9 +80,7 @@ class LoginController extends CoreController
         }
 
         if ($this->guard()->attempt($credentials, $request->has('remember'))) {
-
-            // success
-            alert(user()->full_name . '!', 'Welcome!')->autoclose(3000);
+            // logged in successfully
 
             VisitLog::save();
 
