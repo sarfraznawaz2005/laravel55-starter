@@ -140,7 +140,7 @@ nav ul li {
     }
 }
 
-table.dataTable thead tr {
+table thead tr {
     background-image: radial-gradient(#eee, #eee) !important;
     color: #666;
 }
@@ -153,11 +153,20 @@ table.dataTable thead tr {
     padding: 0.9rem 1rem;
 }
 
-.table td, .table td {
+.table td {
+    padding: 0.30rem;
+    vertical-align: middle;
+}
+
+.dataTable td {
     padding: 0.10rem 0.50rem;
     vertical-align: middle;
 }
 
 table.dataTable {
     width: 100% !important;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    background: white;
 }

@@ -27,7 +27,7 @@ class Task extends CoreModel
     ];
 
     protected $rules = [
-        'description' => 'required',
+        'description' => 'required|min:5',
     ];
 
     // Array of uploadable images. These fields need to be existent in your database table

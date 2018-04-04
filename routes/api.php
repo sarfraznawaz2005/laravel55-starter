@@ -16,3 +16,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// for API/Vue Task Component (Sample)
+Route::get('tasks', 'API\TaskAPIController@index');
+Route::post('tasks', 'API\TaskAPIController@store');

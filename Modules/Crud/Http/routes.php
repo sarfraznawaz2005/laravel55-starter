@@ -14,10 +14,15 @@ Route::group([
         Route::get('crud__', 'CrudController@index')->name('crud.index');
     });
 
-    Route::post('/store', 'CrudController@store')->name('crud.store');
-    Route::get('/publish', 'CrudController@publish')->name('crud.publish');
-    Route::get('/migrate', 'CrudController@migrate')->name('crud.migrate');
-    Route::get('/toggle_status/{name}', 'CrudController@toggleStatus')->name('crud.toggle_status');
-    Route::post('/createfile', 'CrudController@createFile')->name('crud.createfile');
-    Route::delete('/destroy/{name}', 'CrudController@destroy')->name('crud.destroy');
+    Route::group([
+        'prefix' => 'crud'
+    ], function () {
+        Route::post('/store', 'CrudController@store')->name('crud.store');
+        Route::get('/publish', 'CrudController@publish')->name('crud.publish');
+        Route::get('/migrate', 'CrudController@migrate')->name('crud.migrate');
+        Route::get('/toggle_status/{name}', 'CrudController@toggleStatus')->name('crud.toggle_status');
+        Route::post('/createfile', 'CrudController@createFile')->name('crud.createfile');
+        Route::delete('/destroy/{name}', 'CrudController@destroy')->name('crud.destroy');
+    });
+
 });
