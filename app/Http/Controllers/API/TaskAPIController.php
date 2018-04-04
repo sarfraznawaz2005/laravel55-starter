@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Task\Models\Task;
 
@@ -19,7 +19,7 @@ class TaskAPIController extends Controller
      */
     public function index(Task $task): JsonResponse
     {
-        return $this->getData($task);
+        return response()->json($this->getData($task),  Response::HTTP_OK);
     }
 
     /**
@@ -32,60 +32,46 @@ class TaskAPIController extends Controller
         $task->disableLoggingPlayer();
 
         $task->description = request()->description;
+
+        // dummy values
         $task->user_id = '1';
         $task->created_by = '1';
         $task->updated_by = '1';
 
         if (! $task->save()) {
-            return $task->getErrors();
+            return response()->json($task->getErrors()->all(),  Response::HTTP_INTERNAL_SERVER_ERROR);
         }
 
-        return $this->getData($task);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
+        return response()->json($this->getData($task),  Response::HTTP_CREATED);
     }
 
     /**
      * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return Response
+     * @param $id
+     * @param Task $task
+     * @return JsonResponse|\Illuminate\Support\MessageBag
      */
-    public function update(Request $request, $id)
+    public function update($id, Task $task)
     {
-        //
+        $task = $task->find($id);
+
+        return $this->store($task);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
+     * @param Task $task
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, Task $task)
     {
-        //
+        $task = $task->find($id);
+
+        if ($task->delete()) {
+            return response()->json($this->getData($task));
+        }
     }
 
     /**
@@ -93,6 +79,6 @@ class TaskAPIController extends Controller
      * @return mixed
      */
     protected function getData(Task $task) {
-        return response()->json($task->latest()->paginate($this->pagesCount));
+        return $task->latest()->paginate($this->pagesCount);
     }
 }
