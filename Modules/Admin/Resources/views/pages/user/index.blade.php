@@ -6,4 +6,6 @@
 
 @endsection
 
-@include('core::shared.datatables_export')
+@push('scripts')
+    {!! $dataTable->scripts() !!}
+@endpush
