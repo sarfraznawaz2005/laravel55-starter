@@ -20,6 +20,10 @@ class Socket
      */
     public static function send(array $data)
     {
+        if (!config('core.settings.enable_socket')) {
+            return false;
+        }
+
         if (empty($data)) {
             return false;
         }
