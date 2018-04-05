@@ -54,7 +54,7 @@ class CrudController extends CoreController
 
         $this->optimize();
 
-        return $this->runCommand('module:publish', null, 'All modules stuff published successfully!');
+        return $this->runCommand('module:publish', null, 'Modules Published Successfully!');
     }
 
     protected function optimize()

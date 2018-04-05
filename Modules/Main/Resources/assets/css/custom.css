@@ -170,3 +170,7 @@ table.dataTable {
 .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
     background: white;
 }
+
+.nav-tabs .nav-link {
+    border-bottom: 0;
+}

@@ -142,9 +142,9 @@ $('body').on('click', '.confirm-delete', function (e) {
         cancelButtonText: 'No, cancel',
         confirmButtonClass: 'btn btn-success',
         cancelButtonClass: 'btn btn-danger',
-        showLoaderOnConfirm: true,
         buttonsStyling: true,
         reverseButtons: true,
+        showLoaderOnConfirm: true,
         preConfirm: function() {
             return new Promise(function(resolve) {
                 setTimeout(function() {

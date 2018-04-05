@@ -241,7 +241,15 @@
                     confirmButtonClass: 'btn btn-success',
                     cancelButtonClass: 'btn btn-danger',
                     buttonsStyling: true,
-                    reverseButtons: true
+                    reverseButtons: true,
+                    showLoaderOnConfirm: true,
+                    preConfirm: function() {
+                        return new Promise(function(resolve) {
+                            setTimeout(function() {
+                                resolve()
+                            }, 2000)
+                        })
+                    }
                 }).then((result) => {
                     if (result.value) {
                         axios
