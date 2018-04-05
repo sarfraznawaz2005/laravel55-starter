@@ -40,7 +40,7 @@ const router = new VueRouter({
 
 /////////////////////////////////////////////////////////////////////////////
 
-const app = new Vue({
+window.vm = new Vue({
     el: '#app',
     router
 });

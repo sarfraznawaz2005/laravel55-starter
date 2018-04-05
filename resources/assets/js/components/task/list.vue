@@ -75,6 +75,8 @@
         mounted() {
             this.getTasks();
 
+            window.vm.$on('refreshTasks', this.getTasks);
+
             //setTimeout(this.afterDataLoaded, 1000);
         },
         methods: {
@@ -89,7 +91,10 @@
                         this.tasks = response.data;
                         this.isLoading = false;
                     })
-                    .catch(error => this.errors = error.response.data)
+                    .catch(error => {
+                        this.isLoading = false;
+                        this.errors = error.response.data;
+                    })
             },
             editTask(task) {
                 this.$router.push({path: 'tasks_edit', query: {id: task.id}})
@@ -123,16 +128,19 @@
                         axios
                             .post('api/tasks/' + id, {'_method': 'DELETE'})
                             .then(response => {
+
                                 swal({
                                     type: 'success',
                                     title: 'Success',
                                     text: 'Deleted Successfully'
                                 });
 
-                                this.tasks = response.data;
                                 this.isLoading = false;
+
+                                this.getTasks();
                             })
                             .catch(error => {
+                                this.isLoading = false;
                                 this.errors = error.response.data;
                             });
                     }

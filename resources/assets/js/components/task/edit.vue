@@ -91,10 +91,14 @@
                         this.description = response.data.description;
                         this.isLoading = false;
                     })
-                    .catch(error => this.errors = error.response.data)
+                    .catch(error => {
+                        this.isLoading = false;
+                        this.errors = error.response.data;
+                    })
             },
             saveTask() {
                 this.errors = [];
+                this.success = '';
 
                 this.isLoading = true;
 
@@ -106,9 +110,12 @@
                     .then(response => {
                         this.success = 'Updated Successfully';
                         this.isLoading = false;
+
+                        window.vm.$emit('refreshTasks', {});
                     })
                     .catch(error => {
-                        this.errors = error.response.data
+                        this.isLoading = false;
+                        this.errors = error.response.data;
                     });
             },
         }

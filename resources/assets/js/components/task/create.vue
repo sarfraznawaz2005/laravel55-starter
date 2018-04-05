@@ -66,7 +66,6 @@
     export default {
         data() {
             return {
-                tasks: {},
                 description: '',
                 success: '',
                 errors: [],
@@ -93,10 +92,12 @@
                     .then(response => {
                         this.success = 'Added Successfully';
                         this.description = '';
-                        this.tasks = response.data;
                         this.isLoading = false;
+
+                        window.vm.$emit('refreshTasks', {});
                     })
                     .catch(error => {
+                        this.isLoading = false;
                         this.errors = error.response.data;
                     })
             },

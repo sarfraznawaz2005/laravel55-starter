@@ -16,7 +16,9 @@
                     </div>
 
                     <div class="card-body">
-                        <router-view></router-view>
+                        <keep-alive>
+                            <router-view></router-view>
+                        </keep-alive>
                     </div>
                 </div>
             </div>

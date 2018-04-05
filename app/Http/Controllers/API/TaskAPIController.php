@@ -42,7 +42,7 @@ class TaskAPIController extends Controller
             return response()->json($task->getErrors()->all(), Response::HTTP_INTERNAL_SERVER_ERROR);
         }
 
-        return response()->json($this->getData($task), Response::HTTP_CREATED);
+        return response()->json($task, Response::HTTP_CREATED);
     }
 
     /**
@@ -83,7 +83,7 @@ class TaskAPIController extends Controller
         $task = $task->find($id);
 
         if ($task->delete()) {
-            return response()->json($this->getData($task));
+            return response()->json([]);
         }
     }
 
