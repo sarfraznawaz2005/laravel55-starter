@@ -1,51 +1,45 @@
 <template>
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
+        <loading :active.sync="isLoading" :can-cancel="false"></loading>
 
-                <loading :active.sync="isLoading" :can-cancel="false"></loading>
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th style="text-align: center;">ID</th>
+                <th>Description</th>
+                <th style="text-align: center;">Created At</th>
+                <th style="text-align: center;">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="task in tasks.data">
+                <td style="text-align: center;" width="50">{{task.id}}</td>
+                <td>{{task.description}}</td>
+                <td style="text-align: center;" width="150">{{task.created_at}}</td>
+                <td style="text-align: center;" width="100">
+                    <button type="button"
+                            @click="editTask(task)"
+                            data-placement="top"
+                            data-tooltip
+                            data-original-title="Edit"
+                            class="btn btn-primary">
+                        <i class="fa fa-pencil"></i>
+                    </button>
 
-                <table class="table table-bordered table-hover">
-                    <thead>
-                    <tr>
-                        <th style="text-align: center;">ID</th>
-                        <th>Description</th>
-                        <th style="text-align: center;">Created At</th>
-                        <th style="text-align: center;">Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr v-for="task in tasks.data">
-                        <td style="text-align: center;" width="50">{{task.id}}</td>
-                        <td>{{task.description}}</td>
-                        <td style="text-align: center;" width="150">{{task.created_at}}</td>
-                        <td style="text-align: center;" width="100">
-                            <button type="button"
-                                    @click="editTask(task)"
-                                    data-placement="top"
-                                    data-tooltip
-                                    data-original-title="Edit"
-                                    class="btn btn-primary">
-                                <i class="fa fa-pencil"></i>
-                            </button>
+                    <button type="button"
+                            @click="deleteTask(task.id)"
+                            data-placement="top"
+                            data-tooltip
+                            data-original-title="Delete"
+                            class="btn btn-danger">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
 
-                            <button type="button"
-                                    @click="deleteTask(task.id)"
-                                    data-placement="top"
-                                    data-tooltip
-                                    data-original-title="Delete"
-                                    class="btn btn-danger">
-                                <i class="fa fa-trash"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-
-                <pagination :data="tasks" v-on:pagination-change-page="getTasks"></pagination>
-            </div>
-
-        </div>
+        <pagination :data="tasks" v-on:pagination-change-page="getTasks"></pagination>
     </div>
 </template>
 
