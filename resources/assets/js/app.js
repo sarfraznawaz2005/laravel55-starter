@@ -2,14 +2,47 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import VueRouter from 'vue-router'
+
+Vue.use(VueRouter);
+
 /////////////////////////////////////////////////////////////////////////////
 // VueJS Components
 /////////////////////////////////////////////////////////////////////////////
-Vue.component('tasks-component', require('./components/task/TasksComponent.vue'));
+Vue.component('tasks-component', require('./components/task/view.vue'));
+/////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////
+// VueRouter Routes
+/////////////////////////////////////////////////////////////////////////////
+
+const router = new VueRouter({
+    mode: 'history',
+    routes: [
+        {
+            path: '/tasks_list',
+            name: 'tasks_list',
+            component: require('./components/task/list.vue')
+        },
+        {
+            path: '/tasks_create',
+            name: 'tasks_create',
+            component: require('./components/task/create.vue')
+        },
+        {
+            path: '/tasks_edit',
+            name: 'tasks_edit',
+            component: require('./components/task/edit.vue')
+        },
+        //{path: '/', redirect: '/task_list'},
+    ]
+});
+
 /////////////////////////////////////////////////////////////////////////////
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    router
 });
 
 /////////////////////////////////////////////////////////////////////////////

@@ -19,7 +19,7 @@ class TaskAPIController extends Controller
      */
     public function index(Task $task): JsonResponse
     {
-        return response()->json($this->getData($task),  Response::HTTP_OK);
+        return response()->json($this->getData($task), Response::HTTP_OK);
     }
 
     /**
@@ -38,11 +38,24 @@ class TaskAPIController extends Controller
         $task->created_by = '1';
         $task->updated_by = '1';
 
-        if (! $task->save()) {
-            return response()->json($task->getErrors()->all(),  Response::HTTP_INTERNAL_SERVER_ERROR);
+        if (!$task->save()) {
+            return response()->json($task->getErrors()->all(), Response::HTTP_INTERNAL_SERVER_ERROR);
         }
 
-        return response()->json($this->getData($task),  Response::HTTP_CREATED);
+        return response()->json($this->getData($task), Response::HTTP_CREATED);
+    }
+
+    /**
+     * View specific resource
+     * @param $id
+     * @param Task $task
+     * @return JsonResponse
+     */
+    public function view($id, Task $task): JsonResponse
+    {
+        $task = $task->find($id);
+
+        return response()->json($task);
     }
 
     /**
@@ -78,7 +91,8 @@ class TaskAPIController extends Controller
      * @param Task $task
      * @return mixed
      */
-    protected function getData(Task $task) {
+    protected function getData(Task $task)
+    {
         return $task->latest()->paginate($this->pagesCount);
     }
 }
