@@ -73,7 +73,9 @@
             };
         },
         mounted() {
-
+            this.errors = [];
+            this.success = '';
+            this.isLoading = false;
         },
         components: {
             Loading

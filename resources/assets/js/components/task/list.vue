@@ -73,6 +73,10 @@
             Loading
         },
         mounted() {
+            this.errors = [];
+            this.success = '';
+            this.isLoading = false;
+
             this.getTasks();
 
             window.vm.$on('refreshTasks', this.getTasks);

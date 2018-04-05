@@ -76,6 +76,10 @@
             };
         },
         mounted() {
+            this.errors = [];
+            this.success = '';
+            this.isLoading = false;
+
             this.getTask();
         },
         components: {
