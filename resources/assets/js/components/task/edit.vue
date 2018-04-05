@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-12">
 
-                <loading :active.sync="isLoading" :can-cancel="true"></loading>
+                <loading :active.sync="isLoading" :can-cancel="false"></loading>
 
                 <router-link to="tasks_list" class="btn btn-primary btn-sm">&larr; Back</router-link>
                 <hr>

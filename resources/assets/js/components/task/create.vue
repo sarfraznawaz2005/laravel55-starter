@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-12">
 
-                <loading :active.sync="isLoading" :can-cancel="true"></loading>
+                <loading :active.sync="isLoading" :can-cancel="false"></loading>
 
                 <transition name="fade">
                     <div class="alert alert-success" v-if="success.length">
