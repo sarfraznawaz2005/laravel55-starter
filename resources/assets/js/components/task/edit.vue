@@ -3,6 +3,8 @@
         <div class="row">
             <div class="col-md-12">
 
+                <loading :active.sync="isLoading" :can-cancel="true"></loading>
+
                 <router-link to="tasks_list" class="btn btn-primary btn-sm">&larr; Back</router-link>
                 <hr>
 
@@ -61,29 +63,40 @@
 </style>
 
 <script>
+    import Loading from 'vue-loading-overlay';
+    import 'vue-loading-overlay/dist/vue-loading.min.css';
+
     export default {
         data() {
             return {
                 description: '',
                 success: '',
                 errors: [],
+                isLoading: false,
             };
         },
         mounted() {
             this.getTask();
         },
+        components: {
+            Loading
+        },
         methods: {
-            
             getTask() {
+                this.isLoading = true;
+
                 axios
                     .get('api/tasks/' + this.$route.query.id)
                     .then(response => {
                         this.description = response.data.description;
+                        this.isLoading = false;
                     })
                     .catch(error => this.errors = error.response.data)
             },
             saveTask() {
                 this.errors = [];
+
+                this.isLoading = true;
 
                 axios
                     .post('api/tasks/' + this.$route.query.id, {
@@ -92,6 +105,7 @@
                     })
                     .then(response => {
                         this.success = 'Updated Successfully';
+                        this.isLoading = false;
                     })
                     .catch(error => {
                         this.errors = error.response.data

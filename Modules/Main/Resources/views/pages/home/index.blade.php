@@ -1,6 +1,7 @@
 @extends('main::layouts.master')
 
 @section('content')
+
     <div class="jumbotron text-center">
         <h1>{{config('app.name')}}</h1>
         <p class="padded">
@@ -14,4 +15,7 @@
             @endif
         </p>
     </div>
+
+
+    {{--<tasks-component></tasks-component>--}}
 @stop

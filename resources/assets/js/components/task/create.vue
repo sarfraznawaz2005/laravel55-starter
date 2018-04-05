@@ -2,6 +2,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+
+                <loading :active.sync="isLoading" :can-cancel="true"></loading>
+
                 <transition name="fade">
                     <div class="alert alert-success" v-if="success.length">
                         {{success}}
@@ -57,6 +60,9 @@
 </style>
 
 <script>
+    import Loading from 'vue-loading-overlay';
+    import 'vue-loading-overlay/dist/vue-loading.min.css';
+
     export default {
         data() {
             return {
@@ -64,15 +70,21 @@
                 description: '',
                 success: '',
                 errors: [],
+                isLoading: false,
             };
         },
         mounted() {
 
         },
+        components: {
+            Loading
+        },
         methods: {
             saveTask() {
                 this.errors = [];
                 this.success = '';
+
+                this.isLoading = true;
 
                 axios
                     .post('api/tasks', {
@@ -82,6 +94,7 @@
                         this.success = 'Added Successfully';
                         this.description = '';
                         this.tasks = response.data;
+                        this.isLoading = false;
                     })
                     .catch(error => {
                         this.errors = error.response.data;

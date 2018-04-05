@@ -3,6 +3,8 @@
         <div class="row">
             <div class="col-md-12">
 
+                <loading :active.sync="isLoading" :can-cancel="true"></loading>
+
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
@@ -54,7 +56,9 @@
 <script>
     Vue.component('pagination', require('laravel-vue-pagination'));
 
-    import swal from 'sweetalert2'
+    import swal from 'sweetalert2';
+    import Loading from 'vue-loading-overlay';
+    import 'vue-loading-overlay/dist/vue-loading.min.css';
 
     export default {
         data() {
@@ -62,7 +66,11 @@
                 tasks: {},
                 description: '',
                 errors: [],
+                isLoading: false,
             };
+        },
+        components: {
+            Loading
         },
         mounted() {
             this.getTasks();
@@ -73,10 +81,13 @@
             getTasks(page) {
                 page = page || 1;
 
+                this.isLoading = true;
+
                 axios
                     .get('api/tasks?page=' + page)
                     .then(response => {
                         this.tasks = response.data;
+                        this.isLoading = false;
                     })
                     .catch(error => this.errors = error.response.data)
             },
@@ -107,6 +118,8 @@
                     }
                 }).then((result) => {
                     if (result.value) {
+                        this.isLoading = true;
+
                         axios
                             .post('api/tasks/' + id, {'_method': 'DELETE'})
                             .then(response => {
@@ -117,6 +130,7 @@
                                 });
 
                                 this.tasks = response.data;
+                                this.isLoading = false;
                             })
                             .catch(error => {
                                 this.errors = error.response.data;
