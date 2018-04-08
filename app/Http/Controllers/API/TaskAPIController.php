@@ -48,12 +48,11 @@ class TaskAPIController extends Controller
     /**
      * View specific resource
      * @param $id
-     * @param Task $task
      * @return JsonResponse
      */
-    public function view($id, Task $task): JsonResponse
+    public function show($id): JsonResponse
     {
-        $task = $task->find($id);
+        $task = Task::find($id);
 
         return response()->json($task);
     }
@@ -61,12 +60,11 @@ class TaskAPIController extends Controller
     /**
      * Update the specified resource in storage.
      * @param $id
-     * @param Task $task
      * @return JsonResponse|\Illuminate\Support\MessageBag
      */
-    public function update($id, Task $task)
+    public function update($id)
     {
-        $task = $task->find($id);
+        $task = Task::find($id);
 
         return $this->store($task);
     }
@@ -75,12 +73,11 @@ class TaskAPIController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int $id
-     * @param Task $task
      * @return Response
      */
-    public function destroy($id, Task $task)
+    public function destroy($id)
     {
-        $task = $task->find($id);
+        $task = Task::find($id);
 
         if ($task->delete()) {
             return response()->json([]);

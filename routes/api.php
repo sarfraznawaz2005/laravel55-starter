@@ -17,12 +17,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//////////////////////////////////////////////////////////////
 // for API/Vue Task Component (Sample)
-//////////////////////////////////////////////////////////////
-Route::get('tasks', 'API\TaskAPIController@index');
-Route::post('tasks', 'API\TaskAPIController@store');
-Route::delete('tasks/{id}', 'API\TaskAPIController@destroy');
-Route::get('tasks/{id}', 'API\TaskAPIController@view');
-Route::put('tasks/{id}', 'API\TaskAPIController@update');
-//////////////////////////////////////////////////////////////
+Route::apiResource('tasks', 'API\TaskAPIController');
