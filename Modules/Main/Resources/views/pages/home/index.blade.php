@@ -2,8 +2,6 @@
 
 @section('content')
 
-    {{--<tasks-component></tasks-component>--}}
-
     <div class="jumbotron text-center">
         <h1>{{config('app.name')}}</h1>
         <p class="padded">

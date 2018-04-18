@@ -22,6 +22,7 @@
     {!! Packer::css([
     '/modules/core/css/loader.css',
     '/modules/main/css/custom.css',
+    '/modules/core/js/plugins/jquery-content-preview/jquery-content-preview.css',
     ],
     '/storage/cache/css/')
     !!}
