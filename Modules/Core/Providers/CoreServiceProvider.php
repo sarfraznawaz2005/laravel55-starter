@@ -73,8 +73,8 @@ class CoreServiceProvider extends ServiceProvider
             queryLog(false);
 
             // disable debugbar
-            config('debugbar.enabled', false);
-            config('pretty-routes.url', '');
+            config(['debugbar.enabled' => false]);
+            config(['pretty-routes.url' => '']);
         }
     }
 
