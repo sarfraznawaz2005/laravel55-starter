@@ -9,6 +9,7 @@
 namespace Modules\Core\Console;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -34,7 +35,7 @@ class CoreCommand extends Command
 
             $logMessage = $this->getName() . ' finished in ' . round($executionTime, 2);
 
-            out($logMessage);
+            Log::info($logMessage);
         }
     }
 }
