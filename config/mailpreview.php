@@ -41,6 +41,14 @@ return [
     'show_link_to_preview' => true,
 
     /**
+     * The timeout for the popup
+     *
+     * This is a time in miliseconds
+     * if you use 0 or a negative number it will never be removed.
+     */
+    'popup_timeout' => 8000,
+
+    /**
      * --------------------------------------------------------------------------
      * Set middleware for the mail preview route
      * --------------------------------------------------------------------------

@@ -22,7 +22,6 @@
     "garygreen/pretty-routes": "^1.0",
     "jenssegers/agent": "^2.6",
     "kingofcode/laravel-uploadable": "^0.1.7",
-    "lab404/laravel-impersonate": "^1.2",
     "laracasts/flash": "^3.0",
     "laravel/framework": "5.5.*",
     "laravel/tinker": "~1.0",

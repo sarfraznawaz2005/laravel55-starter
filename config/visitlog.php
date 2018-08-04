@@ -2,6 +2,15 @@
 
 return array(
 
+    /*
+    |--------------------------------------------------------------------------
+    | Route
+    |--------------------------------------------------------------------------
+    |
+    | Route where visitlog will be available in your app.
+    |
+    */
+
     'route' => 'visitlog__',
 
     /*
@@ -18,6 +27,7 @@ return array(
     */
 
     'iptolocation' => true,
+    'token' => 'PASTE_YOUR_TOKEN', // get your token here: https://ipstack.com/
 
     /*
     |--------------------------------------------------------------------------
