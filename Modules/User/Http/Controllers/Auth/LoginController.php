@@ -82,6 +82,8 @@ class LoginController extends CoreController
         if ($this->guard()->attempt($credentials, $request->has('remember'))) {
             // logged in successfully
 
+            noty('Welcome ' . user()->name);
+
             VisitLog::save();
 
             return $this->sendLoginResponse($request);

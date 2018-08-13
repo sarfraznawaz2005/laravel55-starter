@@ -31,6 +31,7 @@
     "recca0120/terminal": "^1.6",
     "sarfraznawaz2005/applog": "^1.0",
     "sarfraznawaz2005/eventable": "^1",
+    "sarfraznawaz2005/noty": "^1.0",
     "sarfraznawaz2005/visitlog": "^1",
     "spatie/laravel-permission": "^2.7",
     "themsaid/laravel-mail-preview": "^2.0",
