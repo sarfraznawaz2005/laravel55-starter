@@ -28,18 +28,6 @@ $(function () {
     // select 2 for dropdowns
     $('select').not('.no_select2').select2();
 
-    // file upload style
-    $(':file').filestyle({
-        badge: true,
-        input: false,
-        dragdrop: false,
-        text: '&nbsp;Choose File',
-        btnClass: 'btn-primary',
-        placeholder: "No file chosen",
-        htmlIcon: '<span class="fa fa-file"></span>',
-        size: 'sm'
-    });
-
     $('.pulsate').pulsate();
 
     // BTS Popover
@@ -61,6 +49,7 @@ $(function () {
 
     // this event is called when datatable is drawn
     $dataTable.on('draw.dt', function () {
+
         // BTS Popover
         $('[rel="popover"]').addClass('text-primary').popover({"trigger": "click", "html": true});
 
@@ -88,6 +77,7 @@ $(function () {
     catch (e) {
     }
 
+    /*
     // summernote
     $('textarea.editor').summernote({
         height: 250,
@@ -108,6 +98,7 @@ $(function () {
             ["help", ["help"]]
         ]
     });
+    */
 
     // disable submit button after clicked once to avoid duplicatation
     $('button[type="submit"], input[type="submit"]').disabler({
@@ -115,12 +106,14 @@ $(function () {
         html: 'Wait...'
     });
 
+    /*
     // validate forms
     $('form.validate').validator({
         html: true,
         disable: false,
         focus: true
     });
+    */
 
     // disable scroll change value on input type number
     $(':input[type=number]').on('mousewheel', function (e) {
@@ -147,9 +140,9 @@ $('body').on('click', '.confirm-delete', function (e) {
         buttonsStyling: true,
         reverseButtons: true,
         showLoaderOnConfirm: true,
-        preConfirm: function() {
-            return new Promise(function(resolve) {
-                setTimeout(function() {
+        preConfirm: function () {
+            return new Promise(function (resolve) {
+                setTimeout(function () {
                     resolve()
                 }, 2000)
             })
@@ -221,17 +214,19 @@ function showConfirm(message, callback) {
         });
 }
 
-function notify(message, heading, type, sticky) {
-    $.toast({
-        heading: heading || 'Notification',
-        text: message || '',
-        icon: type || 'success',
-        showHideTransition: 'slide',
-        loader: true,
-        allowToastClose: true,
-        stack: 10,
-        position: 'bottom-right',
-        hideAfter: sticky || 10000,
-        loaderBg: '#9EC600'
-    })
+function notify(message, type, sticky) {
+    new Noty({
+        text: message,
+        type: type || 'info',
+        layout: 'bottomRight',
+        theme: 'metroui',
+        timeout: sticky ? false : 4000,
+        progressBar: true,
+        closeWith: ['button', 'click'],
+        animation: {
+            open: 'animated bounceInRight',
+            close: 'animated bounceOutRight'
+        },
+        maxVisible: 10
+    }).show();
 }

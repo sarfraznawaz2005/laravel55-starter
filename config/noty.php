@@ -11,7 +11,7 @@ return [
     // top, topLeft, topCenter, topRight, center, centerLeft, centerRight, bottom, bottomLeft, bottomCenter, bottomRight
     'layout' => 'topRight',
 
-    // relax, mint, sunset, metroui, semanticui, bootstrap-v3, bootstrap-v4
+    // metroui, bootstrap-v4
     'theme' => 'metroui',
 
     // false, 1000, 3000, 5000, etc. Delay for closing event in milliseconds (ms). Set 'false' for sticky notifications.

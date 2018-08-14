@@ -11,8 +11,9 @@
 
     socket.onmessage = function (event) {
         var data = JSON.parse(event.data);
+        var message = data.message + '<br><small>' + data.time + '</small>';
 
-        notify(data.time, data.message, true);
+        notify(message, 'success', true);
     };
 
     socket.onerror = function (error) {
@@ -22,21 +23,20 @@
     // To send data using the method socket.send(data).
     // socket.send("Hello");
 
-    function notify(message, heading, sticky) {
-        $.toast({
-            heading: heading || 'Notification',
-            text: message || '',
-            //icon: type || 'success',
-            bgColor: '#3C763D',
-            textColor: 'white',
-            showHideTransition: 'slide',
-            loader: true,
-            //textAlign: 'center',
-            allowToastClose: true,
-            stack: 10,
-            position: 'bottom-right',
-            hideAfter: sticky || 10000,
-            loaderBg: '#fff'
-        })
+    function notify(message, type, sticky) {
+        new Noty({
+            text: message,
+            type: type || 'info',
+            layout: 'bottomRight',
+            theme: 'metroui',
+            timeout: sticky ? false : 4000,
+            progressBar: true,
+            closeWith: ['button', 'click'],
+            animation: {
+                open: 'animated bounceInRight',
+                close: 'animated bounceOutRight'
+            },
+            maxVisible: 10
+        }).show();
     }
 </script>

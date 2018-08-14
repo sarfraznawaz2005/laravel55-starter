@@ -6,6 +6,7 @@
 '/modules/core/js/plugins/datatables/jquery.dataTables.columnFilter.js',
 '/modules/core/js/plugins/jquery.pulsate.min.js',
 '/modules/core/js/plugins/disabler.min.js',
+'/modules/core/js/plugins/jquery-content-preview/jquery-content-preview.js',
 '/modules/core/js/core.js',
 '/modules/admin/js/custom.js',
 ],

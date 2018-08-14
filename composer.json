@@ -20,6 +20,7 @@
     "eusonlito/laravel-packer": "^2.1",
     "fideloper/proxy": "~3.3",
     "garygreen/pretty-routes": "^1.0",
+    "itsgoingd/clockwork": "^3.0",
     "jenssegers/agent": "^2.6",
     "kingofcode/laravel-uploadable": "^0.1.7",
     "laracasts/flash": "^3.0",
@@ -43,7 +44,6 @@
     "yajra/laravel-datatables-oracle": "~8.0"
   },
   "require-dev": {
-    "barryvdh/laravel-debugbar": "^3.1",
     "beyondcode/laravel-query-detector": "^0",
     "filp/whoops": "~2.0",
     "fzaninotto/faker": "~1.4",

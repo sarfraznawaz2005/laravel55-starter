@@ -115,12 +115,10 @@ class LoginController extends CoreController
         $this->guard()->logout();
 
         $request->session()->flush();
-
         $request->session()->regenerate();
-
         $request->session()->invalidate();
 
-        flash('You are logged out.', 'success');
+        noty('You are logged out.', 'warning');
 
         return redirect(config('user.redirect_route_after_logout', '/'));
     }

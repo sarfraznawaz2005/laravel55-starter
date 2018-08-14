@@ -67,7 +67,5 @@ require('datatables.net-buttons/js/buttons.flash.js');
 require('datatables.net-buttons/js/buttons.print.js');
 
 require('select2');
-require('summernote');
-require('jquery-toast-plugin');
-require('@faridaghili/bootstrap-filestyle');
-require('bootstrap-validator');
+//require('summernote');
+//require('bootstrap-validator');
