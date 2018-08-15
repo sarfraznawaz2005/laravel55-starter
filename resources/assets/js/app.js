@@ -52,6 +52,7 @@ window.vm = new Vue({
 window.swal = require('sweetalert2');
 window.isMobile = require('ismobilejs');
 window.Noty = require('noty');
+window.mojs = require('mo-js');
 
 // DataTables
 require('datatables.net');
