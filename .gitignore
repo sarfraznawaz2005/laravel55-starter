@@ -30,7 +30,6 @@ push.sh
 /resources/lang/core/.gitkeep
 /resources/lang/crud/.gitkeep
 /storage/framework/cache/.gitignore
-/.env
 /package-lock.json
 /public/fonts/
 /public/css/app.css
