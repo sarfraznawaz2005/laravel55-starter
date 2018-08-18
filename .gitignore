@@ -32,6 +32,4 @@ push.sh
 /storage/framework/cache/.gitignore
 /package-lock.json
 /public/fonts/
-/public/css/app.css
-/public/js/app.js
 /public/mix-manifest.json
