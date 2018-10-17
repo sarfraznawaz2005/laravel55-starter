@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{Meta::get('title') . ' :: ' . appName()}}</title>
 
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="/tools.ico">
 
     {!! Packer::css([
     '/modules/crud/css/bootstrap/css/theme.min.css',
