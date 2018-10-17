@@ -24,8 +24,8 @@ class TaskSubscriber
 
     public function subscribe($events)
     {
-        $events->listen('eloquent.created: ' . Task::class, TaskSubscriber::class . '@onCreated');
-        $events->listen('eloquent.updated: ' . Task::class, TaskSubscriber::class . '@onUpdated');
-        $events->listen('eloquent.deleted: ' . Task::class, TaskSubscriber::class . '@onDeleted');
+        $events->listen('eloquent.created: ' . Task::class, __CLASS__ . '@onCreated');
+        $events->listen('eloquent.updated: ' . Task::class, __CLASS__ . '@onUpdated');
+        $events->listen('eloquent.deleted: ' . Task::class, __CLASS__ . '@onDeleted');
     }
 }

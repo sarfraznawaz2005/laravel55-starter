@@ -12,6 +12,8 @@
 
     <title>{{appName()}}</title>
 
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+
     {!! Packer::css([
     '/modules/admin/css/main.css',
     '/modules/admin/css/custom.css',
@@ -83,14 +85,6 @@
         {!! Former::close() !!}
     </div>
 </section>
-
-
-{!! Packer::js([
-'/modules/core/js/jquery.js',
-'/modules/core/css/bootstrap/bootstrap.min.js',
-],
-'/storage/cache/js/')
-!!}
 
 </body>
 </html>
