@@ -18,11 +18,6 @@
             padding: 10px;
         }
 
-        h1 {
-            font-size: 1.5em;
-            margin-top: 0;
-        }
-
         .stack {
             font-size: 0.85em;
         }
@@ -46,13 +41,8 @@
             border-color: #777;
         }
 
-        table.dataTable td {
-            font-size: 97%;
-            vertical-align: middle !important;
-        }
-
         thead tr {
-            background-image: radial-gradient(#fff, #eee);
+            background-image: radial-gradient(#eee, #bbbbbb);
         }
     </style>
 </head>
@@ -66,7 +56,7 @@
                     Log file >50M, please download it.
                 </div>
             @else
-                <table id="table-log" class="table table-condensed table-bordered table-hover">
+                <table id="table-log" class="table table-bordered table-hover">
                     <thead>
                     <tr>
                         <th>Type</th>
@@ -152,17 +142,13 @@
 
         var table = $('#table-log').DataTable({
             "order": [1, 'desc'],
-            "stateSave": true,
-            "stateSaveCallback": function (settings, data) {
-                window.localStorage.setItem("datatable", JSON.stringify(data));
-            },
-            "stateLoadCallback": function (settings) {
-                var data = JSON.parse(window.localStorage.getItem("datatable"));
-
-                if (data) data.start = 0;
-
-                return data;
-            }
+            "columnDefs": [
+                {"width": "1%", "targets": 0},
+                {"width": "1%", "targets": 1}
+            ],
+            "responsive": true,
+            "pageLength": 10,
+            "autoWidth": false
         });
 
         ///////////////////////////////////////////////////////////////
