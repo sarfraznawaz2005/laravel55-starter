@@ -23,8 +23,6 @@ $(function () {
     // throw datatables errors to console instead of alert box
     $.fn.dataTable.ext.errMode = 'throw';
 
-    $('.preview').contentPreview();
-
     // select 2 for dropdowns
     $('select').not('.no_select2').select2();
 

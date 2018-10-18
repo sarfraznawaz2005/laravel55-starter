@@ -15,7 +15,6 @@
     '/modules/admin/css/main.css',
     '/modules/core/css/loader.css',
     '/modules/admin/css/custom.css',
-    '/modules/core/js/plugins/jquery-content-preview/jquery-content-preview.css',
     ],
     '/storage/cache/css/')
     !!}
