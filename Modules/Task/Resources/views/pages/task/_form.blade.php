@@ -9,7 +9,7 @@
 {!! Former::text('description', 'Task Description')->required() !!}
 
 @if (isset($task) && $task->file)
-    <img src="{!! $task->getImagePath('file', 'thumb'); !!}" alt="Image">
+    <img src="{!! $task->getImagePath('file', 'medium'); !!}" alt="Image">
 @endif
 
 {!! Former::file('file', 'Optional Image')->accept('image/jpeg', 'image/png')->max(2, 'MB') !!}
